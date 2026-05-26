@@ -1,0 +1,91 @@
+{
+  "configureone": {
+    "name": "ConfigureOne",
+    "header": { "title": "Configure One", "subtitle": "CLOUD" },
+    "nav": [
+      { "icon": "LayoutDashboard", "label": "Dashboard", "active": true },
+      { "icon": "Settings", "label": "Setup" },
+      { "icon": "Package", "label": "Products" },
+      { "icon": "Monitor", "label": "Interface" },
+      { "icon": "MousePointerClick", "label": "Selectors" },
+      { "icon": "DollarSign", "label": "Pricing" },
+      { "icon": "BarChart3", "label": "Results" },
+      { "icon": "Database", "label": "Masters" },
+      { "icon": "FileText", "label": "Quotes" },
+      { "icon": "GitBranch", "label": "Routings" },
+      { "icon": "Workflow", "label": "Workflow" },
+      { "icon": "Shield", "label": "Security" },
+      { "icon": "Upload", "label": "Publish" },
+      { "icon": "ClipboardList", "label": "Reports" },
+      { "icon": "Search", "label": "Query" },
+      { "icon": "ScrollText", "label": "Logs" },
+      { "icon": "Cpu", "label": "System" }
+    ],
+    "corner": [
+      { "icon": "Search" },
+      { "icon": "CircleHelp" },
+      { "icon": "CircleUser" }
+    ]
+  },
+  "autoquotes": {
+    "name": "AutoQuotes",
+    "header": { "title": "AutoQuotes", "subtitle": "" },
+    "nav": [
+      { "icon": "BookOpen", "label": "Catalog", "active": true },
+      { "icon": "FolderOpen", "label": "Projects" },
+      { "icon": "FileText", "label": "Quotes" },
+      { "icon": "BarChart3", "label": "Reports" }
+    ],
+    "corner": [
+      { "icon": "Search" },
+      { "icon": "Globe" },
+      { "icon": "Shield" },
+      { "icon": "CircleHelp" },
+      { "icon": "CircleUser" }
+    ]
+  },
+  "flowiq": {
+    "name": "FlowIQ",
+    "header": { "title": "FlowIQ", "subtitle": "" },
+    "nav": [
+      { "icon": "Droplets", "label": "Pumps", "active": true },
+      { "icon": "TrendingUp", "label": "Curves" },
+      { "icon": "Ellipsis", "label": "More" }
+    ],
+    "corner": [
+      { "icon": "Search" },
+      { "icon": "Bell" },
+      { "icon": "CircleHelp" },
+      { "icon": "CircleUser" }
+    ]
+  },
+  "specpage": {
+    "name": "SpecPage",
+    "header": { "title": "SpecPage", "subtitle": "" },
+    "nav": [
+      { "icon": "Home", "label": "Home", "active": true },
+      { "icon": "Database", "label": "Master Data" },
+      { "icon": "FileText", "label": "Recipes" },
+      { "icon": "Inbox", "label": "My Approvals" },
+      { "icon": "GitBranch", "label": "Workflows" }
+    ],
+    "corner": [
+      { "icon": "Search" },
+      { "icon": "Sparkles" },
+      { "icon": "Bell" },
+      { "icon": "CircleUser" }
+    ]
+  },
+  "attainia": {
+    "name": "Attainia",
+    "header": { "title": "Attainia", "subtitle": "" },
+    "nav": [
+      { "icon": "FileUp", "label": "Import", "active": true }
+    ],
+    "corner": [
+      { "icon": "Search" },
+      { "icon": "Bell" },
+      { "icon": "CircleUser" }
+    ]
+  }
+}
