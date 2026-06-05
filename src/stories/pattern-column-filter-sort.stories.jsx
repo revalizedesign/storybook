@@ -8,7 +8,7 @@ import { Search, ArrowUp, ArrowUpDown, Columns3 } from 'lucide-react'
 export default {
   title: 'Design patterns/Data/Column filter + sort',
   parameters: {
-    docs: { description: { component: '**Already built** · Critical. Search input + Columns toggle live in the DataTable toolbar. Click a header to sort; sort logic still needs implementation. Users sort by date, status and name constantly.' } },
+    docs: { description: { component: '**Already built** · Critical priority. Search input + Columns toggle live in the DataTable toolbar. Click a header to sort; sort logic still needs implementation. Users sort by date, status and name constantly.' } },
   },
 }
 

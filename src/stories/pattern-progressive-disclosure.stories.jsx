@@ -7,7 +7,7 @@ import { ChevronDown } from 'lucide-react'
 export default {
   title: 'Design patterns/Navigation/Progressive disclosure',
   parameters: {
-    docs: { description: { component: '**Missing** · High. Show essential fields first, reveal advanced options on demand. Required fields always visible; optional/advanced behind disclosure with a count of what is hidden.' } },
+    docs: { description: { component: '**Missing** · High priority. Show essential fields first, reveal advanced options on demand. Required fields always visible; optional/advanced behind disclosure with a count of what is hidden.' } },
   },
 }
 

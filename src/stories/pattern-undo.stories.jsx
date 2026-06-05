@@ -5,7 +5,7 @@ import { toast } from 'sonner'
 export default {
   title: 'Design patterns/Forms & Input/Undo',
   parameters: {
-    docs: { description: { component: '**Missing** · Medium. Reverse the last action, especially after bulk operations. Show undo in a toast (not a page), ~5s timeout, one level only, reversible actions only.' } },
+    docs: { description: { component: '**Missing** · Medium priority. Reverse the last action, especially after bulk operations. Show undo in a toast (not a page), ~5s timeout, one level only, reversible actions only.' } },
   },
 }
 

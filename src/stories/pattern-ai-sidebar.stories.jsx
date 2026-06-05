@@ -7,7 +7,7 @@ import { Sparkles, Send } from 'lucide-react'
 export default {
   title: 'Design patterns/Layout & Content/AI sidebar agent',
   parameters: {
-    docs: { description: { component: '**Missing · New** · High. Storybook priority (Matt, 05/27). Page-aware assistant — reads data, suggests actions, generates configs. Different from a global chatbot. Static first pass; wiring is a later effort.' } },
+    docs: { description: { component: '**Missing · New** · High priority. Storybook priority (Matt, 05/27). Page-aware assistant — reads data, suggests actions, generates configs. Different from a global chatbot. Static first pass; wiring is a later effort.' } },
   },
 }
 

@@ -6,7 +6,7 @@ import { Separator } from '@/components/ui/separator'
 export default {
   title: 'Design patterns/Layout & Content/Settings',
   parameters: {
-    docs: { description: { component: '**Missing** · High. Consistent settings layout: section headers, toggle rows with label + description, save/cancel footer. Without a standard, every product\'s settings page diverges.' } },
+    docs: { description: { component: '**Missing** · High priority. Consistent settings layout: section headers, toggle rows with label + description, save/cancel footer. Without a standard, every product\'s settings page diverges.' } },
   },
 }
 

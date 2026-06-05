@@ -5,7 +5,7 @@ import { Kbd } from '@/components/ui/kbd'
 export default {
   title: 'Design patterns/Data/Inline editing',
   parameters: {
-    docs: { description: { component: '**Missing** · High. Click a cell to edit directly — no drawer. Simple fields only (text, number, select); complex edits go to a drawer. Enter to save, Escape to cancel, edited row gets a left-border accent.' } },
+    docs: { description: { component: '**Missing** · High priority. Click a cell to edit directly — no drawer. Simple fields only (text, number, select); complex edits go to a drawer. Enter to save, Escape to cancel, edited row gets a left-border accent.' } },
   },
 }
 

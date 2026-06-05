@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 export default {
   title: 'Design patterns/Layout & Content/Dashboard',
   parameters: {
-    docs: { description: { component: '**Missing** · High. Home screen with key metrics, recent activity and quick actions. Metrics differ per product (C1C: quotes/configs, SpecPage: formulations, PROCAD: projects).' } },
+    docs: { description: { component: '**Missing** · High priority. Home screen with key metrics, recent activity and quick actions. Metrics differ per product (C1C: quotes/configs, SpecPage: formulations, PROCAD: projects).' } },
   },
 }
 

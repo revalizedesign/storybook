@@ -5,7 +5,7 @@ import { Upload, Download } from 'lucide-react'
 export default {
   title: 'Design patterns/Data/Export',
   parameters: {
-    docs: { description: { component: '**Missing** · Critical. We have Import — Export must match and pair with it. Export only the filtered/visible data (not all records) and show the count in the label.' } },
+    docs: { description: { component: '**Missing** · Critical priority. We have Import — Export must match and pair with it. Export only the filtered/visible data (not all records) and show the count in the label.' } },
   },
 }
 

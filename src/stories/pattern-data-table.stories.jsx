@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 export default {
   title: 'Design patterns/Data/Data table',
   parameters: {
-    docs: { description: { component: '**Already built** · Critical. Every Revalize product has at least one. Row hover, Name column is always a link, numeric columns right-aligned. Always ships with empty + loading states (see Feedback & Status).' } },
+    docs: { description: { component: '**Already built** · Critical priority. Every Revalize product has at least one. Row hover, Name column is always a link, numeric columns right-aligned. Always ships with empty + loading states (see Feedback & Status).' } },
   },
 }
 

@@ -5,7 +5,7 @@ import { X } from 'lucide-react'
 export default {
   title: 'Design patterns/Data/Bulk actions',
   parameters: {
-    docs: { description: { component: '**Missing** · High. Select rows → action bar replaces the toolbar with contextual ops. Shows count, Clear always visible, destructive actions red, confirm before irreversible bulk ops.' } },
+    docs: { description: { component: '**Missing** · High priority. Select rows → action bar replaces the toolbar with contextual ops. Shows count, Clear always visible, destructive actions red, confirm before irreversible bulk ops.' } },
   },
 }
 

@@ -4,7 +4,7 @@ import { Check, X } from 'lucide-react'
 export default {
   title: 'Design patterns/Feedback & Status/Progress / completeness',
   parameters: {
-    docs: { description: { component: '**Missing** · Medium. In CPQ, incomplete configs cannot be quoted. Show completion % and exactly what is missing before the user can generate a quote.' } },
+    docs: { description: { component: '**Missing** · Medium priority. In CPQ, incomplete configs cannot be quoted. Show completion % and exactly what is missing before the user can generate a quote.' } },
   },
 }
 

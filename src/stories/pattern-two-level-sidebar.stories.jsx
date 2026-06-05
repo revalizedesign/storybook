@@ -5,7 +5,7 @@ export default {
   title: 'Design patterns/Navigation/Two-level sidebar',
   parameters: {
     layout: 'fullscreen',
-    docs: { description: { component: '**Already built** · Critical. Icon rail + context panel — the universal Revalize shell. Same structure, different colors per product via theme class. Demoed here via the existing AppShell.' } },
+    docs: { description: { component: '**Already built** · Critical priority. Icon rail + context panel — the universal Revalize shell. Same structure, different colors per product via theme class. Demoed here via the existing AppShell.' } },
   },
 }
 

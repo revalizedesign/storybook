@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input'
 export default {
   title: 'Design patterns/Forms & Input/Inline validation',
   parameters: {
-    docs: { description: { component: '**Defined** · Critical. Real-time field-level validation with specific messages. Validate on blur, not every keystroke. Error = red border + message; valid = green confirmation. Never "invalid input" — say exactly what is wrong.' } },
+    docs: { description: { component: '**Defined** · Critical priority. Real-time field-level validation with specific messages. Validate on blur, not every keystroke. Error = red border + message; valid = green confirmation. Never "invalid input" — say exactly what is wrong.' } },
   },
 }
 

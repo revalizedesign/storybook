@@ -5,7 +5,7 @@ import { Check } from 'lucide-react'
 export default {
   title: 'Design patterns/Forms & Input/Wizard / multi-step',
   parameters: {
-    docs: { description: { component: '**Missing** · Critical. Storybook priority (Matt, 05/27). Break complex configuration into steps with a progress indicator. Completed steps checkmarked, current highlighted, always Back + Continue, never lose data on Back, allow save as draft. No dedicated primitive — light composition.' } },
+    docs: { description: { component: '**Missing** · Critical priority. Storybook priority (Matt, 05/27). Break complex configuration into steps with a progress indicator. Completed steps checkmarked, current highlighted, always Back + Continue, never lose data on Back, allow save as draft. No dedicated primitive — light composition.' } },
   },
 }
 
