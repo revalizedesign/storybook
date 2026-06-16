@@ -6,19 +6,25 @@ export default {
   parameters: {
     docs: {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/command">Command - shadcn/ui</a>' },
-      page: createDocsPage(),
+      page: createDocsPage({
+        comments: {
+          Jonathan: `Missing · High priority. Suggestions as you type when selecting from thousands of products / part numbers. Min 2 chars, debounce 250ms, arrow keys + Enter to select.
+
+**Secondary copy:** Show ID/secondary info beside the name.`,
+          Matt: `Potentially one of the most important areas in the system.
+
+**Observations:** Current implementation functions more as a lightweight typeahead than a true command system. Unclear whether the current command paradigm represents the desired long-term direction. Search behavior varies significantly by context.
+
+**What's missing:** Comprehensive search-related stories. Coverage of all search-adjacent experiences. Shared organizational structure for search patterns.
+
+**Roadmap:** Inventory all search and search-adjacent experiences. Group search-related patterns into a dedicated Storybook section. Position command as a lightweight layer on top of the primitive until broader search architecture emerges.`,
+        },
+      }),
     },
   },
 }
 
 export const Default = {
-  parameters: {
-    docs: {
-      description: {
-        story: 'Jonathan: Missing · High priority. Suggestions as you type when selecting from thousands of products / part numbers. Min 2 chars, debounce 250ms, arrow keys + Enter to select.',
-      },
-    },
-  },
   render: () => (
     <Command className="rounded-lg border w-80">
       <CommandInput placeholder="Type a command..." />
@@ -36,13 +42,6 @@ export const Default = {
 
 export const SecondaryCopy = {
   name: 'Secondary copy',
-  parameters: {
-    docs: {
-      description: {
-        story: 'Jonathan: Show ID/secondary info beside the name.',
-      },
-    },
-  },
   render: () => (
     <Command className="w-80 rounded-lg border">
       <CommandInput placeholder="Search products…" defaultValue="Hydro-Pro" />

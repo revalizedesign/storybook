@@ -19,6 +19,13 @@ export default {
       page: createDocsPage({
         comments: {
           Jonathan: 'Critical. Pill style (never square), text always paired with color, semantic colors only, consistent across ALL products. Palette is open for review.',
+          Matt: `One of the more complex primitives despite appearing simple.
+
+**Observations:** Multiple badge categories are represented: Read-only labels, Status indicators, Interactive filters, Visualization legends, Combined legend/filter controls. Status badge variant is directionally correct. Current set may be broader than necessary, but there is not yet enough evidence to consolidate.
+
+**What's missing:** More product examples. Better understanding of badge intent across products. Validation of color state requirements.
+
+**Roadmap:** Stress test across filtering, status, and visualization contexts. Reduce to a smaller set of confirmed variants once usage patterns emerge. Establish clearer color semantics.`,
         },
         candidates: () => (
           <>

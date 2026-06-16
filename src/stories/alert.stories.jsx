@@ -1,5 +1,5 @@
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
-import { InfoIcon, AlertCircle, AlertTriangle } from 'lucide-react'
+import { InfoIcon, AlertTriangle } from 'lucide-react'
 import { createDocsPage } from './DocsPage'
 
 export default {
@@ -7,19 +7,21 @@ export default {
   parameters: {
     docs: {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/alert">Alert - shadcn/ui</a>' },
-      page: createDocsPage(),
+      page: createDocsPage({
+        comments: {
+          Jonathan: `Defined · Critical priority. Red = blocking error (action failed), amber = warning (partial success). Always say what failed + why + what to do, with a retry/fix action. Never "Something went wrong" alone.`,
+          Matt: `Current implementation is serviceable and closely follows ShadCN conventions.
+
+**Observations:** Warning / partial-success amber state feels visually noisy and could benefit from refinement. Not currently a priority for design investment.
+
+**Roadmap:** Revisit alert severity hierarchy after broader system adoption. Validate color semantics against real product usage.`,
+        },
+      }),
     },
   },
 }
 
 export const Default = {
-  parameters: {
-    docs: {
-      description: {
-        story: 'Jonathan: Defined · Critical priority. Red = blocking error (action failed), amber = warning (partial success). Always say what failed + why + what to do, with a retry/fix action. Never "Something went wrong" alone.',
-      },
-    },
-  },
   render: () => (
     <div className="flex flex-col gap-4 w-full max-w-md">
       <Alert>

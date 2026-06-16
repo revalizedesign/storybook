@@ -8,7 +8,18 @@ export default {
   parameters: {
     docs: {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/empty">Empty - shadcn/ui</a>' },
-      page: createDocsPage(),
+      page: createDocsPage({
+        comments: {
+          Jonathan: `**With action:** Already built · Critical priority. On every table, list and dashboard widget. Always 4 elements: icon + title + description (explains why empty + what to do) + primary action. Never a blank white box.`,
+          Matt: `Solid baseline implementation.
+
+**Observations:** Current with-action and without-action variants are sufficient as a starting point. Empty states are heavily influenced by surrounding UX context.
+
+**What's missing:** More onboarding and first-use examples. Guidance for illustration usage. Guidance for icon usage.
+
+**Roadmap:** Explore stateful onboarding scenarios. Define illustration and icon strategy. Expand examples across common product workflows.`,
+        },
+      }),
     },
   },
 }
@@ -27,13 +38,6 @@ export const Default = {
 
 export const WithAction = {
   name: 'With action',
-  parameters: {
-    docs: {
-      description: {
-        story: 'Jonathan: Already built · Critical priority. On every table, list and dashboard widget. Always 4 elements: icon + title + description (explains why empty + what to do) + primary action. Never a blank white box.',
-      },
-    },
-  },
   render: () => (
     <Empty className="border">
       <EmptyHeader>
