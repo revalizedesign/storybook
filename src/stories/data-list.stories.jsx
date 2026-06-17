@@ -1,5 +1,5 @@
 export default {
-  title: 'Components/Data list',
+  title: 'Other frameworks/Data list',
   parameters: {
     docs: { description: { component: '<a href="https://www.radix-ui.com/themes/docs/components/data-list">Data List - Radix Themes</a>' } },
   },

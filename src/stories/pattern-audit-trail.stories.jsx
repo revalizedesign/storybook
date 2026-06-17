@@ -1,9 +1,9 @@
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 export default {
-  title: 'Design patterns/Feedback & Status/Audit trail',
+  title: 'Microinteractions/Feedback & Status/Audit trail',
   parameters: {
-    docs: { description: { component: '**Missing · New** · High priority. Enterprise B2B compliance: who changed what and when. Lives in the detail drawer "Activity" tab. Newest first, avatar + name + action + timestamp, real field names and values.' } },
+    docs: { description: { component: 'Enterprise B2B compliance: who changed what and when. Lives in the detail drawer "Activity" tab. Newest first, avatar + name + action + timestamp, real field names and values.' } },
   },
 }
 

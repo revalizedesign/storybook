@@ -1,0 +1,23 @@
+[
+  { "slot": "header-left", "component": "SidebarTrigger" },
+  { "slot": "header-left", "tag": "div", "className": "size-7 rounded bg-blue-700" },
+  { "slot": "header-left", "tag": "span", "children": "Configure One", "className": "font-semibold" },
+  { "slot": "header-left", "tag": "span", "children": "CLOUD", "className": "text-xs tracking-widest text-muted-foreground" },
+
+  { "slot": "header-right-nav", "default": { "component": "Button", "variant": "ghost" } },
+  { "slot": "header-right-nav", "name": "magnifying-glass" },
+  { "slot": "header-right-nav", "name": "circle-question" },
+  { "slot": "header-right", "component": "Button", "variant": "ghost", "name": "circle-user" },
+
+  { "slot": "main-nav-items", "default": { "component": "SidebarMenuButton" } },
+  { "slot": "main-nav-items", "name": "table-layout", "span": "Dashboard", "isActive": true },
+  { "slot": "main-nav-items", "name": "gear", "span": "Setup" },
+  { "slot": "main-nav-items", "name": "box", "span": "Products" },
+  { "slot": "main-nav-items", "name": "dollar-sign", "span": "Pricing" },
+  { "slot": "main-nav-items", "name": "chart-column", "span": "Results" },
+  { "slot": "main-nav-items", "name": "file-lines", "span": "Quotes" },
+  { "slot": "main-nav-items", "name": "diagram-project", "span": "Workflow" },
+  { "slot": "main-nav-items", "name": "shield", "span": "Security" },
+
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Dashboard"], "lede": "Configure, price, and quote across your product lines.", "status": "Synced" }
+]

@@ -5,7 +5,7 @@ npm create vite@latest . -- --template react
 npm install
 npx storybook@latest init --yes
 npm install -D tailwindcss @tailwindcss/vite
-npx shadcn@latest create --preset vega --template vite --base base --force --reinstall
+npx shadcn@latest create --preset vega --template vite --base base --pointer --force --reinstall
 ```
 
 ## Run

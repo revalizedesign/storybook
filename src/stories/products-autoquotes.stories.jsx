@@ -1,4 +1,4 @@
-import { AppShell } from './AppShell'
+import { AppShell } from '@/components/AppShell'
 import presets from './app-shell-presets.json'
 
 export default {

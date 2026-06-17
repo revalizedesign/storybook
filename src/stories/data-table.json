@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "Hydro-Pro Series", "partNumber": "HPR-001", "status": "Active", "price": 2400 },
+  { "id": 2, "name": "Hydro-Pro Advanced", "partNumber": "HPA-002", "status": "Active", "price": 3800 },
+  { "id": 3, "name": "Hydro-Pro Basic", "partNumber": "HPB-003", "status": "Draft", "price": 1200 },
+  { "id": 4, "name": "Cyclo 6000", "partNumber": "CYC-600", "status": "Active", "price": 5600 },
+  { "id": 5, "name": "Gearmotor X1", "partNumber": "GMX-001", "status": "Archived", "price": 900 },
+  { "id": 6, "name": "Servo Drive Pro", "partNumber": "SDP-010", "status": "Draft", "price": 4200 },
+  { "id": 7, "name": "Linear Actuator", "partNumber": "LAC-020", "status": "Active", "price": 1800 }
+]

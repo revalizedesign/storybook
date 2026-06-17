@@ -9,7 +9,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/alert">Alert - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `Defined · Critical priority. Red = blocking error (action failed), amber = warning (partial success). Always say what failed + why + what to do, with a retry/fix action. Never "Something went wrong" alone.`,
+          Jonathan: `Red = blocking error (action failed), amber = warning (partial success). Always say what failed + why + what to do, with a retry/fix action. Never "Something went wrong" alone.`,
           Matt: `Current implementation is serviceable and closely follows ShadCN conventions.
 
 **Observations:** Warning / partial-success amber state feels visually noisy and could benefit from refinement. Not currently a priority for design investment.

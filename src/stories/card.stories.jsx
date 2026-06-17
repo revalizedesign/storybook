@@ -9,7 +9,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/card">Card - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `Already built · Critical priority. Standard content container: bg-card, 1px border, rounded-xl, p-6. No shadow by default (shadow-sm only for elevated surfaces). Cards sit on a muted background.`,
+          Jonathan: `Standard content container: bg-card, 1px border, rounded-xl, p-6. No shadow by default (shadow-sm only for elevated surfaces). Cards sit on a muted background.`,
           Matt: `Current implementation is effectively a standard card primitive.
 
 **Observations:** ShadCN baseline remains appropriate. Some documented rules feel overly prescriptive. Muted background treatment lacks sufficient rationale.

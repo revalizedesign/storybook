@@ -9,7 +9,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/skeleton">Skeleton - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `**Table:** Already built · Critical priority. Visible placeholder matching content dimensions. Use a solid muted fill (never transparent), match column widths, slight width variation to feel real. Ships with DataTable.`,
+          Jonathan: `**Table:** Visible placeholder matching content dimensions. Use a solid muted fill (never transparent), match column widths, slight width variation to feel real. Ships with DataTable.`,
           Matt: `Directionally correct but underdeveloped.
 
 **Observations:** Current coverage feels too narrow. Existing stories do not represent the variety of loading states users encounter.

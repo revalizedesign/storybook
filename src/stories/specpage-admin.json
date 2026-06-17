@@ -1,0 +1,41 @@
+[
+  { "slot": "header-left", "component": "SidebarTrigger" },
+  { "slot": "header-left", "component": "Fa", "name": "globe", "className": "text-xl text-orange-500" },
+  { "slot": "header-left", "tag": "span", "children": "SpecPage", "className": "text-lg font-semibold text-slate-600" },
+
+  { "slot": "header-right", "component": "Button", "variant": "ghost", "name": "circle-user" },
+
+  { "slot": "main-nav-top", "tag": "div", "className": "flex items-center gap-2 px-2 py-1 group-data-[collapsible=icon]:hidden", "nest": "specpage-user" },
+  { "slot": "specpage-user", "tag": "div", "className": "size-8 rounded-full bg-neutral-300" },
+  { "slot": "specpage-user", "tag": "span", "children": "Diane White", "className": "font-semibold" },
+
+  { "slot": "main-nav-items", "default": { "component": "SidebarMenuButton" } },
+  { "slot": "main-nav-items", "name": "house", "span": "Home screen" },
+  { "slot": "main-nav-items", "name": "database", "span": "Master Data" },
+  { "slot": "main-nav-items", "name": "flask", "span": "Recipes" },
+  { "slot": "main-nav-items", "name": "magnifying-glass", "span": "Search" },
+  { "slot": "main-nav-items", "name": "gear", "span": "Administration", "isActive": true },
+
+  { "slot": "toolbar-left", "default": { "component": "Button", "variant": "ghost" } },
+  { "slot": "toolbar-left", "span": "System Settings" },
+  { "slot": "toolbar-left", "span": "Hierarchies Criteria" },
+  { "slot": "toolbar-left", "span": "Global Criteria" },
+  { "slot": "toolbar-left", "span": "System Parameters" },
+  { "slot": "toolbar-left", "span": "Access Permissions" },
+
+  { "slot": "pane-left", "tag": "div", "className": "flex w-56 flex-col gap-1 overflow-auto border-r bg-card p-2", "nest": "admin-settings" },
+  { "slot": "admin-settings", "default": { "component": "Button", "variant": "ghost", "className": "justify-start" } },
+  { "slot": "admin-settings", "span": "System Settings" },
+  { "slot": "admin-settings", "span": "User Settings" },
+  { "slot": "admin-settings", "span": "Status" },
+  { "slot": "admin-settings", "span": "Units" },
+  { "slot": "admin-settings", "span": "Trade Names Settings" },
+  { "slot": "admin-settings", "span": "Reports" },
+  { "slot": "admin-settings", "span": "Products" },
+  { "slot": "admin-settings", "span": "Catalog Settings" },
+  { "slot": "admin-settings", "span": "Project" },
+  { "slot": "admin-settings", "span": "Recipe Special" },
+  { "slot": "admin-settings", "span": "NPF Label Setup" },
+
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Administration", "System Settings"], "title": "System Settings", "lede": "Configure paths, scheduling, styles, e-mail, and system numbering.", "status": "Admin" }
+]

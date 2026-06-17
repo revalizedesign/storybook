@@ -8,7 +8,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/pagination">Pagination - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `**Bounded:** Already built · Critical priority. "Showing X results" left, Previous / Page / Next right. Previous disabled on page 1, Next on last page. Default 25 rows per page.`,
+          Jonathan: `**Bounded:** "Showing X results" left, Previous / Page / Next right. Previous disabled on page 1, Next on last page. Default 25 rows per page.`,
           Matt: `Strong improvement over the default ShadCN implementation.
 
 **Observations:** Current pattern demonstrates meaningful refinement. Some spacing and attachment inconsistencies remain. Pagination quality is heavily dependent on surrounding layout decisions.

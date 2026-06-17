@@ -10,7 +10,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/empty">Empty - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `**With action:** Already built · Critical priority. On every table, list and dashboard widget. Always 4 elements: icon + title + description (explains why empty + what to do) + primary action. Never a blank white box.`,
+          Jonathan: `**With action:** On every table, list and dashboard widget. Always 4 elements: icon + title + description (explains why empty + what to do) + primary action. Never a blank white box.`,
           Matt: `Solid baseline implementation.
 
 **Observations:** Current with-action and without-action variants are sufficient as a starting point. Empty states are heavily influenced by surrounding UX context.

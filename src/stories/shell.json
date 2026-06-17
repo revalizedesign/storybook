@@ -1,0 +1,4 @@
+[
+  { "slot": "header-left", "component": "SidebarTrigger" },
+  { "slot": "main-nav-items", "component": "SidebarMenuButton", "name": "grip", "span": "Nav item" }
+]

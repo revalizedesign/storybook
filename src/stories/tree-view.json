@@ -1,0 +1,44 @@
+[
+  {
+    "id": "root",
+    "value": "Root Logic Group",
+    "type": "logic-group",
+    "children": [
+      {
+        "id": "lg1",
+        "value": "Standard Options",
+        "type": "logic-group",
+        "children": [
+          {
+            "id": "ig1",
+            "value": "Frame Selection",
+            "type": "input-group",
+            "children": [
+              { "id": "i1", "value": "Frame Material", "type": "input" },
+              { "id": "i2", "value": "Frame Size", "type": "input" },
+              { "id": "i3", "value": "Frame Color", "type": "input" }
+            ]
+          },
+          {
+            "id": "ig2",
+            "value": "Motor Options",
+            "type": "input-group",
+            "children": [
+              { "id": "i4", "value": "Motor Type", "type": "input" },
+              { "id": "i5", "value": "Horsepower", "type": "input" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lg2",
+        "value": "Premium Options",
+        "type": "logic-group",
+        "children": [
+          { "id": "i6", "value": "Coating", "type": "input" },
+          { "id": "i7", "value": "Certification", "type": "input" }
+        ]
+      }
+    ]
+  }
+]

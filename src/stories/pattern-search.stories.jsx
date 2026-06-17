@@ -4,9 +4,9 @@ import { Badge } from '@/components/ui/badge'
 import { Search } from 'lucide-react'
 
 export default {
-  title: 'Design patterns/Data/Search — exact + fuzzy',
+  title: 'Microinteractions/Data/Search — exact + fuzzy',
   parameters: {
-    docs: { description: { component: '**Missing · New** · Critical priority. Top priority (Jessica/Kiana, 05/27). Consistent across all products. Exact match first, show match type, min 3 chars, debounce 300ms, ⌘K global shortcut. AI/natural-language tier is a later layer.' } },
+    docs: { description: { component: 'Top priority (Jessica/Kiana, 05/27). Consistent across all products. Exact match first, show match type, min 3 chars, debounce 300ms, ⌘K global shortcut. AI/natural-language tier is a later layer.' } },
   },
 }
 

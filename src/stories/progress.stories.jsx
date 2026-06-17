@@ -1,4 +1,5 @@
 import { Progress } from '@/components/ui/progress'
+import { RadialProgress } from '@/components/RadialProgress'
 
 export default {
   title: 'shadcn/Progress',
@@ -9,10 +10,20 @@ export default {
 
 export const Default = {
   render: () => (
-    <div className="w-64 flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <Progress value={33} />
       <Progress value={66} />
       <Progress value={100} />
+    </div>
+  ),
+}
+
+export const Radial = {
+  render: () => (
+    <div className="flex items-center gap-6">
+      <RadialProgress value={25} label="context" />
+      <RadialProgress value={50} label="context" />
+      <RadialProgress value={85} label="context" danger />
     </div>
   ),
 }

@@ -10,7 +10,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/sonner">Sonner - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `Defined · High priority. Sonner toasts, 4 types: success, error, warning, info. Non-blocking feedback for save/import/delete/error. Never use browser alert() dialogs.`,
+          Jonathan: `Sonner toasts, 4 types: success, error, warning, info. Non-blocking feedback for save/import/delete/error. Never use browser alert() dialogs.`,
           Matt: `Current implementation combines ShadCN patterns with the third-party Sonner library.
 
 **Observations:** Strong from a UX and UI standpoint. Interaction model feels solid. Color treatment may not be fully compatible with the Revalize system.

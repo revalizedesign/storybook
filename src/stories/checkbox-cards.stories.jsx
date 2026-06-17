@@ -3,7 +3,7 @@ import { Label } from '@/components/ui/label'
 import { Card } from '@/components/ui/card'
 
 export default {
-  title: 'Components/Checkbox cards',
+  title: 'Other frameworks/Checkbox cards',
   parameters: {
     docs: { description: { component: '<a href="https://www.radix-ui.com/themes/docs/components/checkbox-cards">Checkbox Cards - Radix Themes</a>' } },
   },

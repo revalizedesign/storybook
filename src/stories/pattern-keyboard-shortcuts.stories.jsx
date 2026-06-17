@@ -1,9 +1,9 @@
 import { Kbd } from '@/components/ui/kbd'
 
 export default {
-  title: 'Design patterns/Layout & Content/Keyboard shortcuts',
+  title: 'Microinteractions/Layout & Content/Keyboard shortcuts',
   parameters: {
-    docs: { description: { component: '**Missing** · Medium priority. Power-user shortcuts standardized across products. ⌘K (global search) is the most important to lock in first.' } },
+    docs: { description: { component: 'Power-user shortcuts standardized across products. ⌘K (global search) is the most important to lock in first.' } },
   },
 }
 

@@ -1,0 +1,39 @@
+[
+  { "slot": "header-left", "className": "flex items-center gap-2 px-2 font-semibold", "nest": "cpq-brand" },
+  { "slot": "cpq-brand", "component": "Fa", "name": "comet" },
+  { "slot": "cpq-brand", "tag": "span", "children": "CPQ" },
+
+  { "slot": "header-left-nav", "default": { "component": "Button", "variant": "ghost" } },
+  { "slot": "header-left-nav", "name": "sliders", "span": "Configurator" },
+  { "slot": "header-left-nav", "name": "file-magnifying-glass", "span": "Spec Finder" },
+  { "slot": "header-left-nav", "name": "location-dot", "span": "Where to Buy" },
+
+  { "slot": "header-right-nav", "component": "Button", "variant": "ghost", "name": "globe" },
+  { "slot": "header-right", "component": "Button", "variant": "ghost", "name": "circle-user" },
+
+  { "slot": "main-nav-top", "className": "flex items-center gap-2 px-2 font-semibold group-data-[collapsible=icon]:hidden", "nest": "cpq-logo" },
+  { "slot": "cpq-logo", "component": "Fa", "name": "comet" },
+  { "slot": "cpq-logo", "tag": "span", "children": "CPQ" },
+  { "slot": "main-nav-top", "tag": "div", "children": "by Parent Global", "className": "px-2 text-muted-foreground group-data-[collapsible=icon]:hidden" },
+
+  { "slot": "main-nav-items", "default": { "component": "SidebarMenuButton" } },
+  { "slot": "main-nav-items", "name": "play", "span": "Preview", "isActive": true },
+  { "slot": "main-nav-items", "name": "magnifying-glass", "span": "Search" },
+  { "slot": "main-nav-items", "name": "table-layout", "span": "Dashboard" },
+  { "slot": "main-nav-items", "name": "cube", "span": "Products" },
+  { "slot": "main-nav-items", "name": "database", "span": "Library" },
+  { "slot": "main-nav-items", "name": "diagram-project", "span": "Workflows" },
+  { "slot": "main-nav-items", "name": "chart-line", "span": "Reports" },
+  { "slot": "main-nav-items", "name": "gear", "span": "Settings" },
+
+  { "slot": "main-nav-bottom", "component": "SidebarMenuButton", "name": "circle-user", "span": "Suzy Topseller" },
+
+  { "slot": "toolbar-left", "component": "SidebarTrigger" },
+  { "slot": "toolbar-left", "component": "Button", "variant": "ghost", "name": "house" },
+  { "slot": "toolbar-left", "component": "Button", "variant": "link", "span": "Products" },
+  { "slot": "toolbar-left", "tag": "span", "children": "All Products", "className": "text-muted-foreground" },
+  { "slot": "toolbar-right", "component": "Button", "variant": "ghost", "name": "cloud-check", "span": "Saved" },
+
+  { "slot": "footer-left", "tag": "span", "children": "© 2026 ACME Corp." },
+  { "slot": "footer-right", "tag": "span", "children": "v26.0" }
+]

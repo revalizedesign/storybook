@@ -1,0 +1,32 @@
+import { AgentStatus } from '@/components/AgentStatus'
+import { ChatInput } from '@/components/ChatInput'
+import { ChatMessage } from '@/components/ChatMessage'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { VerticalPane } from '@/components/VerticalPane'
+
+// ChatPane — the Admin Agent conversation: a scrollable list of ChatMessages, an AgentStatus line, and
+// a ChatInput composer, inside a VerticalPane. Every part (ChatMessage, ChatCard, AgentStatus,
+// ChatInput) is its own component — ChatPane just composes them. Full feature list in the Chat pane story.
+const sampleMessages = [
+  { role: 'user', text: 'freight trucks' },
+  { role: 'system', text: 'To get started, I need a URL, a description of your company, or an uploaded one-pager — any of those three works.' },
+  { role: 'user', text: 'https://www.morgancorp.com' },
+  { role: 'system', text: "Here's what I found about Morgan Truck Body:", card: { icon: 'building', title: 'Morgan Truck Body', meta: 'Truck bodies and van bodies · Configure-to-order' } },
+  { role: 'user', text: 'Looks good' },
+  { role: 'system', text: 'The profile is saved — staging the full model with its core groups.', card: { icon: 'cube', title: 'AAA Freight Truck', meta: 'Model staged — 17 groups, 57 inputs' } },
+  { role: 'user', text: 'build the rules' },
+]
+
+export function ChatPane({ className, floating = false, messages = sampleMessages, status, working = false }) {
+  return (
+    <VerticalPane floating={floating} title="Admin Agent" width="w-[25rem]" className={className}>
+      <ScrollArea className="min-h-0 flex-1 px-3 py-4">
+        <div className="flex flex-col gap-3">
+          {messages.map((m, i) => <ChatMessage key={i} {...m} />)}
+        </div>
+      </ScrollArea>
+      <AgentStatus status={status} working={working} />
+      <ChatInput working={working} />
+    </VerticalPane>
+  )
+}

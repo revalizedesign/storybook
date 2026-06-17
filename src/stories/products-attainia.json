@@ -1,0 +1,29 @@
+[
+  { "slot": "header-left", "component": "SidebarTrigger" },
+  { "slot": "header-left", "tag": "div", "className": "size-8 rounded-full bg-neutral-800" },
+  { "slot": "header-left", "tag": "span", "children": "PLAN·IT", "className": "text-xl font-semibold tracking-wide text-gray-500" },
+
+  { "slot": "header-right-nav", "default": { "component": "Button", "variant": "ghost" } },
+  { "slot": "header-right-nav", "name": "user-question" },
+  { "slot": "header-right-nav", "name": "list-check" },
+
+  { "slot": "header-right", "tag": "div", "children": "T", "className": "flex size-8 items-center justify-center rounded-full bg-rose-900 text-white" },
+  { "slot": "header-right", "tag": "span", "children": "Test organization" },
+
+  { "slot": "main-nav-items", "default": { "component": "SidebarMenuButton" } },
+  { "slot": "main-nav-items", "name": "house", "span": "Home", "isActive": true },
+  { "slot": "main-nav-items", "name": "book-open", "span": "Catalog" },
+  { "slot": "main-nav-items", "component": "SidebarMenuItem", "nest": "projects" },
+  { "slot": "projects", "component": "SidebarMenuButton", "name": "hospital", "span": "Projects" },
+  { "slot": "projects", "component": "SidebarMenuSub", "nest": "projects-favorites" },
+  { "slot": "projects-favorites", "default": { "component": "SidebarMenuSubButton" } },
+  { "slot": "projects-favorites", "name": "star", "span": "Projects List" },
+  { "slot": "projects-favorites", "name": "star", "span": "Test project" },
+  { "slot": "main-nav-items", "name": "clone", "span": "Replace" },
+  { "slot": "main-nav-items", "name": "file-check", "span": "Contracts" },
+  { "slot": "main-nav-items", "name": "table-layout", "span": "Templates" },
+  { "slot": "main-nav-items", "name": "circle-caret-down", "span": "Aggregated reporting" },
+  { "slot": "main-nav-items", "name": "key", "span": "Admin" },
+
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Home"], "lede": "Quick actions and platform metrics for your workspace.", "status": "Synced" }
+]

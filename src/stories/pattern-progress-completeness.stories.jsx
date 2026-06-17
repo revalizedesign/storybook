@@ -2,9 +2,9 @@ import { Progress } from '@/components/ui/progress'
 import { Check, X } from 'lucide-react'
 
 export default {
-  title: 'Design patterns/Feedback & Status/Progress / completeness',
+  title: 'Microinteractions/Feedback & Status/Progress / completeness',
   parameters: {
-    docs: { description: { component: '**Missing** · Medium priority. In CPQ, incomplete configs cannot be quoted. Show completion % and exactly what is missing before the user can generate a quote.' } },
+    docs: { description: { component: 'In CPQ, incomplete configs cannot be quoted. Show completion % and exactly what is missing before the user can generate a quote.' } },
   },
 }
 

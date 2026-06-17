@@ -9,7 +9,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/alert-dialog">Alert Dialog - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `Defined · Critical priority. AlertDialog for destructive/irreversible actions. Title = action verb, body = exact impact + "cannot be undone", Cancel left + destructive action right. Never "Are you sure?"`,
+          Jonathan: `AlertDialog for destructive/irreversible actions. Title = action verb, body = exact impact + "cannot be undone", Cancel left + destructive action right. Never "Are you sure?"`,
           Matt: `Largely aligns with ShadCN defaults, which is appropriate for this pattern. Current implementation feels familiar and predictable.
 
 **Observations:** Little differentiation from the underlying primitive. No significant concerns with the current direction.

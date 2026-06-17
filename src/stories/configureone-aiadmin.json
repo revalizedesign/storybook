@@ -1,0 +1,16 @@
+[
+  { "slot": "header-left", "component": "SidebarTrigger" },
+  { "slot": "header-left", "tag": "span", "children": "Configure One Cloud Admin", "className": "font-semibold" },
+
+  { "slot": "main-nav-items", "component": "SidebarMenuButton", "name": "sliders", "span": "Admin", "isActive": true },
+
+  { "slot": "nav-pane", "component": "VerticalPane", "title": "Workspaces", "defaultCollapsed": true, "menu": [{ "label": "New workspace", "icon": "plus" }], "nest": "nav-pane-body" },
+  { "slot": "nav-pane-body", "tag": "div", "className": "flex flex-col gap-1 overflow-auto p-2", "nest": "nav-pane-list" },
+  { "slot": "nav-pane-list", "component": "Button", "variant": "ghost", "size": "sm", "span": "Workspace 1", "className": "w-full justify-start bg-accent text-accent-foreground" },
+  { "slot": "chat-panel", "component": "ChatPane" },
+
+  { "slot": "toolbar-left", "tag": "span", "children": "Workspace", "className": "font-semibold" },
+  { "slot": "toolbar-left", "tag": "span", "children": "New session", "className": "text-muted-foreground" },
+  { "slot": "toolbar-left", "tag": "span", "className": "mx-2 h-4 w-px bg-border" },
+  { "slot": "toolbar-left", "component": "TabBar" }
+]

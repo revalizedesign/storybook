@@ -121,8 +121,12 @@
   * {
     @apply border-border outline-ring/50;
     }
+  button, [role="checkbox"], [role="switch"], [role="radio"], label:has(input), select {
+    cursor: pointer;
+    }
   body {
     @apply bg-background text-foreground;
+    font-size: 14px;
     }
   html {
     @apply font-sans;

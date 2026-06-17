@@ -2,9 +2,9 @@ import { Badge } from '@/components/ui/badge'
 import { Plus } from 'lucide-react'
 
 export default {
-  title: 'Design patterns/Layout & Content/Tagging',
+  title: 'Microinteractions/Layout & Content/Tagging',
   parameters: {
-    docs: { description: { component: '**Already built** · High priority. User-defined labels with overflow (+N). Show max 3 inline, "+ Add tag" in edit mode, lowercase, max 20 chars. Needs to become a standalone reusable component.' } },
+    docs: { description: { component: 'User-defined labels with overflow (+N). Show max 3 inline, "+ Add tag" in edit mode, lowercase, max 20 chars. Needs to become a standalone reusable component.' } },
   },
 }
 

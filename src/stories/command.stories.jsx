@@ -8,7 +8,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/command">Command - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `Missing · High priority. Suggestions as you type when selecting from thousands of products / part numbers. Min 2 chars, debounce 250ms, arrow keys + Enter to select.
+          Jonathan: `Suggestions as you type when selecting from thousands of products / part numbers. Min 2 chars, debounce 250ms, arrow keys + Enter to select.
 
 **Secondary copy:** Show ID/secondary info beside the name.`,
           Matt: `Potentially one of the most important areas in the system.

@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
 export default {
-  title: 'Design patterns/Layout & Content/Detail drawer',
+  title: 'Microinteractions/Layout & Content/Detail drawer',
   parameters: {
-    docs: { description: { component: '**Missing · New** · Critical priority. Revalize uses drawers instead of modals (Kiana, 05/27). Slides from the right, keeps list context visible. ~400–480px, tabs for Details / Pricing / Activity, edit inline, close with X or click-outside.' } },
+    docs: { description: { component: 'Revalize uses drawers instead of modals (Kiana, 05/27). Slides from the right, keeps list context visible. ~400–480px, tabs for Details / Pricing / Activity, edit inline, close with X or click-outside.' } },
   },
 }
 

@@ -18,7 +18,7 @@ export default {
       },
       page: createDocsPage({
         comments: {
-          Jonathan: 'Critical. Pill style (never square), text always paired with color, semantic colors only, consistent across ALL products. Palette is open for review.',
+          Jonathan: 'Pill style (never square), text always paired with color, semantic colors only, consistent across ALL products. Palette is open for review.',
           Matt: `One of the more complex primitives despite appearing simple.
 
 **Observations:** Multiple badge categories are represented: Read-only labels, Status indicators, Interactive filters, Visualization legends, Combined legend/filter controls. Status badge variant is directionally correct. Current set may be broader than necessary, but there is not yet enough evidence to consolidate.

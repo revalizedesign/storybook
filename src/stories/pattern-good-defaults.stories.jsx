@@ -3,9 +3,9 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@
 import { Badge } from '@/components/ui/badge'
 
 export default {
-  title: 'Design patterns/Forms & Input/Good defaults',
+  title: 'Microinteractions/Forms & Input/Good defaults',
   parameters: {
-    docs: { description: { component: '**Missing** · High priority. Pre-fill the most common value to cut entry time. Label defaults clearly ("default", "typical"), user can always override, base on real usage data. Never default required compliance fields.' } },
+    docs: { description: { component: 'Pre-fill the most common value to cut entry time. Label defaults clearly ("default", "typical"), user can always override, base on real usage data. Never default required compliance fields.' } },
   },
 }
 

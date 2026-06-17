@@ -1,0 +1,15 @@
+[
+  { "slot": "announce", "children": "announce" },
+  { "slot": "header-left", "children": "header-left" },
+  { "slot": "header-center", "children": "header-center" },
+  { "slot": "header-right", "children": "header-right" },
+  { "slot": "nav", "children": "nav" },
+  { "slot": "nav-pane", "children": "nav-pane" },
+  { "slot": "content-left", "children": "content-left" },
+  { "slot": "content-right", "children": "content-right" },
+  { "slot": "page-title", "children": "page-title" },
+  { "slot": "page-actions", "children": "page-actions" },
+  { "slot": "tabs", "children": "tabs" },
+  { "slot": "footer-left", "children": "footer-left" },
+  { "slot": "footer-right", "children": "footer-right" }
+]

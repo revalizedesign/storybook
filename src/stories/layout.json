@@ -1,0 +1,14 @@
+[
+  { "slot": "announce", "children": "Announce bar" },
+  { "slot": "header-left", "children": "Brand" },
+  { "slot": "header-center", "children": "Nav" },
+  { "slot": "header-right", "children": "User" },
+  { "slot": "nav", "children": "Nav" },
+  { "slot": "nav-pane", "children": "Secondary nav" },
+  { "slot": "content-left", "children": "Breadcrumb" },
+  { "slot": "page-title", "children": "Page title" },
+  { "slot": "page-actions", "children": "Actions" },
+  { "slot": "tabs", "children": "Tabs" },
+  { "slot": "footer-left", "children": "Footer" },
+  { "slot": "footer-right", "children": "Status" }
+]

@@ -38,12 +38,12 @@ export function AppShell({ preset, mode = 'wireframe' }) {
         >
           <SidebarHeader>
             <div className="flex items-center gap-2 px-2 py-1">
-              <div className={`flex size-6 items-center justify-center rounded-md text-xs font-bold ${branded ? 'bg-white/20 text-white' : 'bg-primary text-primary-foreground'}`}>
+              <div className={`flex size-6 items-center justify-center rounded-md font-bold ${branded ? 'bg-white/20 text-white' : 'bg-primary text-primary-foreground'}`}>
                 {preset.header.title[0]}
               </div>
               <div className="flex flex-col gap-0 leading-none group-data-[collapsible=icon]:hidden">
-                <span className="text-sm font-semibold">{preset.header.title}</span>
-                {preset.header.subtitle && <span className={`text-xs ${branded ? 'text-white/70' : 'text-muted-foreground'}`}>{preset.header.subtitle}</span>}
+                <span className="font-semibold">{preset.header.title}</span>
+                {preset.header.subtitle && <span className={branded ? 'text-white/70' : 'text-muted-foreground'}>{preset.header.subtitle}</span>}
               </div>
             </div>
           </SidebarHeader>
@@ -86,7 +86,7 @@ export function AppShell({ preset, mode = 'wireframe' }) {
           <header className="flex h-12 items-center gap-2 border-b px-4">
             <SidebarTrigger />
             <Separator orientation="vertical" className="h-4" />
-            <span className="text-sm font-medium">{activeLabel}</span>
+            <span className="font-medium">{activeLabel}</span>
             <div className="ml-auto flex items-center gap-1">
               {preset.corner.map((item, i) => (
                 <Button key={i} variant="ghost" size="icon-sm">
@@ -96,7 +96,7 @@ export function AppShell({ preset, mode = 'wireframe' }) {
             </div>
           </header>
           <div className="flex-1 p-6">
-            <div className="flex h-full items-center justify-center rounded-lg border border-dashed text-sm text-muted-foreground">
+            <div className="flex h-full items-center justify-center rounded-lg border border-dashed text-muted-foreground">
               {preset.name} — {activeLabel}
             </div>
           </div>

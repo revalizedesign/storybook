@@ -2,9 +2,9 @@ import { Spinner } from '@/components/ui/spinner'
 import { Check } from 'lucide-react'
 
 export default {
-  title: 'Design patterns/Forms & Input/Autosave',
+  title: 'Microinteractions/Forms & Input/Autosave',
   parameters: {
-    docs: { description: { component: '**Missing** · High priority. CPQ configs take 30+ min; lost work is the #1 complaint. Save every 30s and on change. Show status: Saving… → Saved just now → Saved 2 min ago. Manual save with ⌘S.' } },
+    docs: { description: { component: 'CPQ configs take 30+ min; lost work is the #1 complaint. Save every 30s and on change. Show status: Saving… → Saved just now → Saved 2 min ago. Manual save with ⌘S.' } },
   },
 }
 

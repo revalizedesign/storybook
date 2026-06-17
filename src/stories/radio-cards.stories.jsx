@@ -1,7 +1,7 @@
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 export default {
-  title: 'Components/Radio cards',
+  title: 'Other frameworks/Radio cards',
   parameters: {
     docs: { description: { component: '<a href="https://www.radix-ui.com/themes/docs/components/radio-cards">Radio Cards - Radix Themes</a>' } },
   },

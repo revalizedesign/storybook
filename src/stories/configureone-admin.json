@@ -1,0 +1,21 @@
+[
+  { "slot": "header-left", "component": "SidebarTrigger" },
+  { "slot": "header-left", "tag": "div", "className": "size-7 rounded bg-blue-700" },
+  { "slot": "header-left", "tag": "span", "children": "Configure One", "className": "font-semibold" },
+  { "slot": "header-left", "tag": "span", "children": "CLOUD", "className": "text-xs tracking-widest text-muted-foreground" },
+
+  { "slot": "header-right", "component": "Button", "variant": "ghost", "name": "circle-user" },
+
+  { "slot": "main-nav-items", "default": { "component": "SidebarMenuButton" } },
+  { "slot": "main-nav-items", "name": "table-layout", "span": "Dashboard" },
+  { "slot": "main-nav-items", "name": "gear", "span": "Setup", "isActive": true },
+  { "slot": "main-nav-items", "name": "box", "span": "Products" },
+  { "slot": "main-nav-items", "name": "shield", "span": "Security" },
+
+  { "slot": "toolbar-left", "default": { "component": "Button", "variant": "ghost" } },
+  { "slot": "toolbar-left", "span": "Users" },
+  { "slot": "toolbar-left", "span": "Roles" },
+  { "slot": "toolbar-left", "span": "System settings" },
+
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Setup", "Administration"], "title": "Administration", "lede": "STUB — manage users, roles, and system configuration.", "status": "Admin" }
+]

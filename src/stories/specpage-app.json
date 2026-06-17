@@ -1,0 +1,31 @@
+[
+  { "slot": "header-left", "component": "SidebarTrigger" },
+  { "slot": "header-left", "component": "Fa", "name": "globe", "className": "text-xl text-orange-500" },
+  { "slot": "header-left", "tag": "span", "children": "SpecPage", "className": "text-lg font-semibold text-slate-600" },
+
+  { "slot": "header-right-nav", "default": { "component": "Button", "variant": "ghost" } },
+  { "slot": "header-right-nav", "name": "table-cells" },
+  { "slot": "header-right-nav", "name": "gear" },
+  { "slot": "header-right-nav", "name": "bell" },
+  { "slot": "header-right", "component": "Button", "variant": "ghost", "name": "circle-user" },
+
+  { "slot": "main-nav-top", "tag": "div", "className": "flex items-center gap-2 px-2 py-1 group-data-[collapsible=icon]:hidden", "nest": "specpage-user" },
+  { "slot": "specpage-user", "tag": "div", "className": "size-8 rounded-full bg-neutral-300" },
+  { "slot": "specpage-user", "tag": "span", "children": "Diane White", "className": "font-semibold" },
+
+  { "slot": "main-nav-items", "default": { "component": "SidebarMenuButton" } },
+  { "slot": "main-nav-items", "name": "house", "span": "Home screen", "isActive": true },
+  { "slot": "main-nav-items", "name": "folder", "span": "Project" },
+  { "slot": "main-nav-items", "name": "database", "span": "Master Data" },
+  { "slot": "main-nav-items", "name": "flask", "span": "Recipes" },
+  { "slot": "main-nav-items", "name": "calculator", "span": "Calculation" },
+  { "slot": "main-nav-items", "name": "gauge", "span": "Simulation" },
+  { "slot": "main-nav-items", "name": "file-lines", "span": "Declaration" },
+  { "slot": "main-nav-items", "name": "industry", "span": "Production" },
+  { "slot": "main-nav-items", "name": "clipboard-check", "span": "Inspection Plan" },
+  { "slot": "main-nav-items", "name": "coins", "span": "Costing" },
+  { "slot": "main-nav-items", "name": "building-columns", "span": "Customs" },
+  { "slot": "main-nav-items", "name": "magnifying-glass", "span": "Search" },
+
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Home screen"], "lede": "Master data, recipes, projects, and documents at a glance.", "status": "Synced" }
+]

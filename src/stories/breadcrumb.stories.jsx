@@ -8,7 +8,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/breadcrumb">Breadcrumb - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `Already built · Critical priority. Current location in the app hierarchy. 3 levels max, last item is the bold current page (not a link), parents are links, never truncate.`,
+          Jonathan: `Current location in the app hierarchy. 3 levels max, last item is the bold current page (not a link), parents are links, never truncate.`,
           Matt: `Functional but incomplete.
 
 **Observations:** ShadCN defaults provide a strong starting point. Current documentation lacks sufficient depth around navigation complexity.

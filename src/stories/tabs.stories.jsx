@@ -9,7 +9,7 @@ export default {
       description: { component: '<a href="https://ui.shadcn.com/docs/components/base/tabs">Tabs - shadcn/ui</a>' },
       page: createDocsPage({
         comments: {
-          Jonathan: `Already built · High priority. Pill-style tabs for filtering content within a page (Active / Archived / Draft). Max 4 tabs. Never use underline tabs in Revalize — always pill style.`,
+          Jonathan: `Pill-style tabs for filtering content within a page (Active / Archived / Draft). Max 4 tabs. Never use underline tabs in Revalize — always pill style.`,
           Matt: `Current implementation includes the native-style tabs plus an added line style with icons.
 
 **Observations:** Current direction is solid overall. The "never use underline" rule feels too absolute. Tabs serve different purposes depending on context: View modes, Unique page content, Nested child content, Panel-level navigation, Main page navigation, Canvas-style product workflows, Functional tabs in product-specific contexts.
