@@ -22,4 +22,4 @@ export default {
   },
 }
 
-export const Cpq = { name: 'CPQ UI 26', render: () => <SlotMachine frame={Shell} slots={SLOTS} editable /> }
+export const Cpq = { name: 'CPQ UI 26', render: () => <SlotMachine frame={Shell} slots={SLOTS} /> }

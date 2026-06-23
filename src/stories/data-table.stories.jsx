@@ -12,16 +12,14 @@ import { DataEditor, GridCellKind } from '@glideapps/glide-data-grid'
 import '@glideapps/glide-data-grid/dist/index.css'
 import rows from './data-table.json'
 
-import { createDocsPage } from './DocsPage'
-
 export default {
   title: 'Libraries/Data table',
   parameters: {
     docs: {
-      description: { component: '<a href="https://tanstack.com/table">TanStack Table</a> · <a href="https://grid.glideapps.com">Glide Data Grid</a>' },
-      page: createDocsPage({
-        comments: {
-          Jonathan: `**Data table:** Every Revalize product has at least one. Row hover, Name column is always a link, numeric columns right-aligned. Always ships with empty + loading states.
+      description: {
+        component: `<a href="https://tanstack.com/table">TanStack Table</a> · <a href="https://grid.glideapps.com">Glide Data Grid</a>
+
+**Jonathan:** **Data table:** Every Revalize product has at least one. Row hover, Name column is always a link, numeric columns right-aligned. Always ships with empty + loading states.
 
 **Column filter + sort:** Search input + Columns toggle live in the DataTable toolbar. Click a header to sort. Users sort by date, status and name constantly.
 
@@ -30,8 +28,7 @@ export default {
 **Export:** We have Import — Export must match and pair with it. Export only the filtered/visible data (not all records) and show the count in the label.
 
 **Inline editing:** Click a cell to edit directly — no drawer. Simple fields only (text, number, select); complex edits go to a drawer. Enter to save, Escape to cancel, edited row gets a left-border accent.`,
-        },
-      }),
+      },
     },
   },
 }

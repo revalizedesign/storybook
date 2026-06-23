@@ -1,0 +1,10 @@
+[
+  { "type": "Product", "name": "Apex 100 Centrifugal Pump", "detail": "APX-100-CI" },
+  { "type": "Product", "name": "VectorDrive VFD 5 HP", "detail": "VEC-VFD-05" },
+  { "type": "User", "name": "Jane Cooper", "detail": "jane@acme.com" },
+  { "type": "User", "name": "Robert Fox", "detail": "robert@acme.com" },
+  { "type": "Setting", "name": "Pricing rules", "detail": "Admin → Pricing" },
+  { "type": "Setting", "name": "Approval policies", "detail": "Admin → Workflow" },
+  { "type": "Page", "name": "Dashboard", "detail": "/dashboard" },
+  { "type": "Page", "name": "Reports", "detail": "/reports" }
+]

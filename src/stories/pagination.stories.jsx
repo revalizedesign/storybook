@@ -1,15 +1,15 @@
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext, PaginationEllipsis } from '@/components/ui/pagination'
-import { createDocsPage } from './DocsPage'
 
 export default {
   title: 'shadcn/Pagination',
   parameters: {
     docs: {
-      description: { component: '<a href="https://ui.shadcn.com/docs/components/base/pagination">Pagination - shadcn/ui</a>' },
-      page: createDocsPage({
-        comments: {
-          Jonathan: `**Bounded:** "Showing X results" left, Previous / Page / Next right. Previous disabled on page 1, Next on last page. Default 25 rows per page.`,
-          Matt: `Strong improvement over the default ShadCN implementation.
+      description: {
+        component: `<a href="https://ui.shadcn.com/docs/components/base/pagination">Pagination - shadcn/ui</a>
+
+**Jonathan:** **Bounded:** "Showing X results" left, Previous / Page / Next right. Previous disabled on page 1, Next on last page. Default 25 rows per page.
+
+**Matt:** Strong improvement over the default ShadCN implementation.
 
 **Observations:** Current pattern demonstrates meaningful refinement. Some spacing and attachment inconsistencies remain. Pagination quality is heavily dependent on surrounding layout decisions.
 
@@ -18,8 +18,7 @@ export default {
 **What's missing:** More contextual examples. Clear guidance around table composition. Layout do's and don'ts.
 
 **Roadmap:** Add complete table examples. Document acceptable and unacceptable layouts. Clarify relationships between: Page toolbars, Table headers, Table controls, Pagination controls, Data table containers. Establish spacing and positioning rules for data-heavy experiences.`,
-        },
-      }),
+      },
     },
   },
 }

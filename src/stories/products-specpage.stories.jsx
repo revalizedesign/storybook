@@ -11,5 +11,5 @@ export default {
   parameters: { layout: 'fullscreen' },
 }
 
-export const AppShellStory = { name: 'App shell', render: () => <SlotMachine frame={Shell} slots={APP} editable /> }
-export const Admin = { render: () => <SlotMachine frame={Shell} slots={ADMIN} editable /> }
+export const AppShellStory = { name: 'App shell', render: () => <SlotMachine frame={Shell} slots={APP} /> }
+export const Admin = { render: () => <SlotMachine frame={Shell} slots={ADMIN} /> }

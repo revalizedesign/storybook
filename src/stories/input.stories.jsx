@@ -8,11 +8,22 @@ export default {
 }
 
 export const Default = {
-  render: () => (
-    <div className="flex flex-col gap-3 w-64">
-      <Input placeholder="Default" />
-      <Input disabled placeholder="Disabled" />
-      <Input type="password" placeholder="Password" />
-    </div>
-  ),
+  render: () => <Input placeholder="Default" />,
 }
+
+export const Disabled = {
+  render: () => <Input disabled placeholder="Disabled" />,
+}
+
+export const Invalid = {
+  render: () => <Input aria-invalid placeholder="Invalid" />,
+}
+
+export const File = {
+  render: () => <Input type="file" />,
+}
+
+export const Password = {
+  render: () => <Input type="password" placeholder="Password" />,
+}
+

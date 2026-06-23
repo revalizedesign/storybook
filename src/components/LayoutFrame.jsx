@@ -10,12 +10,12 @@ import { cn } from '@/lib/utils'
 // Canonical layout slots — names mirror the regions. Every slot renders ALL items targeting it
 // (in array order); how many appear is purely a function of the data. Consumers pass `slot(id)`:
 // Default labels them, Slots prints the ids, Examples hydrates from a flat array.
-//   announce
+//   announce-center
 //   header-left · header-center · header-right
-//   nav · nav-pane
+//   main-nav-items · nav-pane
 //   content-left · content-right
 //   page-title · page-actions
-//   tabs · body
+//   tabs · json
 //   footer-left · footer-right
 
 export function LayoutFrame({ slot = () => null, wireframe = false }) {
@@ -28,7 +28,7 @@ export function LayoutFrame({ slot = () => null, wireframe = false }) {
       {announce && (
         <div className={cn('relative flex shrink-0 items-center justify-center gap-2 border-b px-3 py-1.5', wireframe ? '' : 'bg-primary text-primary-foreground')}>
           <Bell className="size-4" />
-          {slot('announce')}
+          {slot('announce-center')}
           <button onClick={() => setAnnounce(false)} className="absolute right-3"><X className="size-4" /></button>
         </div>
       )}
@@ -44,7 +44,7 @@ export function LayoutFrame({ slot = () => null, wireframe = false }) {
 
       <div className="flex min-h-0 flex-1">
         <nav className={cn('flex w-14 shrink-0 flex-col items-center gap-1 py-2', wireframe ? 'border-r text-muted-foreground' : 'bg-neutral-900 text-neutral-400')}>
-          {slot('nav')}
+          {slot('main-nav-items')}
         </nav>
 
         {navOpen && (
@@ -56,7 +56,7 @@ export function LayoutFrame({ slot = () => null, wireframe = false }) {
             <div className="flex items-center gap-1">{slot('content-left')}</div>
             <div className="flex items-center gap-2">
               {slot('content-right')}
-              <Sheet><SheetTrigger asChild><Button variant="outline" size="sm">Right</Button></SheetTrigger><SheetContent><SheetHeader><SheetTitle>Right drawer</SheetTitle></SheetHeader></SheetContent></Sheet>
+              <Sheet><SheetTrigger render={<Button variant="outline" size="sm" />}>Right</SheetTrigger><SheetContent><SheetHeader><SheetTitle>Right drawer</SheetTitle></SheetHeader></SheetContent></Sheet>
               <Drawer><DrawerTrigger asChild><Button variant="outline" size="sm">Bottom</Button></DrawerTrigger><DrawerContent><DrawerHeader><DrawerTitle>Bottom drawer</DrawerTitle></DrawerHeader></DrawerContent></Drawer>
               <Button variant="outline" size="sm" onClick={() => toast('Toast — top-right')}>Toast</Button>
             </div>
@@ -69,9 +69,7 @@ export function LayoutFrame({ slot = () => null, wireframe = false }) {
 
           <div className="flex shrink-0 items-center gap-3 border-b px-4 py-2">{slot('tabs')}</div>
 
-          <div className="min-h-0 flex-1 overflow-auto p-4">
-            <div className={cn('flex h-full items-center justify-center rounded-lg border', fill('bg-muted/30'))}>{slot('body')}</div>
-          </div>
+          <div className="flex min-h-0 flex-1 flex-col p-4">{slot('json')}</div>
 
           <div className={cn('flex shrink-0 items-center justify-between border-t px-3 py-2', fill('bg-card'))}>
             <div className="flex items-center gap-1">{slot('footer-left')}</div>

@@ -7,7 +7,7 @@ import SLOTS from './products-attainia.json'
 // own CSS tokens (so the nav data carries zero styling) — product config, not a design-system frame,
 // which is why it lives here in the story rather than in components.
 const brand =
-  '[--sidebar:#1d4ed8] [--sidebar-accent-foreground:#ffffff] [--sidebar-accent:#ffffff1f] [--sidebar-border:#ffffff2e] [--sidebar-foreground:#ffffffd9]'
+  '[--sidebar:#1d4ed8] [--sidebar-foreground:#ffffffd9] [--sidebar-primary:#ffffff] [--sidebar-primary-foreground:#1d4ed8] [--sidebar-accent:#ffffff1f] [--sidebar-accent-foreground:#ffffff] [--sidebar-border:#ffffff2e] [--sidebar-ring:#ffffff3d]'
 const AttainiaShell = ({ slot }) => <Shell slot={slot} sidebar={{ className: brand }} />
 
 export default {
@@ -15,4 +15,4 @@ export default {
   parameters: { layout: 'fullscreen' },
 }
 
-export const Default = { render: () => <SlotMachine frame={AttainiaShell} slots={SLOTS} editable /> }
+export const AppShellStory = { name: 'App shell', render: () => <SlotMachine frame={AttainiaShell} slots={SLOTS} /> }

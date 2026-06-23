@@ -6,11 +6,11 @@ import data from './status.json'
 const REDUNDANT = new Set(data.redundant)
 
 const HoursBadge = ({ value }) => (
-  <span className={cn('inline-block rounded-full px-2 py-0.5 font-medium whitespace-nowrap', data.hours[value] ?? data.hours['0 hrs'])}>{value}</span>
+  <Badge className={cn(data.hours[value] ?? data.hours['0 hrs'])}>{value}</Badge>
 )
 
 const TargetCell = ({ month }) => (
-  <span className={cn('inline-block rounded-full px-2 py-0.5 font-medium', data.monthStyle[month] ?? data.monthStyle.September)}>{month}</span>
+  <Badge className={cn(data.monthStyle[month] ?? data.monthStyle.September)}>{month}</Badge>
 )
 
 const rowFor = (title, group) => {
@@ -19,7 +19,7 @@ const rowFor = (title, group) => {
   return {
     designer: m.designer ?? '—',
     reviewer: m.reviewer ?? '—',
-    target: m.target ?? data.urgencyMonth[m.urgency] ?? 'September',
+    target: m.target ?? 'September',
     difficulty: m.difficulty ?? '—',
     hours: m.hours ?? d.hours ?? '0 hrs',
     status: REDUNDANT.has(title) ? 'Redundant' : m.status ?? d.status ?? 'Unknown',

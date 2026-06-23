@@ -1,0 +1,5 @@
+[
+  { "id": "account", "title": "Account", "description": "Create an account" },
+  { "id": "profile", "title": "Profile", "description": "Set up your profile" },
+  { "id": "complete", "title": "Complete", "description": "Complete the setup" }
+]

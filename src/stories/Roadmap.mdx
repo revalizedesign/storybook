@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Roadmap" />
+
+# Roadmap
+
+## Path to v1.0
+
+### Stage 1 — shadcn primitive parity
+
+Get all shadcn primitive variants documented with correct, complete examples. Our first pass had extremely low coverage unintentionally — most primitives had a single default variant when they should show the full range of compositions from the shadcn docs. There are still hundreds of hours of work remaining to reach sufficient parity, but our focus is only on components used in active product delivery milestones.
+
+### Stage 2 — Product prototypes
+
+Recreate our Figma Make and Claude Code prototypes for all active product delivery milestones across all monster projects:
+
+- Attainia AI Admin
+- AutoQuotes Cloud
+- Configure One Cloud AI Admin
+- Intelliquip Select
+- LAI Cloud
+- PRO.FILE
+- PUMP-FLO
+- SpecPage
+
+### Stage 3 — Design tokens and compliance
+
+Determine the subset of all possible variables inherited by shadcn from Tailwind that are valid for our design system. Until we have those rules codified in DESIGN.md, the likelihood of drift remains guaranteed high frequency and thus low compliance with utilizing the design system.
+
+Counterintuitively, this minimum viable subset cannot be evaluated and defined until we have at least 5 dense screens and several complete workflows for every product using the design system — which is why it happens at the end.

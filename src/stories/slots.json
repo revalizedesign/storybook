@@ -1,9 +1,9 @@
 [
-  { "slot": "announce", "children": "announce" },
+  { "slot": "announce-center", "children": "announce-center" },
   { "slot": "header-left", "children": "header-left" },
   { "slot": "header-center", "children": "header-center" },
   { "slot": "header-right", "children": "header-right" },
-  { "slot": "nav", "children": "nav" },
+  { "slot": "main-nav-items", "children": "main-nav-items" },
   { "slot": "nav-pane", "children": "nav-pane" },
   { "slot": "content-left", "children": "content-left" },
   { "slot": "content-right", "children": "content-right" },

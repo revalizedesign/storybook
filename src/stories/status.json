@@ -3,108 +3,435 @@
     "Foundations/Colors",
     "Foundations/Icons",
     "Foundations/Spacing",
+    "Foundations/Themes",
     "Foundations/Typography",
-    "shadcn/Accordion", "shadcn/Alert", "shadcn/Alert Dialog", "shadcn/Aspect Ratio", "shadcn/Avatar",
-    "shadcn/Badge", "shadcn/Breadcrumb", "shadcn/Button", "shadcn/Button Group", "shadcn/Calendar",
-    "shadcn/Card", "shadcn/Carousel", "shadcn/Chart", "shadcn/Checkbox", "shadcn/Collapsible",
-    "shadcn/Combobox", "shadcn/Command", "shadcn/Context Menu", "shadcn/Dialog", "shadcn/Direction",
-    "shadcn/Drawer", "shadcn/Dropdown Menu", "shadcn/Empty", "shadcn/Field", "shadcn/Hover Card",
-    "shadcn/Input", "shadcn/Input Group", "shadcn/Input Otp", "shadcn/Item", "shadcn/Kbd", "shadcn/Label",
-    "shadcn/Menubar", "shadcn/Native Select", "shadcn/Navigation Menu", "shadcn/Pagination", "shadcn/Popover",
-    "shadcn/Progress", "shadcn/Radio Group", "shadcn/Resizable", "shadcn/Scroll Area", "shadcn/Select",
-    "shadcn/Separator", "shadcn/Sheet", "shadcn/Sidebar", "shadcn/Skeleton", "shadcn/Slider", "shadcn/Sonner",
-    "shadcn/Spinner", "shadcn/Switch", "shadcn/Table", "shadcn/Tabs", "shadcn/Textarea", "shadcn/Toggle",
-    "shadcn/Toggle Group", "shadcn/Tooltip",
-    "Other frameworks/Checkbox cards", "Other frameworks/Data list", "Other frameworks/Radio cards",
-    "Originals/Agent status", "Originals/Chat card", "Originals/Chat input", "Originals/Chat message",
-    "Originals/Chat pane", "Originals/Page header", "Originals/Tab bar", "Originals/Vertical pane",
+    "shadcn/Accordion",
+    "shadcn/Alert",
+    "shadcn/Alert Dialog",
+    "shadcn/Aspect Ratio",
+    "shadcn/Avatar",
+    "shadcn/Badge",
+    "shadcn/Breadcrumb",
+    "shadcn/Button",
+    "shadcn/Button Group",
+    "shadcn/Calendar",
+    "shadcn/Card",
+    "shadcn/Carousel",
+    "shadcn/Chart",
+    "shadcn/Checkbox",
+    "shadcn/Collapsible",
+    "shadcn/Combobox",
+    "shadcn/Command",
+    "shadcn/Context Menu",
+    "shadcn/Dialog",
+    "shadcn/Direction",
+    "shadcn/Drawer",
+    "shadcn/Dropdown Menu",
+    "shadcn/Empty",
+    "shadcn/Field",
+    "shadcn/Hover Card",
+    "shadcn/Input",
+    "shadcn/Input Group",
+    "shadcn/Input Otp",
+    "shadcn/Item",
+    "shadcn/Kbd",
+    "shadcn/Label",
+    "shadcn/Menubar",
+    "shadcn/Native Select",
+    "shadcn/Navigation Menu",
+    "shadcn/Pagination",
+    "shadcn/Popover",
+    "shadcn/Progress",
+    "shadcn/Radio Group",
+    "shadcn/Resizable",
+    "shadcn/Scroll Area",
+    "shadcn/Select",
+    "shadcn/Separator",
+    "shadcn/Sheet",
+    "shadcn/Sidebar",
+    "shadcn/Skeleton",
+    "shadcn/Slider",
+    "shadcn/Sonner",
+    "shadcn/Spinner",
+    "shadcn/Switch",
+    "shadcn/Table",
+    "shadcn/Tabs",
+    "shadcn/Textarea",
+    "shadcn/Toggle",
+    "shadcn/Toggle Group",
+    "shadcn/Tooltip",
+    "Other frameworks/Checkbox cards",
+    "Other frameworks/Data list",
+    "Other frameworks/Radio cards",
+    "Originals/Agent status",
+    "Originals/Autosave",
+    "Originals/Chat card",
+    "Originals/Chat input",
+    "Originals/Chat message",
+    "Originals/Chat pane",
+    "Originals/Page header",
+    "Originals/Tab bar",
+    "Originals/Vertical pane",
     "Libraries/Data table",
+    "Libraries/Stepper",
     "Libraries/Tree view",
-    "Layout/Default", "Layout/Slots", "Layout/Examples",
-    "Microinteractions/Navigation/Progressive disclosure", "Microinteractions/Navigation/Two-level sidebar",
-    "Microinteractions/Data/Search — exact + fuzzy",
-    "Microinteractions/Forms & Input/Autosave", "Microinteractions/Forms & Input/Good defaults",
-    "Microinteractions/Forms & Input/Inline validation", "Microinteractions/Forms & Input/Undo",
-    "Microinteractions/Forms & Input/Wizard / multi-step",
-    "Microinteractions/Feedback & Status/Audit trail", "Microinteractions/Feedback & Status/Progress / completeness",
-    "Microinteractions/Layout & Content/Dashboard",
-    "Microinteractions/Layout & Content/Detail drawer", "Microinteractions/Layout & Content/Keyboard shortcuts",
-    "Microinteractions/Layout & Content/Settings", "Microinteractions/Layout & Content/Tagging",
-    "Patterns/AI admin", "Patterns/AI search", "Patterns/App shell", "Patterns/Boot sequence", "Patterns/Canvas shell",
-    "Patterns/Print media", "Patterns/Tabular native", "Patterns/Toolbars", "Patterns/Workflow stages",
-    "Products/Attainia", "Products/AutoQuotes", "Products/ConfigureOne", "Products/FlowIQ", "Products/SpecPage",
-    "Experiments/Detail panel", "Experiments/Filter bar",
-    "Experiments/Verification card", "Experiments/Workflow progress"
+    "Layout/App",
+    "Layout/Band",
+    "Layout/Dashboard",
+    "Layout/Detail drawer",
+    "Layout/Examples",
+    "Layout/Shell",
+    "Layout/Slots",
+    "Multi-component UX/Search",
+    "Multi-component UX/Tagging",
+    "Patterns/AI admin",
+    "Patterns/App shell",
+    "Products/Attainia",
+    "Products/AutoQuotes",
+    "Products/ConfigureOne",
+    "Products/FlowIQ",
+    "Products/LAI",
+    "Products/SpecPage"
   ],
-  "groupOrder": ["Foundations", "shadcn", "Other frameworks", "Originals", "Libraries", "Layout", "Microinteractions", "Patterns", "Products", "Experiments"],
+  "groupOrder": [
+    "Foundations",
+    "shadcn",
+    "Other frameworks",
+    "Originals",
+    "Libraries",
+    "Layout",
+    "Multi-component UX",
+    "Patterns",
+    "Products"
+  ],
   "groupDefaults": {
-    "Foundations": { "hours": "0 hrs", "status": "Placeholder" },
-    "shadcn": { "hours": "0 hrs", "status": "Unknown" },
-    "Other frameworks": { "hours": "0 hrs", "status": "Unknown" },
-    "Originals": { "hours": "< 5 hrs", "status": "In progress" },
-    "Libraries": { "hours": "< 5 hrs", "status": "In progress" },
-    "Layout": { "hours": "0 hrs", "status": "Placeholder" },
-    "Microinteractions": { "hours": "1 shot", "status": "Unknown" },
-    "Patterns": { "hours": "0 hrs", "status": "Unknown" },
-    "Products": { "hours": "0 hrs", "status": "Unknown" },
-    "Experiments": { "hours": "< 5 hrs", "status": "Unknown" }
+    "Foundations": {
+      "hours": "0 hrs",
+      "status": "Placeholder"
+    },
+    "shadcn": {
+      "hours": "0 hrs",
+      "status": "Unknown"
+    },
+    "Other frameworks": {
+      "hours": "0 hrs",
+      "status": "Unknown"
+    },
+    "Originals": {
+      "hours": "< 5 hrs",
+      "status": "In progress"
+    },
+    "Libraries": {
+      "hours": "< 5 hrs",
+      "status": "In progress"
+    },
+    "Layout": {
+      "hours": "0 hrs",
+      "status": "Placeholder"
+    },
+    "Multi-component UX": {
+      "hours": "< 5 hrs",
+      "status": "In progress"
+    },
+    "Patterns": {
+      "hours": "0 hrs",
+      "status": "Unknown"
+    },
+    "Products": {
+      "hours": "0 hrs",
+      "status": "Unknown"
+    }
   },
   "meta": {
-    "Microinteractions/Navigation/Progressive disclosure": { "designer": "Jonathan", "urgency": "High" },
-    "Microinteractions/Navigation/Two-level sidebar": { "designer": "Jonathan", "urgency": "Critical" },
-    "Microinteractions/Data/Search — exact + fuzzy": { "designer": "Jonathan", "urgency": "Critical" },
-    "Microinteractions/Forms & Input/Autosave": { "designer": "Jonathan", "urgency": "High" },
-    "Microinteractions/Forms & Input/Good defaults": { "designer": "Jonathan", "urgency": "High" },
-    "Microinteractions/Forms & Input/Inline validation": { "designer": "Jonathan", "urgency": "Critical" },
-    "Microinteractions/Forms & Input/Undo": { "designer": "Jonathan", "urgency": "Medium" },
-    "Microinteractions/Forms & Input/Wizard / multi-step": { "designer": "Jonathan", "urgency": "Critical" },
-    "Microinteractions/Feedback & Status/Audit trail": { "designer": "Jonathan", "urgency": "High" },
-    "Microinteractions/Feedback & Status/Progress / completeness": { "designer": "Jonathan", "urgency": "Medium" },
-    "Microinteractions/Layout & Content/Dashboard": { "designer": "Jonathan", "urgency": "High" },
-    "Microinteractions/Layout & Content/Detail drawer": { "designer": "Jonathan", "urgency": "Critical" },
-    "Microinteractions/Layout & Content/Keyboard shortcuts": { "designer": "Jonathan", "urgency": "Medium" },
-    "Microinteractions/Layout & Content/Settings": { "designer": "Jonathan", "urgency": "High" },
-    "Microinteractions/Layout & Content/Tagging": { "designer": "Jonathan", "urgency": "High" },
-    "shadcn/Accordion": { "designer": "Jonathan", "urgency": "Medium" },
-    "shadcn/Alert": { "designer": "Jonathan", "urgency": "Critical" },
-    "shadcn/Alert Dialog": { "designer": "Jonathan", "urgency": "Critical" },
-    "shadcn/Badge": { "designer": "Jonathan", "urgency": "Critical" },
-    "shadcn/Breadcrumb": { "designer": "Jonathan", "urgency": "Critical" },
-    "shadcn/Card": { "designer": "Jonathan", "urgency": "Critical" },
-    "shadcn/Command": { "designer": "Jonathan", "urgency": "High" },
-    "shadcn/Empty": { "designer": "Jonathan", "urgency": "Critical" },
-    "shadcn/Pagination": { "designer": "Jonathan", "urgency": "Critical" },
-    "shadcn/Skeleton": { "designer": "Jonathan", "urgency": "Critical" },
-    "shadcn/Sonner": { "designer": "Jonathan", "urgency": "High" },
-    "shadcn/Tabs": { "designer": "Jonathan", "urgency": "High" },
-    "Patterns/AI admin": { "status": "Placeholder", "hours": "80+ hrs" },
-    "Patterns/Tabular native": { "status": "Placeholder", "hours": "40–80 hrs", "target": "April" },
-    "Patterns/AI search": { "status": "Placeholder" },
-    "Patterns/Boot sequence": { "status": "Placeholder" },
-    "Patterns/Canvas shell": { "status": "Placeholder", "target": "February" },
-    "Patterns/Print media": { "status": "Placeholder" },
-    "Patterns/Toolbars": { "status": "Placeholder" },
-    "Patterns/Workflow stages": { "status": "Placeholder" },
-    "Originals/Chat card": { "hours": "5–20 hrs" },
-    "Originals/Chat pane": { "hours": "20–40 hrs" },
-    "Libraries/Data table": { "status": "In progress" },
-    "Libraries/Tree view": { "status": "In progress" },
-    "Patterns/App shell": { "target": "March" },
-    "Layout/Default": { "target": "May" }
+    "Originals/Autosave": {
+      "designer": "Jonathan",
+      "target": "July"
+    },
+    "Originals/Chat card": {
+      "hours": "5–20 hrs",
+      "designer": "Matt"
+    },
+    "Originals/Chat pane": {
+      "hours": "20–40 hrs",
+      "designer": "Matt"
+    },
+    "Libraries/Data table": {
+      "status": "In progress",
+      "designer": "Matt"
+    },
+    "Libraries/Stepper": {
+      "designer": "Matt",
+      "status": "In progress",
+      "target": "June"
+    },
+    "Libraries/Tree view": {
+      "status": "In progress",
+      "designer": "Matt"
+    },
+    "Layout/Dashboard": {
+      "designer": "Jonathan",
+      "target": "July"
+    },
+    "Layout/App": {
+      "target": "May",
+      "designer": "Matt"
+    },
+    "Layout/Detail drawer": {
+      "designer": "Jonathan",
+      "target": "June"
+    },
+    "Multi-component UX/Search": {
+      "designer": "Jonathan",
+      "status": "In progress",
+      "target": "June"
+    },
+    "Multi-component UX/Tagging": {
+      "designer": "Jonathan",
+      "target": "July"
+    },
+    "shadcn/Accordion": {
+      "designer": "Jonathan",
+      "target": "August"
+    },
+    "shadcn/Alert": {
+      "designer": "Jonathan",
+      "target": "June"
+    },
+    "shadcn/Alert Dialog": {
+      "designer": "Jonathan",
+      "target": "June"
+    },
+    "shadcn/Badge": {
+      "designer": "Jonathan",
+      "target": "June"
+    },
+    "shadcn/Breadcrumb": {
+      "designer": "Jonathan",
+      "target": "June"
+    },
+    "shadcn/Card": {
+      "designer": "Jonathan",
+      "target": "June"
+    },
+    "shadcn/Empty": {
+      "designer": "Jonathan",
+      "target": "June"
+    },
+    "shadcn/Pagination": {
+      "designer": "Jonathan",
+      "target": "June"
+    },
+    "shadcn/Skeleton": {
+      "designer": "Jonathan",
+      "target": "June"
+    },
+    "shadcn/Sonner": {
+      "designer": "Jonathan",
+      "target": "July"
+    },
+    "shadcn/Tabs": {
+      "designer": "Jonathan",
+      "target": "July"
+    },
+    "Patterns/AI admin": {
+      "status": "Placeholder",
+      "hours": "80+ hrs"
+    },
+    "Patterns/App shell": {
+      "target": "March"
+    },
+    "Originals/Agent status": {
+      "designer": "Matt"
+    },
+    "Originals/Chat input": {
+      "designer": "Matt"
+    },
+    "Originals/Chat message": {
+      "designer": "Matt"
+    },
+    "Originals/Page header": {
+      "designer": "Matt"
+    },
+    "Originals/Tab bar": {
+      "designer": "Matt"
+    },
+    "Originals/Vertical pane": {
+      "designer": "Matt"
+    },
+    "Layout/Band": {
+      "designer": "Matt"
+    },
+    "Layout/Examples": {
+      "designer": "Matt"
+    },
+    "Layout/Shell": {
+      "designer": "Matt"
+    },
+    "Layout/Slots": {
+      "designer": "Matt"
+    },
+    "shadcn/Aspect Ratio": {
+      "designer": "Shadab"
+    },
+    "shadcn/Avatar": {
+      "designer": "Shadab"
+    },
+    "shadcn/Button": {
+      "designer": "Shadab"
+    },
+    "shadcn/Button Group": {
+      "designer": "Shadab"
+    },
+    "shadcn/Calendar": {
+      "designer": "Shadab"
+    },
+    "shadcn/Carousel": {
+      "designer": "Shadab"
+    },
+    "shadcn/Chart": {
+      "designer": "Shadab"
+    },
+    "shadcn/Checkbox": {
+      "designer": "Shadab"
+    },
+    "shadcn/Collapsible": {
+      "designer": "Shadab"
+    },
+    "shadcn/Combobox": {
+      "designer": "Shadab"
+    },
+    "shadcn/Command": {
+      "designer": "Shadab"
+    },
+    "shadcn/Context Menu": {
+      "designer": "Shadab"
+    },
+    "shadcn/Dialog": {
+      "designer": "Shadab"
+    },
+    "shadcn/Direction": {
+      "designer": "Shadab"
+    },
+    "shadcn/Drawer": {
+      "designer": "Shadab"
+    },
+    "shadcn/Dropdown Menu": {
+      "designer": "Shadab"
+    },
+    "shadcn/Field": {
+      "designer": "Shadab"
+    },
+    "shadcn/Hover Card": {
+      "designer": "Shadab"
+    },
+    "shadcn/Input": {
+      "designer": "Shadab"
+    },
+    "shadcn/Input Group": {
+      "designer": "Shadab"
+    },
+    "shadcn/Input Otp": {
+      "designer": "Shadab"
+    },
+    "shadcn/Item": {
+      "designer": "Shadab"
+    },
+    "shadcn/Kbd": {
+      "designer": "Shadab"
+    },
+    "shadcn/Label": {
+      "designer": "Shadab"
+    },
+    "shadcn/Menubar": {
+      "designer": "Shadab"
+    },
+    "shadcn/Native Select": {
+      "designer": "Shadab"
+    },
+    "shadcn/Navigation Menu": {
+      "designer": "Shadab"
+    },
+    "shadcn/Popover": {
+      "designer": "Shadab"
+    },
+    "shadcn/Progress": {
+      "designer": "Shadab"
+    },
+    "shadcn/Radio Group": {
+      "designer": "Shadab"
+    },
+    "shadcn/Resizable": {
+      "designer": "Shadab"
+    },
+    "shadcn/Scroll Area": {
+      "designer": "Shadab"
+    },
+    "shadcn/Select": {
+      "designer": "Shadab"
+    },
+    "shadcn/Separator": {
+      "designer": "Shadab"
+    },
+    "shadcn/Sheet": {
+      "designer": "Shadab"
+    },
+    "shadcn/Sidebar": {
+      "designer": "Shadab"
+    },
+    "shadcn/Slider": {
+      "designer": "Shadab"
+    },
+    "shadcn/Spinner": {
+      "designer": "Shadab"
+    },
+    "shadcn/Switch": {
+      "designer": "Shadab"
+    },
+    "shadcn/Table": {
+      "designer": "Shadab"
+    },
+    "shadcn/Textarea": {
+      "designer": "Shadab"
+    },
+    "shadcn/Toggle": {
+      "designer": "Shadab"
+    },
+    "shadcn/Toggle Group": {
+      "designer": "Shadab"
+    },
+    "shadcn/Tooltip": {
+      "designer": "Shadab"
+    },
+    "Other frameworks/Checkbox cards": {
+      "designer": "WorkOS"
+    },
+    "Other frameworks/Data list": {
+      "designer": "WorkOS"
+    },
+    "Other frameworks/Radio cards": {
+      "designer": "WorkOS"
+    },
+    "Products/LAI": {
+      "designer": "Jonathan",
+      "hours": "20–40 hrs",
+      "target": "February"
+    }
   },
   "redundant": [
-    "Microinteractions/Layout & Content/Tagging", "shadcn/Badge",
-    "Originals/Tab bar", "shadcn/Tabs",
-    "Experiments/Detail panel", "Microinteractions/Layout & Content/Detail drawer", "shadcn/Sheet",
-    "shadcn/Native Select", "shadcn/Select", "shadcn/Combobox", "shadcn/Command",
-    "Other frameworks/Checkbox cards", "shadcn/Checkbox", "Other frameworks/Radio cards", "shadcn/Radio Group",
-    "Microinteractions/Layout & Content/Keyboard shortcuts", "shadcn/Kbd",
-    "Experiments/Workflow progress", "Patterns/Workflow stages", "Microinteractions/Forms & Input/Wizard / multi-step",
-    "Experiments/Filter bar", "Patterns/Toolbars",
-    "Patterns/AI search", "Patterns/AI admin",
-    "Microinteractions/Navigation/Two-level sidebar", "Patterns/App shell", "shadcn/Sidebar",
-    "Patterns/Tabular native", "shadcn/Table",
-    "Microinteractions/Data/Search — exact + fuzzy"
+    "Multi-component UX/Tagging",
+    "shadcn/Badge",
+    "Originals/Tab bar",
+    "shadcn/Tabs",
+    "shadcn/Native Select",
+    "shadcn/Select",
+    "shadcn/Combobox",
+    "Other frameworks/Checkbox cards",
+    "shadcn/Checkbox",
+    "Other frameworks/Radio cards",
+    "shadcn/Radio Group",
+    "Patterns/App shell",
+    "shadcn/Sidebar",
+    "shadcn/Table"
   ],
   "hours": {
     "0 hrs": "bg-gray-100 text-gray-600",
@@ -115,7 +442,6 @@
     "40–80 hrs": "bg-purple-100 text-purple-800",
     "80+ hrs": "bg-pink-100 text-pink-800"
   },
-  "urgencyMonth": { "Critical": "June", "High": "July", "Medium": "August" },
   "monthStyle": {
     "February": "bg-pink-100 text-pink-800",
     "March": "bg-green-100 text-green-800",
@@ -126,5 +452,10 @@
     "August": "bg-slate-100 text-slate-700",
     "September": "bg-gray-100 text-gray-600"
   },
-  "statusVariant": { "Unknown": "ghost", "Placeholder": "outline", "Redundant": "destructive", "In progress": "secondary" }
+  "statusVariant": {
+    "Unknown": "ghost",
+    "Placeholder": "outline",
+    "Redundant": "destructive",
+    "In progress": "secondary"
+  }
 }

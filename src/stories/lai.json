@@ -1,0 +1,463 @@
+{
+  "app": [
+    {
+      "slot": "header-left",
+      "component": "SidebarTrigger"
+    },
+    {
+      "slot": "header-left",
+      "tag": "span",
+      "children": "LAI Cloud",
+      "className": "font-semibold"
+    },
+    {
+      "slot": "header-right-nav",
+      "default": {
+        "component": "Button",
+        "variant": "ghost"
+      }
+    },
+    {
+      "slot": "header-right-nav",
+      "name": "bell"
+    },
+    {
+      "slot": "header-right-nav",
+      "name": "gear"
+    },
+    {
+      "slot": "header-right-nav",
+      "name": "circle-question"
+    },
+    {
+      "slot": "header-right",
+      "component": "Button",
+      "variant": "ghost",
+      "name": "circle-user"
+    },
+    {
+      "slot": "main-nav-items",
+      "default": {
+        "component": "SidebarMenuButton"
+      }
+    },
+    {
+      "slot": "main-nav-items",
+      "name": "folder-open",
+      "span": "Projects",
+      "isActive": true
+    },
+    {
+      "slot": "main-nav-items",
+      "name": "lightbulb",
+      "span": "Luminaire Catalog"
+    },
+    {
+      "slot": "main-nav-items",
+      "name": "chart-column",
+      "span": "Analysis"
+    },
+    {
+      "slot": "main-nav-items",
+      "name": "book-open",
+      "span": "Standards"
+    },
+    {
+      "slot": "main-nav-items",
+      "name": "file-lines",
+      "span": "Reporting"
+    },
+    {
+      "slot": "main-nav-items",
+      "name": "shield",
+      "span": "Governance"
+    },
+    {
+      "slot": "main-nav-items",
+      "name": "cube",
+      "span": "Object Library"
+    },
+    {
+      "slot": "main-nav-items",
+      "name": "graduation-cap",
+      "span": "Learning"
+    },
+    {
+      "slot": "page-header",
+      "component": "PageHeader",
+      "breadcrumbs": [
+        "Projects",
+        "All projects"
+      ],
+      "title": "Project Management",
+      "lede": "Manage your lighting design projects"
+    }
+  ],
+  "canvas": [
+    {
+      "slot": "header-right-nav",
+      "default": {
+        "component": "Button",
+        "variant": "ghost"
+      }
+    },
+    {
+      "slot": "header-right-nav",
+      "name": "bell"
+    },
+    {
+      "slot": "header-right-nav",
+      "name": "gear"
+    },
+    {
+      "slot": "header-right-nav",
+      "name": "circle-question"
+    },
+    {
+      "slot": "header-right-nav",
+      "name": "circle-user"
+    },
+    {
+      "slot": "tabs",
+      "default": {
+        "component": "Button",
+        "variant": "ghost"
+      }
+    },
+    {
+      "slot": "tabs",
+      "name": "cube",
+      "span": "Model",
+      "className": "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground"
+    },
+    {
+      "slot": "tabs",
+      "name": "lightbulb",
+      "span": "Light"
+    },
+    {
+      "slot": "tabs",
+      "name": "calculator",
+      "span": "Calculate"
+    },
+    {
+      "slot": "tabs",
+      "name": "sparkles",
+      "span": "Render"
+    },
+    {
+      "slot": "tool-ribbon",
+      "tag": "div",
+      "className": "flex flex-col items-center gap-1",
+      "nest": "edit-group"
+    },
+    {
+      "slot": "edit-group",
+      "tag": "div",
+      "className": "flex gap-1",
+      "nest": "edit-row1"
+    },
+    {
+      "slot": "edit-group",
+      "component": "ViewToggle"
+    },
+    {
+      "slot": "edit-group",
+      "tag": "span",
+      "children": "Edit",
+      "className": "text-[10px] text-muted-foreground"
+    },
+    {
+      "slot": "edit-row1",
+      "default": {
+        "component": "Button",
+        "variant": "outline",
+        "size": "icon-sm"
+      }
+    },
+    {
+      "slot": "edit-row1",
+      "name": "rotate-left"
+    },
+    {
+      "slot": "edit-row1",
+      "name": "rotate-right"
+    },
+    {
+      "slot": "tool-ribbon",
+      "tag": "div",
+      "className": "w-px h-12 bg-border self-center"
+    },
+    {
+      "slot": "tool-ribbon",
+      "tag": "div",
+      "className": "flex flex-col items-center gap-1",
+      "nest": "entity-group"
+    },
+    {
+      "slot": "entity-group",
+      "tag": "div",
+      "className": "flex gap-1",
+      "nest": "entity-row1"
+    },
+    {
+      "slot": "entity-group",
+      "tag": "div",
+      "className": "flex gap-1",
+      "nest": "entity-row2"
+    },
+    {
+      "slot": "entity-group",
+      "tag": "span",
+      "children": "3D Entity",
+      "className": "text-[10px] text-muted-foreground"
+    },
+    {
+      "slot": "entity-row1",
+      "default": {
+        "component": "Button",
+        "variant": "outline",
+        "size": "icon-sm"
+      }
+    },
+    {
+      "slot": "entity-row1",
+      "name": "cube"
+    },
+    {
+      "slot": "entity-row1",
+      "name": "cylinder"
+    },
+    {
+      "slot": "entity-row2",
+      "default": {
+        "component": "Button",
+        "variant": "outline",
+        "size": "icon-sm"
+      }
+    },
+    {
+      "slot": "entity-row2",
+      "name": "books"
+    },
+    {
+      "slot": "entity-row2",
+      "name": "layer-group"
+    },
+    {
+      "slot": "entity-row2",
+      "name": "hexagon"
+    },
+    {
+      "slot": "tool-ribbon",
+      "tag": "div",
+      "className": "w-px h-12 bg-border self-center"
+    },
+    {
+      "slot": "tool-ribbon",
+      "tag": "div",
+      "className": "flex flex-col items-center gap-1",
+      "nest": "label-group"
+    },
+    {
+      "slot": "label-group",
+      "tag": "div",
+      "className": "flex gap-1",
+      "nest": "label-row1"
+    },
+    {
+      "slot": "label-group",
+      "tag": "div",
+      "className": "flex gap-1",
+      "nest": "label-row2"
+    },
+    {
+      "slot": "label-group",
+      "tag": "span",
+      "children": "Label",
+      "className": "text-[10px] text-muted-foreground"
+    },
+    {
+      "slot": "label-row1",
+      "default": {
+        "component": "Button",
+        "variant": "outline",
+        "size": "icon-sm"
+      }
+    },
+    {
+      "slot": "label-row1",
+      "name": "font"
+    },
+    {
+      "slot": "label-row1",
+      "name": "ruler-combined"
+    },
+    {
+      "slot": "label-row1",
+      "name": "turn-up"
+    },
+    {
+      "slot": "label-row2",
+      "default": {
+        "component": "Button",
+        "variant": "outline",
+        "size": "icon-sm"
+      }
+    },
+    {
+      "slot": "label-row2",
+      "name": "note-sticky"
+    },
+    {
+      "slot": "label-row2",
+      "name": "table"
+    },
+    {
+      "slot": "label-row2",
+      "name": "tag"
+    },
+    {
+      "slot": "tool-ribbon",
+      "tag": "div",
+      "className": "w-px h-12 bg-border self-center"
+    },
+    {
+      "slot": "tool-ribbon",
+      "tag": "div",
+      "className": "flex flex-col items-center gap-1",
+      "nest": "opening-group"
+    },
+    {
+      "slot": "opening-group",
+      "tag": "div",
+      "className": "flex gap-1",
+      "nest": "opening-row1"
+    },
+    {
+      "slot": "opening-group",
+      "tag": "div",
+      "className": "flex gap-1",
+      "nest": "opening-row2"
+    },
+    {
+      "slot": "opening-group",
+      "tag": "span",
+      "children": "Opening",
+      "className": "text-[10px] text-muted-foreground"
+    },
+    {
+      "slot": "opening-row1",
+      "default": {
+        "component": "Button",
+        "variant": "outline",
+        "size": "icon-sm"
+      }
+    },
+    {
+      "slot": "opening-row1",
+      "name": "door-open"
+    },
+    {
+      "slot": "opening-row1",
+      "name": "window-frame"
+    },
+    {
+      "slot": "opening-row2",
+      "default": {
+        "component": "Button",
+        "variant": "outline",
+        "size": "icon-sm"
+      }
+    },
+    {
+      "slot": "opening-row2",
+      "name": "expand"
+    },
+    {
+      "slot": "tool-ribbon",
+      "tag": "div",
+      "className": "w-px h-12 bg-border self-center"
+    },
+    {
+      "slot": "tool-ribbon",
+      "tag": "div",
+      "className": "flex flex-col items-center gap-1",
+      "nest": "modify-group"
+    },
+    {
+      "slot": "modify-group",
+      "tag": "div",
+      "className": "flex gap-1",
+      "nest": "modify-row1"
+    },
+    {
+      "slot": "modify-group",
+      "tag": "div",
+      "className": "flex gap-1",
+      "nest": "modify-row2"
+    },
+    {
+      "slot": "modify-group",
+      "tag": "span",
+      "children": "Modify",
+      "className": "text-[10px] text-muted-foreground"
+    },
+    {
+      "slot": "modify-row1",
+      "default": {
+        "component": "Button",
+        "variant": "outline",
+        "size": "icon-sm"
+      }
+    },
+    {
+      "slot": "modify-row1",
+      "name": "arrow-pointer"
+    },
+    {
+      "slot": "modify-row1",
+      "name": "up-down-left-right"
+    },
+    {
+      "slot": "modify-row2",
+      "default": {
+        "component": "Button",
+        "variant": "outline",
+        "size": "icon-sm"
+      }
+    },
+    {
+      "slot": "modify-row2",
+      "name": "rotate"
+    },
+    {
+      "slot": "modify-row2",
+      "name": "maximize"
+    },
+    {
+      "slot": "footer-left",
+      "tag": "span",
+      "children": "Ready",
+      "className": "text-muted-foreground"
+    },
+    {
+      "slot": "footer-left",
+      "tag": "span",
+      "children": "Objects: 2",
+      "className": "text-muted-foreground"
+    },
+    {
+      "slot": "footer-left",
+      "tag": "span",
+      "children": "Luminaires: 4",
+      "className": "text-muted-foreground"
+    },
+    {
+      "slot": "footer-left",
+      "tag": "span",
+      "children": "20ft × 20ft",
+      "className": "text-muted-foreground"
+    }
+  ]
+}

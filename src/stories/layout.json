@@ -1,9 +1,9 @@
 [
-  { "slot": "announce", "children": "Announce bar" },
+  { "slot": "announce-center", "children": "Announce bar" },
   { "slot": "header-left", "children": "Brand" },
   { "slot": "header-center", "children": "Nav" },
   { "slot": "header-right", "children": "User" },
-  { "slot": "nav", "children": "Nav" },
+  { "slot": "main-nav-items", "children": "Nav" },
   { "slot": "nav-pane", "children": "Secondary nav" },
   { "slot": "content-left", "children": "Breadcrumb" },
   { "slot": "page-title", "children": "Page title" },

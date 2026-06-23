@@ -32,7 +32,30 @@ export const Floating = {
   render: () => (
     <div className="relative h-[24rem] overflow-hidden rounded-lg border bg-muted/40">
       <VerticalPane floating title="Admin Agent" menu={[{ label: 'New workspace', icon: 'plus' }]}>
-        <div className="p-3 text-sm text-muted-foreground">Floating pane body — pinned inside a padded body region.</div>
+        <div className="p-3 text-muted-foreground">Floating pane body — pinned inside a padded body region.</div>
+      </VerticalPane>
+    </div>
+  ),
+}
+
+export const SecondaryNav = {
+  name: 'Candidates (review)',
+  parameters: {
+    docs: {
+      description: {
+        story: 'Jonathan: Icon rail + context panel — the universal Revalize shell. Same structure, different colors per product via theme class.',
+      },
+    },
+  },
+  render: () => (
+    <div className="flex h-[24rem]">
+      <VerticalPane title="Navigation">
+        <div className="flex flex-col gap-1 p-2">
+          <Button variant="ghost" size="sm" className="w-full justify-start bg-accent text-accent-foreground">Dashboard</Button>
+          <Button variant="ghost" size="sm" className="w-full justify-start">Products</Button>
+          <Button variant="ghost" size="sm" className="w-full justify-start">Quotes</Button>
+          <Button variant="ghost" size="sm" className="w-full justify-start">Reports</Button>
+        </div>
       </VerticalPane>
     </div>
   ),

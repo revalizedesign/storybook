@@ -1,9 +1,13 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 
 export default {
-  title: 'Microinteractions/Layout & Content/Dashboard',
+  title: 'Layout/Dashboard',
   parameters: {
-    docs: { description: { component: 'Home screen with key metrics, recent activity and quick actions. Metrics differ per product (C1C: quotes/configs, SpecPage: formulations, PROCAD: projects).' } },
+    docs: {
+      description: {
+        component: `**Jonathan:** Home screen with key metrics, recent activity and quick actions. Metrics differ per product (C1C: quotes/configs, SpecPage: formulations, PROCAD: projects).`,
+      },
+    },
   },
 }
 
@@ -18,24 +22,25 @@ const activity = [
   ['Config approved', '1h ago'],
 ]
 
-export const Default = {
+export const Candidates = {
+  name: 'Candidates (review)',
   render: () => (
-    <div className="w-[40rem] flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <div className="grid grid-cols-3 gap-4">
         {metrics.map(([label, value]) => (
           <Card key={label}>
             <CardContent className="pt-6">
-              <div className="text-xs text-muted-foreground">{label}</div>
+              <div className="text-muted-foreground">{label}</div>
               <div className="text-2xl font-semibold">{value}</div>
             </CardContent>
           </Card>
         ))}
       </div>
       <Card>
-        <CardHeader><CardTitle className="text-sm">Recent activity</CardTitle></CardHeader>
+        <CardHeader><CardTitle>Recent activity</CardTitle></CardHeader>
         <CardContent className="flex flex-col">
           {activity.map(([action, time]) => (
-            <div key={action} className="flex justify-between py-2 border-b last:border-0 text-sm">
+            <div key={action} className="flex justify-between py-2 border-b last:border-0">
               <span>{action}</span><span className="text-muted-foreground">{time}</span>
             </div>
           ))}

@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Contributing" />
+
+# Contributing
+
+See Introduction for what each nav section is for.
+
+## Documentation
+
+All documentation uses Storybook's built-in autodocs. No custom templates.
+
+- **Component description** — `parameters.docs.description.component` on the meta. Supports markdown. Use for links, reviewer commentary, and guidance.
+- **Variant description** — `parameters.docs.description.story` on the variant. Use for per-variant context.
+
+```js
+export default {
+  title: 'shadcn/Badge',
+  parameters: {
+    docs: {
+      description: {
+        component: `<a href="...">Badge - shadcn/ui</a>
+
+**Jonathan:** Pill style, not square…
+
+**Matt:** Palette is open for review…`,
+      },
+    },
+  },
+}
+```
+
+## What goes where
+
+- A variant must show a meaningful visual or behavioral distinction — not just different content
+- If your example is a shadcn component with product-specific text, that is documentation, not a variant. Put the guidance in the component description, not in a new export.
+- Status metadata (Already built, Critical priority, etc.) belongs in `status.json`, not in story commentary
+- **Candidates (review)** — a variant showing existing implementations from other products for comparison
+- **Deprecated (do not use)** — a variant showing patterns being phased out
+
+## Story conventions
+
+- Export names are PascalCase, display names are sentence case via `name`
+- Data goes in JSON files next to the story, not hardcoded in JSX
+- Components render at their native size — no width constraints or font overrides
+- One Default variant per story showing the baseline treatment
+
+## File naming
+
+- Stories: `{component}.stories.jsx`
+- Data: `{component}.json`
+- Components: `src/components/{Component}.jsx`
+- shadcn primitives: `src/components/ui/{component}.jsx` (do not modify)

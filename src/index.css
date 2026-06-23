@@ -124,11 +124,27 @@
   button, [role="checkbox"], [role="switch"], [role="radio"], label:has(input), select {
     cursor: pointer;
     }
+  input, textarea, select {
+    font-size: inherit !important;
+    }
   body {
     @apply bg-background text-foreground;
-    font-size: 14px;
     }
   html {
     @apply font-sans;
     }
+}
+
+.prompt-source [data-radix-scroll-area-content] {
+  min-width: 0 !important;
+  width: 100%;
+}
+
+.prompt-source [data-radix-scroll-area-viewport] {
+  overflow-x: hidden !important;
+}
+
+.prompt-source .language-text {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap !important;
 }

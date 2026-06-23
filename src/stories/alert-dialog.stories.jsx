@@ -1,22 +1,21 @@
 import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogFooter, AlertDialogTitle, AlertDialogDescription, AlertDialogAction, AlertDialogCancel } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
-import { createDocsPage } from './DocsPage'
 
 export default {
   title: 'shadcn/Alert Dialog',
   parameters: {
     docs: {
-      description: { component: '<a href="https://ui.shadcn.com/docs/components/base/alert-dialog">Alert Dialog - shadcn/ui</a>' },
-      page: createDocsPage({
-        comments: {
-          Jonathan: `AlertDialog for destructive/irreversible actions. Title = action verb, body = exact impact + "cannot be undone", Cancel left + destructive action right. Never "Are you sure?"`,
-          Matt: `Largely aligns with ShadCN defaults, which is appropriate for this pattern. Current implementation feels familiar and predictable.
+      description: {
+        component: `<a href="https://ui.shadcn.com/docs/components/base/alert-dialog">Alert Dialog - shadcn/ui</a>
+
+**Jonathan:** AlertDialog for destructive/irreversible actions. Title = action verb, body = exact impact + "cannot be undone", Cancel left + destructive action right. Never "Are you sure?"
+
+**Matt:** Largely aligns with ShadCN defaults, which is appropriate for this pattern. Current implementation feels familiar and predictable.
 
 **Observations:** Little differentiation from the underlying primitive. No significant concerns with the current direction.
 
 **Roadmap:** Continue using as a thin abstraction over the primitive. Add more product-specific examples as workflows mature.`,
-        },
-      }),
+      },
     },
   },
 }

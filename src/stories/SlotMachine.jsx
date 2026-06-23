@@ -54,10 +54,9 @@ function hydrate(data) {
 }
 
 // The slot machine behind every Layout story: a frame (the generic LayoutFrame by default, or a
-// per-example frame), hydrated from a flat slots array, with the body holding that same array as
-// JSON — read-only, or editable (re-hydrates live). Collapse state lives in the frame's own
-// SidebarProvider (a shadcn primitive), not here.
-export function SlotMachine({ frame: Frame = LayoutFrame, slots, wireframe = false, editable = false }) {
+// per-example frame), hydrated from a flat slots array, with the json slot holding that same array
+// as editable/read-only JSON. Collapse state lives in the frame's own SidebarProvider, not here.
+export function SlotMachine({ frame: Frame = LayoutFrame, slots, wireframe = false }) {
   const [text, setText] = useState(JSON.stringify(slots, null, 2))
   const [data, setData] = useState(slots)
   const onChange = e => {
@@ -65,14 +64,14 @@ export function SlotMachine({ frame: Frame = LayoutFrame, slots, wireframe = fal
     try { setData(JSON.parse(e.target.value)) } catch { /* keep last valid */ }
   }
   const renderSlot = hydrate(data)
-  const body = editable ? (
-    <Textarea value={text} onChange={onChange} spellCheck={false} className="h-full w-full resize-none border-0 bg-transparent p-3 font-mono text-xs shadow-none focus-visible:ring-0" />
-  ) : (
-    <pre className="h-full w-full overflow-auto p-3 font-mono text-xs text-muted-foreground">{text}</pre>
+  const json = (
+    <div className="flex min-h-0 flex-1 flex-col">
+      <Textarea value={text} onChange={onChange} spellCheck={false} className="min-h-0 flex-1 resize-none font-mono" />
+    </div>
   )
   return (
     <div className="h-screen">
-      <Frame wireframe={wireframe} slot={id => (id === 'body' ? body : renderSlot(id))} />
+      <Frame wireframe={wireframe} slot={id => (id === 'json' ? json : renderSlot(id))} />
     </div>
   )
 }

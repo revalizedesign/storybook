@@ -29,4 +29,4 @@ export default {
   },
 }
 
-export const Default = { render: () => <SlotMachine frame={Shell} slots={SLOTS} editable /> }
+export const Default = { render: () => <SlotMachine frame={Shell} slots={SLOTS} /> }

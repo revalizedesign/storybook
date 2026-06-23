@@ -1,0 +1,10 @@
+[
+  { "category": "Pumps", "description": "Cast-iron centrifugal process pump", "name": "Apex 100 Centrifugal Pump", "price": 2400, "sku": "APX-100-CI", "status": "Active" },
+  { "category": "Pumps", "description": "Stainless centrifugal process pump", "name": "Apex 100 Stainless Pump", "price": 3200, "sku": "APX-100-SS", "status": "Active" },
+  { "category": "Drives", "description": "Variable-frequency drive for 5 HP motors", "name": "VectorDrive VFD 5 HP", "price": 680, "sku": "VEC-VFD-05", "status": "Active" },
+  { "category": "Drives", "description": "Variable-frequency drive for 10 HP motors", "name": "VectorDrive VFD 10 HP", "price": 940, "sku": "VEC-VFD-10", "status": "Active" },
+  { "category": "Gearmotors", "description": "Inline gearmotor with a 20:1 ratio", "name": "TorqueLine Gearmotor 20:1", "price": 1850, "sku": "TRQ-GM-020", "status": "Active" },
+  { "category": "Gearmotors", "description": "Inline gearmotor with a 40:1 ratio", "name": "TorqueLine Gearmotor 40:1", "price": 2100, "sku": "TRQ-GM-040", "status": "Draft" },
+  { "category": "Actuators", "description": "Electric linear actuator with 12-inch travel", "name": "LiftLine Linear Actuator 12 in", "price": 760, "sku": "LFT-LA-012", "status": "Active" },
+  { "category": "Actuators", "description": "Electric linear actuator with 24-inch travel", "name": "LiftLine Linear Actuator 24 in", "price": 890, "sku": "LFT-LA-024", "status": "Draft" }
+]

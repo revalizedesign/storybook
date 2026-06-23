@@ -6,7 +6,16 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuIte
 import { Ellipsis } from 'lucide-react'
 import initialData from './tree-view.json'
 
-export default { title: 'Libraries/Tree view' }
+export default {
+  title: 'Libraries/Tree view',
+  parameters: {
+    docs: {
+      description: {
+        component: '<a href="https://dndkit.com/">dnd kit</a><br/><a href="https://github.com/Shaddix/dnd-kit-sortable-tree">dnd-kit-sortable-tree</a>',
+      },
+    },
+  },
+}
 
 const typeBadgeColors = {
   'logic-group': 'bg-muted text-muted-foreground',

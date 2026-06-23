@@ -1,4 +1,5 @@
 import { ChatInput } from '@/components/ChatInput'
+import { CyclePlaceholderProvider, useCyclePlaceholder } from '@/components/CyclePlaceholder'
 
 export default {
   title: 'Originals/Chat input',
@@ -26,3 +27,27 @@ export const MultipleLines = {
 }
 
 export const Working = { render: () => <Box working /> }
+
+const chatHints = [
+  'Type, paste a link, or upload a file…',
+  'Ask me anything about our catalog…',
+  'Type / to show skills…',
+  'Paste a link…',
+  'Try /help to see what’s possible…',
+]
+
+function CyclingChatInput() {
+  const placeholder = useCyclePlaceholder()
+  return <ChatInput placeholder={placeholder} />
+}
+
+export const CyclingPlaceholder = {
+  name: 'Cycle placeholder',
+  render: () => (
+    <CyclePlaceholderProvider placeholders={chatHints}>
+      <div className="rounded-lg border">
+        <CyclingChatInput />
+      </div>
+    </CyclePlaceholderProvider>
+  ),
+}

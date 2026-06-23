@@ -13,7 +13,7 @@ import { TooltipProvider } from '@/components/ui/tooltip'
  * first/middle/last are BAND's generic props (it doesn't know its own orientation). Slots, by
  * contrast, are CONCRETE — they know exactly where they sit — so they never reuse those words:
  *   header-left/left-nav/right-nav/right · main-nav-top/items/bottom · nav-pane · chat-panel ·
- *   toolbar-left/right · page-header · pane-left/right · footer-left/right · body.
+ *   toolbar-left/right · page-header · pane-left/right · footer-left/right · json.
  * nav-pane (a secondary nav, e.g. Workspaces) and chat-panel (a docked Admin Agent-style panel) sit in
  * the content row between the main-nav sidebar and the content; each is empty by default.
  *
@@ -43,7 +43,7 @@ const Bar = ({ left, right, className }) =>
     </div>
   ) : null
 
-export function Shell({ sidebar = {}, slot = () => null }) {
+export function Shell({ sidebar = {}, slot = () => null, nav }) {
   // `sidebar` is forwarded straight to shadcn's SidebarProvider — defaultOpen, className (brand
   // tokens), style (e.g. { '--sidebar-width': '10rem' }), etc. — so the sidebar's own API is the API;
   // Shell never grows a prop per knob.
@@ -68,7 +68,7 @@ export function Shell({ sidebar = {}, slot = () => null }) {
             <div className="flex h-full w-full min-h-0 min-w-0 [transform:translateZ(0)]">
               <Sidebar collapsible="icon" className="h-full">
                 {filled(top) ? <SidebarHeader>{top}</SidebarHeader> : null}
-                <SidebarContent><SidebarGroup><SidebarMenu>{slot('main-nav-items')}</SidebarMenu></SidebarGroup></SidebarContent>
+                <SidebarContent>{nav ?? <SidebarGroup><SidebarMenu>{slot('main-nav-items')}</SidebarMenu></SidebarGroup>}</SidebarContent>
                 {filled(bottom) ? <SidebarFooter><SidebarMenu>{bottom}</SidebarMenu></SidebarFooter> : null}
               </Sidebar>
               {slot('nav-pane')}
@@ -81,7 +81,7 @@ export function Shell({ sidebar = {}, slot = () => null }) {
                     axis="horizontal"
                     className="min-h-0 flex-1"
                     first={slot('pane-left')}
-                    middle={<div className="h-full overflow-auto rounded-lg border bg-card">{slot('body')}</div>}
+                    middle={slot('json')}
                     last={slot('pane-right')}
                   />
                 </div>
