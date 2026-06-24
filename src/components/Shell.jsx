@@ -65,7 +65,7 @@ export function Shell({ sidebar = {}, slot = () => null }) {
             </header>
           }
           middle={
-            <div className="flex h-full w-full min-h-0 min-w-0 [transform:translateZ(0)]">
+            <div className="flex h-full w-full min-h-0 min-w-0 transform-gpu">
               <Sidebar collapsible="icon" className="h-full">
                 {filled(top) ? <SidebarHeader>{top}</SidebarHeader> : null}
                 <SidebarContent><SidebarGroup><SidebarMenu>{slot('main-nav-items')}</SidebarMenu></SidebarGroup></SidebarContent>

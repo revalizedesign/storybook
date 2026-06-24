@@ -53,3 +53,68 @@ export const Menu = {
     </Accordion>
   ),
 }
+
+export const ProcadNavigation = {
+  name: 'PROCAD Navigation',
+  render: () => (
+    <Accordion defaultValue={['Parts']} className="w-80 rounded-lg border">
+      <AccordionItem value="Parts">
+        <AccordionTrigger>Parts</AccordionTrigger>
+        <AccordionContent className="flex flex-col space-y-1">
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Part Master</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Part Families</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Part Variants</a>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="Assemblies">
+        <AccordionTrigger>Assemblies</AccordionTrigger>
+        <AccordionContent className="flex flex-col space-y-1">
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Assembly Structure</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Bill of Materials</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Sub-Assemblies</a>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="Documents">
+        <AccordionTrigger>Documents</AccordionTrigger>
+        <AccordionContent className="flex flex-col space-y-1">
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Drawings</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Specifications</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Work Instructions</a>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+}
+
+export const ConfigureOneNavigation = {
+  name: 'ConfigureOne Admin Navigation',
+  render: () => (
+    <Accordion defaultValue={['Manage']} className="w-80 rounded-lg border">
+      <AccordionItem value="Manage">
+        <AccordionTrigger>Manage</AccordionTrigger>
+        <AccordionContent className="flex flex-col space-y-1">
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Pricebooks</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Equations</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Jobs Dashboard</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Configuration Templates</a>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="Setup">
+        <AccordionTrigger>Setup</AccordionTrigger>
+        <AccordionContent className="flex flex-col space-y-1">
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Option-Based Pricing</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Conversion Factors</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Currencies</a>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="Advanced">
+        <AccordionTrigger>Advanced</AccordionTrigger>
+        <AccordionContent className="flex flex-col space-y-1">
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Rule Engine</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Custom Fields</a>
+          <a href="#" className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded">Integrations</a>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+}

@@ -238,7 +238,7 @@ export const ExcelMode = {
       dataRef.current[row][glideColumns[col].id] = newValue.data
     }, [])
     return (
-      <div className="h-[400px]">
+      <div className="h-96">
         <DataEditor columns={glideColumns} rows={dataRef.current.length} getCellContent={getCellContent} onCellEdited={onCellEdited} getCellsForSelection smoothScrollX smoothScrollY width="100%" />
       </div>
     )
