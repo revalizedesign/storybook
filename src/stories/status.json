@@ -66,6 +66,7 @@
     "Microinteractions/Layout & Content/Settings": { "designer": "Jonathan", "urgency": "High" },
     "Microinteractions/Layout & Content/Tagging": { "designer": "Jonathan", "urgency": "High" },
     "shadcn/Accordion": { "designer": "Jonathan", "urgency": "Medium", "status": "In progress", "hours": "1 shot" },
+    "shadcn/Button": { "designer": "Jonathan", "urgency": "Critical", "status": "In progress", "hours": "< 5 hrs" },
     "shadcn/Alert": { "designer": "Jonathan", "urgency": "Critical" },
     "shadcn/Alert Dialog": { "designer": "Jonathan", "urgency": "Critical" },
     "shadcn/Badge": { "designer": "Jonathan", "urgency": "Critical" },
