@@ -18,7 +18,42 @@ export default {
       },
       page: createDocsPage({
         comments: {
-          Jonathan: 'Pill style (never square), text always paired with color, semantic colors only, consistent across ALL products. Palette is open for review.',
+          Jonathan: `**Pill-style status indicator.** Text always paired with color. Semantic colors only, consistent across ALL products.
+
+**Variants:**
+- **Default**: Gray background (neutral/default state)
+- **Secondary**: Lighter gray (secondary status)
+- **Destructive**: Red background (error/failed/inactive)
+- **Outline**: Border only (neutral alternative)
+- **Ghost**: No background (lightweight)
+- **Link**: Styled as link (not common for badges)
+
+**Semantic Colors (custom):**
+- **Success**: Green (completed, active, matched)
+- **Warning**: Yellow/Orange (pending, review, processing)
+- **Info**: Blue (new, info, candidate)
+- **Error/Destructive**: Red (failed, error, inactive)
+- **Default**: Gray (draft, neutral)
+
+**Usage:**
+- Status indicators in tables and lists
+- Configuration states (active, draft, archived)
+- Inline status labels
+- Filter indicators
+- Process steps
+
+**Rules:**
+- Pill-style (border-radius: full)
+- Always pair with semantic color
+- Text + color, never icon alone
+- Keep text short (1-2 words)
+- Use in context (table, list, card)
+- Never use for large text blocks
+
+**Product Examples:**
+- ConfigureOne: Active/Draft/Archived configs
+- PROCAD: Status indicators (new, pending, complete)
+- Attainia: Match statuses (matched, review, error)`,
           Matt: `One of the more complex primitives despite appearing simple.
 
 **Observations:** Multiple badge categories are represented: Read-only labels, Status indicators, Interactive filters, Visualization legends, Combined legend/filter controls. Status badge variant is directionally correct. Current set may be broader than necessary, but there is not yet enough evidence to consolidate.
@@ -98,4 +133,44 @@ export const Status = {
       <Badge variant="ghost">Archived</Badge>
     </div>
   ),
+}
+
+export const SemanticColors = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <div>
+        <p className="text-sm font-semibold mb-2">Success (Green)</p>
+        <div className="flex flex-wrap gap-2">
+          <Badge variant="outline" className="bg-green-100 text-green-800 border-green-200">Active</Badge>
+          <Badge variant="outline" className="bg-green-100 text-green-800 border-green-200">Completed</Badge>
+          <Badge variant="outline" className="bg-green-100 text-green-800 border-green-200">Verified</Badge>
+        </div>
+      </div>
+      <div>
+        <p className="text-sm font-semibold mb-2">Warning (Orange)</p>
+        <div className="flex flex-wrap gap-2">
+          <Badge variant="outline" className="bg-orange-100 text-orange-800 border-orange-200">Pending</Badge>
+          <Badge variant="outline" className="bg-orange-100 text-orange-800 border-orange-200">In Progress</Badge>
+          <Badge variant="outline" className="bg-orange-100 text-orange-800 border-orange-200">Review</Badge>
+        </div>
+      </div>
+      <div>
+        <p className="text-sm font-semibold mb-2">Info (Blue)</p>
+        <div className="flex flex-wrap gap-2">
+          <Badge variant="outline" className="bg-blue-100 text-blue-800 border-blue-200">New</Badge>
+          <Badge variant="outline" className="bg-blue-100 text-blue-800 border-blue-200">Info</Badge>
+          <Badge variant="outline" className="bg-blue-100 text-blue-800 border-blue-200">Processing</Badge>
+        </div>
+      </div>
+      <div>
+        <p className="text-sm font-semibold mb-2">Destructive (Red)</p>
+        <div className="flex flex-wrap gap-2">
+          <Badge variant="outline" className="bg-red-100 text-red-800 border-red-200">Error</Badge>
+          <Badge variant="outline" className="bg-red-100 text-red-800 border-red-200">Failed</Badge>
+          <Badge variant="outline" className="bg-red-100 text-red-800 border-red-200">Inactive</Badge>
+        </div>
+      </div>
+    </div>
+  ),
+}
 }
