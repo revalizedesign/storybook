@@ -1,5 +1,5 @@
 import { SlotMachine } from './SlotMachine'
-import { Shell } from '@/components/Shell'
+import { SlotShell } from '@/components/SlotShell'
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
 import { Fa } from '@/components/Fa'
@@ -50,5 +50,5 @@ export default {
   },
 }
 
-export const AppShellStory = { name: 'App shell', render: () => <SlotMachine frame={Shell} slots={data.app} /> }
+export const AppShellStory = { name: 'App shell', render: () => <SlotMachine frame={SlotShell} slots={data.app} /> }
 export const CanvasShell = { name: 'Canvas shell', render: () => <SlotMachine frame={LaiCanvasFrame} slots={data.canvas} /> }

@@ -22,7 +22,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `<a href="https://ui.shadcn.com/docs/components/base/sidebar">Sidebar - shadcn/ui</a>
+        component: `<a href="https://ui.shadcn.com/docs/components/base/sidebar">Sidebar - shadcn/ui</a> · <a href="https://ui.shadcn.com/blocks/sidebar">Blocks</a>
 
 Collapsible navigation rail with icon mode, keyboard shortcut (⌘B), and mobile sheet. Composable, themeable, customizable. Inverted and themed variants use CSS custom properties on the same component.
 

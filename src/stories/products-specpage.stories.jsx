@@ -1,5 +1,5 @@
 import { SlotMachine } from './SlotMachine'
-import { Shell } from '@/components/Shell'
+import { SlotShell } from '@/components/SlotShell'
 import APP from './specpage-app.json'
 import ADMIN from './specpage-admin.json'
 
@@ -11,5 +11,5 @@ export default {
   parameters: { layout: 'fullscreen' },
 }
 
-export const AppShellStory = { name: 'App shell', render: () => <SlotMachine frame={Shell} slots={APP} /> }
-export const Admin = { render: () => <SlotMachine frame={Shell} slots={ADMIN} /> }
+export const AppShellStory = { name: 'App shell', render: () => <SlotMachine frame={SlotShell} slots={APP} /> }
+export const Admin = { render: () => <SlotMachine frame={SlotShell} slots={ADMIN} /> }

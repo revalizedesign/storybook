@@ -54,7 +54,8 @@ export const Shadcn = {
   ),
 }
 
-export const Revalize = {
+export const RevalizeName = {
+  name: 'Revalize',
   render: () => (
     <div className="flex flex-col gap-6 p-6">
       <div>
@@ -87,5 +88,12 @@ export const Revalize = {
         </ul>
       </div>
     </div>
+  ),
+}
+
+export const DarkMode = {
+  name: 'Dark mode',
+  render: () => (
+    <div className="flex flex-1 items-center justify-center p-6 text-muted-foreground">Coming soon</div>
   ),
 }

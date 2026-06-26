@@ -1,9 +1,17 @@
 import '../src/index.css'
+import { create } from 'storybook/theming/create'
+
+const theme = create({
+  base: 'light',
+  fontBase: 'system-ui, sans-serif',
+  fontCode: 'monospace',
+})
 
 /** @type { import('@storybook/react-vite').Preview } */
 const preview = {
   tags: ['autodocs'],
   parameters: {
+    docs: { theme },
     options: {
       storySort: {
         order: [
@@ -17,7 +25,7 @@ const preview = {
           'Other frameworks',
           'Originals', ['Agent status', 'Autosave', 'Chat card', 'Chat input', 'Chat message', 'Chat pane', 'Page header', 'Tab bar', 'Vertical pane'],
           'Libraries', ['Data table', 'Stepper', 'Tree view'],
-          'Layout', ['App', 'Band', 'Dashboard', 'Detail drawer', 'Slots', 'Shell', 'Examples'],
+          'Layout', ['App', 'App shell', 'Band', 'Dashboard', 'Detail drawer', 'Slot shell', 'Examples'],
           'Multi-component UX', ['Search', 'Tagging'],
           'Patterns',
           'Products', ['Attainia', 'AutoQuotes', 'ConfigureOne', 'FlowIQ', 'LAI', 'SpecPage'],

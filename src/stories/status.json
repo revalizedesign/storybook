@@ -63,6 +63,7 @@
     "Other frameworks/Checkbox cards",
     "Other frameworks/Data list",
     "Other frameworks/Radio cards",
+    "Other frameworks/Sidebar manager",
     "Originals/Agent status",
     "Originals/Autosave",
     "Originals/Chat card",
@@ -76,16 +77,15 @@
     "Libraries/Stepper",
     "Libraries/Tree view",
     "Layout/App",
+    "Layout/App shell",
     "Layout/Band",
     "Layout/Dashboard",
     "Layout/Detail drawer",
     "Layout/Examples",
-    "Layout/Shell",
-    "Layout/Slots",
+    "Layout/Slot shell",
     "Multi-component UX/Search",
     "Multi-component UX/Tagging",
     "Patterns/AI admin",
-    "Patterns/App shell",
     "Products/Attainia",
     "Products/AutoQuotes",
     "Products/ConfigureOne",
@@ -237,9 +237,6 @@
       "status": "Placeholder",
       "hours": "80+ hrs"
     },
-    "Patterns/App shell": {
-      "target": "March"
-    },
     "Originals/Agent status": {
       "designer": "Matt"
     },
@@ -264,10 +261,11 @@
     "Layout/Examples": {
       "designer": "Matt"
     },
-    "Layout/Shell": {
-      "designer": "Matt"
+    "Layout/App shell": {
+      "designer": "Matt",
+      "hours": "80+ hrs"
     },
-    "Layout/Slots": {
+    "Layout/Slot shell": {
       "designer": "Matt"
     },
     "shadcn/Aspect Ratio": {
@@ -411,6 +409,10 @@
     "Other frameworks/Radio cards": {
       "designer": "WorkOS"
     },
+    "Other frameworks/Sidebar manager": {
+      "designer": "Injamul",
+      "hours": "5–20 hrs"
+    },
     "Products/LAI": {
       "designer": "Jonathan",
       "hours": "20–40 hrs",
@@ -429,7 +431,6 @@
     "shadcn/Checkbox",
     "Other frameworks/Radio cards",
     "shadcn/Radio Group",
-    "Patterns/App shell",
     "shadcn/Sidebar",
     "shadcn/Table"
   ],

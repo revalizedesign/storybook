@@ -6,7 +6,7 @@ import {
 import { TooltipProvider } from '@/components/ui/tooltip'
 
 /**
- * Shell — the canonical app shell: a full-width header above a row of (collapsible sidebar | content),
+ * SlotShell — the SlotMachine prototyping shell: a full-width header above a row of (collapsible sidebar | content),
  * composed from Band, the generic alternating-axis primitive (components/Band.jsx):
  *   vertical [ header | <horizontal [ sidebar | <vertical [ toolbar | <horizontal panes> | footer ]> ]> ]
  *
@@ -43,7 +43,7 @@ const Bar = ({ left, right, className }) =>
     </div>
   ) : null
 
-export function Shell({ sidebar = {}, slot = () => null, nav }) {
+export function SlotShell({ sidebar = {}, slot = () => null }) {
   // `sidebar` is forwarded straight to shadcn's SidebarProvider — defaultOpen, className (brand
   // tokens), style (e.g. { '--sidebar-width': '10rem' }), etc. — so the sidebar's own API is the API;
   // Shell never grows a prop per knob.
@@ -68,7 +68,7 @@ export function Shell({ sidebar = {}, slot = () => null, nav }) {
             <div className="flex h-full w-full min-h-0 min-w-0 [transform:translateZ(0)]">
               <Sidebar collapsible="icon" className="h-full">
                 {filled(top) ? <SidebarHeader>{top}</SidebarHeader> : null}
-                <SidebarContent>{nav ?? <SidebarGroup><SidebarMenu>{slot('main-nav-items')}</SidebarMenu></SidebarGroup>}</SidebarContent>
+                <SidebarContent><SidebarGroup><SidebarMenu>{slot('main-nav-items')}</SidebarMenu></SidebarGroup></SidebarContent>
                 {filled(bottom) ? <SidebarFooter><SidebarMenu>{bottom}</SidebarMenu></SidebarFooter> : null}
               </Sidebar>
               {slot('nav-pane')}

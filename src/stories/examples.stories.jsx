@@ -1,5 +1,5 @@
 import { SlotMachine } from './SlotMachine'
-import { Shell } from '@/components/Shell'
+import { SlotShell } from '@/components/SlotShell'
 import SLOTS from './examples.json'
 
 // CPQ UI 26 on the slot machine — the canonical Shell (Band-based, in-flow collapsible rail; see
@@ -22,4 +22,4 @@ export default {
   },
 }
 
-export const Cpq = { name: 'CPQ UI 26', render: () => <SlotMachine frame={Shell} slots={SLOTS} /> }
+export const Cpq = { name: 'CPQ UI 26', render: () => <SlotMachine frame={SlotShell} slots={SLOTS} /> }
