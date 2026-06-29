@@ -7,11 +7,14 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 const brand =
   '[--sidebar:#0856cf] [--sidebar-foreground:#ffffffd9] [--sidebar-primary:#ffffff] [--sidebar-primary-foreground:#0856cf] [--sidebar-accent:#ffffff1f] [--sidebar-accent-foreground:#ffffff] [--sidebar-border:#ffffff2e] [--sidebar-ring:#ffffff3d]'
 
-export function AppShell({ header, sidebar, children }) {
+const brandDark =
+  '[--sidebar:#064ab8] [--sidebar-foreground:#ffffffd9] [--sidebar-primary:#ffffff] [--sidebar-primary-foreground:#064ab8] [--sidebar-accent:#ffffff1f] [--sidebar-accent-foreground:#ffffff] [--sidebar-border:#ffffff12] [--sidebar-ring:#ffffff3d]'
+
+export function AppShell({ defaultOpen, header, sidebar, children }) {
   const nested = useContext(SidebarManagerContext) !== null
   return (
     <TooltipProvider>
-      <SidebarProvider defaultOpen={!nested} className={`h-screen min-h-0 ${brand}`}>
+      <SidebarProvider defaultOpen={defaultOpen ?? !nested} className={`h-screen min-h-0 ${brand}`}>
         <Band
           axis="vertical"
           first={
@@ -25,7 +28,7 @@ export function AppShell({ header, sidebar, children }) {
               <Sidebar collapsible="icon" className="h-full group-data-[side=left]:border-r-0">
                 {sidebar}
               </Sidebar>
-              <SidebarInset>{children}</SidebarInset>
+              <SidebarInset className={nested ? brandDark : ''}>{children}</SidebarInset>
             </div>
           }
         />

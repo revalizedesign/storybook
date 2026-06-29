@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import {
-  ArchiveX, AudioWaveform, BadgeCheck, Bell, BookOpen, Bot, ChevronRight, ChevronsUpDown,
-  Command, CreditCard, File, Folder, Forward, GalleryVerticalEnd, Inbox, LogOut, Map,
-  MoreHorizontal, PanelLeft, PieChart, Plus, Send, Settings2, Sparkles, SquareTerminal, Trash2, Frame,
-} from 'lucide-react'
+import * as icons from 'lucide-react'
+import { Icon } from '@/components/Icon'
+import data from './sidebar.json'
 import { AppShell } from '@/components/AppShell'
 import { SidebarManagerProvider, SidebarManager, SidebarManagerTrigger } from '@/components/SidebarManager'
 import { Band } from '@/components/Band'
@@ -37,32 +35,16 @@ export default {
 
 Full-width header above a shadcn Sidebar. Revalize branded theme by default. The production layout for all product screens — sidebar content is JSX composition using shadcn primitives directly.
 
-**How it works:** The full-width header uses Band with \`[transform:translateZ(0)]\` on the content row to create a containing block for the sidebar's fixed positioning. This keeps the sidebar below the header instead of spanning the full viewport height.`,
+**How it works:** The full-width header uses Band with \`[transform:translateZ(0)]\` on the content row to create a containing block for the sidebar's fixed positioning. This keeps the sidebar below the header instead of spanning the full viewport height.
+
+**Story components:** \`TeamSwitcher\`, \`NavMain\`, \`NavProjects\`, and \`NavUser\` were copied from the shadcn/Sidebar docs but not exported for use.`,
       },
     },
   },
 }
 
-const teams = [
-  { name: 'Acme Inc', logo: GalleryVerticalEnd, plan: 'Enterprise' },
-  { name: 'Acme Corp.', logo: AudioWaveform, plan: 'Startup' },
-  { name: 'Evil Corp.', logo: Command, plan: 'Free' },
-]
-
-const navMain = [
-  { title: 'Playground', icon: SquareTerminal, isActive: true, items: ['History', 'Starred', 'Settings'] },
-  { title: 'Models', icon: Bot, items: ['Genesis', 'Explorer', 'Quantum'] },
-  { title: 'Documentation', icon: BookOpen, items: ['Introduction', 'Get Started', 'Tutorials', 'Changelog'] },
-  { title: 'Settings', icon: Settings2, items: ['General', 'Team', 'Billing', 'Limits'] },
-]
-
-const projects = [
-  { name: 'Design Engineering', icon: Frame },
-  { name: 'Sales & Marketing', icon: PieChart },
-  { name: 'Travel', icon: Map },
-]
-
-const user = { name: 'shadcn', email: 'm@example.com' }
+const teams = data.teams.map(t => ({ ...t, logo: icons[t.icon] }))
+const { nav: navMain, projects, user } = data
 
 const TeamSwitcher = () => {
   const { isMobile } = useSidebar()
@@ -81,7 +63,7 @@ const TeamSwitcher = () => {
               <span className="truncate font-medium">{active.name}</span>
               <span className="truncate text-xs">{active.plan}</span>
             </div>
-            <ChevronsUpDown className="ml-auto" />
+            <icons.ChevronsUpDown className="ml-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="min-w-56 rounded-lg" align="start" side={isMobile ? 'bottom' : 'right'} sideOffset={4}>
             <DropdownMenuGroup>
@@ -96,7 +78,7 @@ const TeamSwitcher = () => {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 p-2">
-              <div className="flex size-6 items-center justify-center rounded-md border"><Plus className="size-4" /></div>
+              <div className="flex size-6 items-center justify-center rounded-md border"><icons.Plus className="size-4" /></div>
               <span className="font-medium text-muted-foreground">Add team</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
@@ -115,9 +97,9 @@ const NavMain = () => (
           <Collapsible key={item.title} defaultOpen={item.isActive} className="group/collapsible">
             <SidebarMenuItem>
               <CollapsibleTrigger render={<SidebarMenuButton isActive={item.isActive} />}>
-                <item.icon />
+                <Icon name={item.icon} />
                 {item.title}
-                <ChevronRight className="ml-auto transition-transform group-data-[open]/collapsible:rotate-90" />
+                <icons.ChevronRight className="ml-auto transition-transform group-data-[open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <SidebarMenuSub>
@@ -142,23 +124,23 @@ const NavProjects = () => {
       <SidebarMenu>
         {projects.map(p => (
           <SidebarMenuItem key={p.name}>
-            <SidebarMenuButton><p.icon />{p.name}</SidebarMenuButton>
+            <SidebarMenuButton><Icon name={p.icon} />{p.name}</SidebarMenuButton>
             <DropdownMenu>
               <DropdownMenuTrigger render={<SidebarMenuAction showOnHover />}>
-                <MoreHorizontal />
+                <icons.MoreHorizontal />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 rounded-lg" side={isMobile ? 'bottom' : 'right'} align={isMobile ? 'end' : 'start'}>
-                <DropdownMenuItem><Folder className="text-muted-foreground" />View Project</DropdownMenuItem>
-                <DropdownMenuItem><Forward className="text-muted-foreground" />Share Project</DropdownMenuItem>
+                <DropdownMenuItem><icons.Folder className="text-muted-foreground" />View Project</DropdownMenuItem>
+                <DropdownMenuItem><icons.Forward className="text-muted-foreground" />Share Project</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem><Trash2 className="text-muted-foreground" />Delete Project</DropdownMenuItem>
+                <DropdownMenuItem><icons.Trash2 className="text-muted-foreground" />Delete Project</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
         ))}
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontal className="text-sidebar-foreground/70" />
+            <icons.MoreHorizontal className="text-sidebar-foreground/70" />
             More
           </SidebarMenuButton>
         </SidebarMenuItem>
@@ -183,7 +165,7 @@ const NavUser = () => {
               <span className="truncate font-medium">{user.name}</span>
               <span className="truncate text-xs">{user.email}</span>
             </div>
-            <ChevronsUpDown className="ml-auto size-4" />
+            <icons.ChevronsUpDown className="ml-auto size-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="min-w-56 rounded-lg" side={isMobile ? 'bottom' : 'right'} align="end" sideOffset={4}>
             <DropdownMenuGroup>
@@ -201,16 +183,16 @@ const NavUser = () => {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem><Sparkles />Upgrade to Pro</DropdownMenuItem>
+              <DropdownMenuItem><icons.Sparkles />Upgrade to Pro</DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem><BadgeCheck />Account</DropdownMenuItem>
-              <DropdownMenuItem><CreditCard />Billing</DropdownMenuItem>
-              <DropdownMenuItem><Bell />Notifications</DropdownMenuItem>
+              <DropdownMenuItem><icons.BadgeCheck />Account</DropdownMenuItem>
+              <DropdownMenuItem><icons.CreditCard />Billing</DropdownMenuItem>
+              <DropdownMenuItem><icons.Bell />Notifications</DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem><LogOut />Log out</DropdownMenuItem>
+            <DropdownMenuItem><icons.LogOut />Log out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
@@ -236,18 +218,6 @@ export const Default = {
       <div className="flex flex-1 items-center justify-center text-muted-foreground">Main content</div>
     </AppShell>
   ),
-}
-
-// Verbatim from shadcn sidebar-15 block — app-sidebar.tsx
-const nestedData = {
-  user: { name: 'shadcn', email: 'm@example.com', avatar: '' },
-  navMain: [
-    { title: 'Inbox', url: '#', icon: Inbox, isActive: true },
-    { title: 'Drafts', url: '#', icon: File, isActive: false },
-    { title: 'Sent', url: '#', icon: Send, isActive: false },
-    { title: 'Junk', url: '#', icon: ArchiveX, isActive: false },
-    { title: 'Trash', url: '#', icon: Trash2, isActive: false },
-  ],
 }
 
 export const NestedSidebarStory = {
@@ -283,7 +253,7 @@ export const NestedSidebarStory = {
           </SidebarManager>
         }
       >
-        <SidebarProvider className="min-h-0 flex-1 [&_[data-slot=sidebar-container]]:absolute [&_[data-slot=sidebar-container]]:z-0 [--sidebar:#064ab8] [--sidebar-foreground:#ffffffd9] [--sidebar-primary:#ffffff] [--sidebar-primary-foreground:#064ab8] [--sidebar-accent:#ffffff1f] [--sidebar-accent-foreground:#ffffff] [--sidebar-border:#ffffff12] [--sidebar-ring:#ffffff3d]">
+        <SidebarProvider className="min-h-0 flex-1 [&_[data-slot=sidebar-container]]:absolute [&_[data-slot=sidebar-container]]:z-0">
           <SidebarManager name="panel">
             <Sidebar collapsible="offcanvas" side="left" className="h-full [&_[data-slot=sidebar-container]]:border-0">
               <SidebarHeader className="gap-3.5 border-b border-sidebar-border p-4">

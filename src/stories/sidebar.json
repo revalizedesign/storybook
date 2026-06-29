@@ -1,0 +1,26 @@
+{
+  "teams": [
+    { "icon": "GalleryVerticalEnd", "name": "Acme Inc", "plan": "Enterprise" },
+    { "icon": "AudioWaveform", "name": "Acme Corp.", "plan": "Startup" },
+    { "icon": "Command", "name": "Evil Corp.", "plan": "Free" }
+  ],
+  "nav": [
+    { "icon": "SquareTerminal", "isActive": true, "items": ["History", "Starred", "Settings"], "title": "Playground" },
+    { "icon": "Bot", "items": ["Genesis", "Explorer", "Quantum"], "title": "Models" },
+    { "icon": "BookOpen", "items": ["Introduction", "Get Started", "Tutorials", "Changelog"], "title": "Documentation" },
+    { "icon": "Settings2", "items": ["General", "Team", "Billing", "Limits"], "title": "Settings" }
+  ],
+  "nestedNav": [
+    { "icon": "Inbox", "isActive": true, "title": "Inbox" },
+    { "icon": "File", "title": "Drafts" },
+    { "icon": "Send", "title": "Sent" },
+    { "icon": "ArchiveX", "title": "Junk" },
+    { "icon": "Trash2", "title": "Trash" }
+  ],
+  "projects": [
+    { "icon": "Frame", "name": "Design Engineering" },
+    { "icon": "PieChart", "name": "Sales & Marketing" },
+    { "icon": "Map", "name": "Travel" }
+  ],
+  "user": { "email": "m@example.com", "name": "shadcn" }
+}

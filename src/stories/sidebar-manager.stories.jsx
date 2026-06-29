@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { ArchiveX, File, Inbox, Send, Trash2 } from 'lucide-react'
+import { Icon } from '@/components/Icon'
+import data from './sidebar.json'
 import { SidebarManagerProvider, SidebarManager, SidebarManagerTrigger } from '@/components/SidebarManager'
 import { Band } from '@/components/Band'
 import { Label } from '@/components/ui/label'
@@ -35,13 +36,7 @@ See **Layout / App shell / Nested sidebar** for a branded implementation.`,
   },
 }
 
-const nav = [
-  { title: 'Inbox', icon: Inbox, isActive: true },
-  { title: 'Drafts', icon: File },
-  { title: 'Sent', icon: Send },
-  { title: 'Junk', icon: ArchiveX },
-  { title: 'Trash', icon: Trash2 },
-]
+const nav = data.nestedNav
 
 export const Default = {
   render: () => {
@@ -73,7 +68,7 @@ export const Default = {
                                     isActive={activeItem?.title === item.title}
                                     onClick={() => setActiveItem(item)}
                                   >
-                                    <item.icon />
+                                    <Icon name={item.icon} />
                                     <span>{item.title}</span>
                                   </SidebarMenuButton>
                                 </SidebarMenuItem>

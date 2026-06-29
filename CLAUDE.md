@@ -10,6 +10,7 @@
 - Data belongs in JSON files, not hardcoded in JSX.
 - Sort object keys and CSS properties alphabetically.
 - There is one AppShell. Do not create alternative shells, frames, or layout wrappers. Extend AppShell when needed.
+- Do not define reusable components inside story files. Components belong in `src/components/`.
 
 # Design
 

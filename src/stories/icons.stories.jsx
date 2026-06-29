@@ -7,7 +7,7 @@ export default {
     docs: {
       description: {
         component:
-          'Two icon sources. **Font Awesome** (the same Pro kit c1c-admin uses, loaded in preview-head) for patterns migrated from c1c-admin — reuse the exact class names via `<Fa name="folder" />` (regular) or `<Fa name="xmark" variant="solid" />`. **lucide-react** for new React-native work — `import { Search } from "lucide-react"`.',
+          'Two icon sources. **Font Awesome** (the same Pro kit c1c-admin uses, loaded in preview-head) for patterns migrated from c1c-admin — reuse the exact class names via `<Fa name="folder" />` (regular) or `<Fa name="xmark" variant="solid" />`. **lucide-react** for new React-native work — `import { Search } from "lucide-react"`. For JSON data-driven rendering, use `<Icon name="Search" />` from `@/components/Icon` which resolves Lucide icon names from strings.',
       },
     },
   },
@@ -43,11 +43,11 @@ export const FontAwesome = {
     <div className="flex flex-col gap-6">
       <div>
         <h3 className="text-sm font-semibold mb-2">Regular — <code>&lt;Fa name="folder" /&gt;</code></h3>
-        <Grid>{regular.map(n => <Cell key={n} label={n}><Fa name={n} /></Cell>)}</Grid>
+        <Grid>{regular.map(n => <Cell key={n} label={n}><Fa name={n} className="size-5" /></Cell>)}</Grid>
       </div>
       <div>
         <h3 className="text-sm font-semibold mb-2">Solid — <code>&lt;Fa name="xmark" variant="solid" /&gt;</code></h3>
-        <Grid>{solid.map(n => <Cell key={n} label={n}><Fa name={n} variant="solid" /></Cell>)}</Grid>
+        <Grid>{solid.map(n => <Cell key={n} label={n}><Fa name={n} variant="solid" className="size-5" /></Cell>)}</Grid>
       </div>
     </div>
   ),

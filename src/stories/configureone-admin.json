@@ -1,21 +1,43 @@
-[
-  { "slot": "header-left", "component": "SidebarTrigger" },
-  { "slot": "header-left", "tag": "div", "className": "size-7 rounded bg-blue-700" },
-  { "slot": "header-left", "tag": "span", "children": "Configure One", "className": "font-semibold" },
-  { "slot": "header-left", "tag": "span", "children": "CLOUD", "className": "text-xs tracking-widest text-muted-foreground" },
-
-  { "slot": "header-right", "component": "Button", "variant": "ghost", "name": "circle-user" },
-
-  { "slot": "main-nav-items", "default": { "component": "SidebarMenuButton" } },
-  { "slot": "main-nav-items", "name": "table-layout", "span": "Dashboard" },
-  { "slot": "main-nav-items", "name": "gear", "span": "Setup", "isActive": true },
-  { "slot": "main-nav-items", "name": "box", "span": "Products" },
-  { "slot": "main-nav-items", "name": "shield", "span": "Security" },
-
-  { "slot": "toolbar-left", "default": { "component": "Button", "variant": "ghost" } },
-  { "slot": "toolbar-left", "span": "Users" },
-  { "slot": "toolbar-left", "span": "Roles" },
-  { "slot": "toolbar-left", "span": "System settings" },
-
-  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Setup", "Administration"], "title": "Administration", "lede": "STUB — manage users, roles, and system configuration.", "status": "Admin" }
-]
+{
+  "header": "Configure One",
+  "nav": [
+    { "icon": "gauge", "title": "Dashboard" },
+    { "icon": "sparkles", "title": "Intelligence" },
+    { "icon": "gear-code", "title": "Setup" },
+    { "icon": "cube", "title": "Products" },
+    { "icon": "table-layout", "isActive": true, "title": "Interface" },
+    { "icon": "square-dollar", "title": "Pricing" },
+    { "icon": "folder-arrow-down", "title": "Results" },
+    { "icon": "album-collection", "title": "Masters" },
+    { "icon": "file-invoice-dollar", "title": "Quotes" },
+    { "icon": "swap", "title": "Routings" },
+    { "icon": "timeline-arrow", "title": "Workflow" },
+    { "icon": "shield-check", "title": "Security" },
+    { "icon": "paper-plane", "title": "Publish" },
+    { "icon": "file-chart-pie", "title": "Reports" },
+    { "icon": "file-search", "title": "Query" },
+    { "icon": "square-list", "title": "Logs" },
+    { "icon": "database", "title": "System" }
+  ],
+  "panel": {
+    "title": "Interface",
+    "items": [
+      "Exclusive Input Values",
+      "Input Attribute Help Display",
+      "Input Attributes",
+      "Input Filters",
+      "Input Groups",
+      "Inputs",
+      "Input Sub-Groups",
+      "Input Summary Listing",
+      "Iterators",
+      "Logic Items",
+      "Logic Groups (Classic)",
+      "Logic Items (Classic)",
+      "Persistent Logic Items",
+      "Pricing Equations (Historical)",
+      "Pricing (Historical)",
+      "Manage Real Time 2D Image Chunks"
+    ]
+  }
+}

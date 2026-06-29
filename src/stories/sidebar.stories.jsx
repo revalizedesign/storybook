@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import {
-  AudioWaveform, BadgeCheck, Bell, BookOpen, Bot, ChevronRight, ChevronsUpDown, Command,
-  CreditCard, Folder, Forward, GalleryVerticalEnd, LogOut, Map, MoreHorizontal, PieChart,
-  Plus, Settings2, Sparkles, SquareTerminal, Trash2, Frame,
-} from 'lucide-react'
+import * as icons from 'lucide-react'
+import { Icon } from '@/components/Icon'
+import data from './sidebar.json'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/collapsible'
 import {
@@ -44,26 +42,8 @@ Collapsible navigation rail with icon mode, keyboard shortcut (⌘B), and mobile
   },
 }
 
-const teams = [
-  { name: 'Acme Inc', logo: GalleryVerticalEnd, plan: 'Enterprise' },
-  { name: 'Acme Corp.', logo: AudioWaveform, plan: 'Startup' },
-  { name: 'Evil Corp.', logo: Command, plan: 'Free' },
-]
-
-const navMain = [
-  { title: 'Playground', icon: SquareTerminal, isActive: true, items: ['History', 'Starred', 'Settings'] },
-  { title: 'Models', icon: Bot, items: ['Genesis', 'Explorer', 'Quantum'] },
-  { title: 'Documentation', icon: BookOpen, items: ['Introduction', 'Get Started', 'Tutorials', 'Changelog'] },
-  { title: 'Settings', icon: Settings2, items: ['General', 'Team', 'Billing', 'Limits'] },
-]
-
-const projects = [
-  { name: 'Design Engineering', icon: Frame },
-  { name: 'Sales & Marketing', icon: PieChart },
-  { name: 'Travel', icon: Map },
-]
-
-const user = { name: 'shadcn', email: 'm@example.com' }
+const teams = data.teams.map(t => ({ ...t, logo: icons[t.icon] }))
+const { nav: navMain, projects, user } = data
 
 const TeamSwitcher = () => {
   const { isMobile } = useSidebar()
@@ -82,7 +62,7 @@ const TeamSwitcher = () => {
               <span className="truncate font-medium">{active.name}</span>
               <span className="truncate text-xs">{active.plan}</span>
             </div>
-            <ChevronsUpDown className="ml-auto" />
+            <icons.ChevronsUpDown className="ml-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="min-w-56 rounded-lg" align="start" side={isMobile ? 'bottom' : 'right'} sideOffset={4}>
             <DropdownMenuGroup>
@@ -97,7 +77,7 @@ const TeamSwitcher = () => {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 p-2">
-              <div className="flex size-6 items-center justify-center rounded-md border"><Plus className="size-4" /></div>
+              <div className="flex size-6 items-center justify-center rounded-md border"><icons.Plus className="size-4" /></div>
               <span className="font-medium text-muted-foreground">Add team</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
@@ -116,9 +96,9 @@ const NavMain = () => (
           <Collapsible key={item.title} defaultOpen={item.isActive} className="group/collapsible">
             <SidebarMenuItem>
               <CollapsibleTrigger render={<SidebarMenuButton isActive={item.isActive} />}>
-                <item.icon />
+                <Icon name={item.icon} />
                 {item.title}
-                <ChevronRight className="ml-auto transition-transform group-data-[open]/collapsible:rotate-90" />
+                <icons.ChevronRight className="ml-auto transition-transform group-data-[open]/collapsible:rotate-90" />
               </CollapsibleTrigger>
               <CollapsibleContent>
                 <SidebarMenuSub>
@@ -143,23 +123,23 @@ const NavProjects = () => {
       <SidebarMenu>
         {projects.map(p => (
           <SidebarMenuItem key={p.name}>
-            <SidebarMenuButton><p.icon />{p.name}</SidebarMenuButton>
+            <SidebarMenuButton><Icon name={p.icon} />{p.name}</SidebarMenuButton>
             <DropdownMenu>
               <DropdownMenuTrigger render={<SidebarMenuAction showOnHover />}>
-                <MoreHorizontal />
+                <icons.MoreHorizontal />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 rounded-lg" side={isMobile ? 'bottom' : 'right'} align={isMobile ? 'end' : 'start'}>
-                <DropdownMenuItem><Folder className="text-muted-foreground" />View Project</DropdownMenuItem>
-                <DropdownMenuItem><Forward className="text-muted-foreground" />Share Project</DropdownMenuItem>
+                <DropdownMenuItem><icons.Folder className="text-muted-foreground" />View Project</DropdownMenuItem>
+                <DropdownMenuItem><icons.Forward className="text-muted-foreground" />Share Project</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem><Trash2 className="text-muted-foreground" />Delete Project</DropdownMenuItem>
+                <DropdownMenuItem><icons.Trash2 className="text-muted-foreground" />Delete Project</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
         ))}
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontal className="text-sidebar-foreground/70" />
+            <icons.MoreHorizontal className="text-sidebar-foreground/70" />
             More
           </SidebarMenuButton>
         </SidebarMenuItem>
@@ -184,7 +164,7 @@ const NavUser = () => {
               <span className="truncate font-medium">{user.name}</span>
               <span className="truncate text-xs">{user.email}</span>
             </div>
-            <ChevronsUpDown className="ml-auto size-4" />
+            <icons.ChevronsUpDown className="ml-auto size-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="min-w-56 rounded-lg" side={isMobile ? 'bottom' : 'right'} align="end" sideOffset={4}>
             <DropdownMenuGroup>
@@ -202,16 +182,16 @@ const NavUser = () => {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem><Sparkles />Upgrade to Pro</DropdownMenuItem>
+              <DropdownMenuItem><icons.Sparkles />Upgrade to Pro</DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem><BadgeCheck />Account</DropdownMenuItem>
-              <DropdownMenuItem><CreditCard />Billing</DropdownMenuItem>
-              <DropdownMenuItem><Bell />Notifications</DropdownMenuItem>
+              <DropdownMenuItem><icons.BadgeCheck />Account</DropdownMenuItem>
+              <DropdownMenuItem><icons.CreditCard />Billing</DropdownMenuItem>
+              <DropdownMenuItem><icons.Bell />Notifications</DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem><LogOut />Log out</DropdownMenuItem>
+            <DropdownMenuItem><icons.LogOut />Log out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
