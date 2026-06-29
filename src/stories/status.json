@@ -96,7 +96,11 @@
     "Libraries/Data table": { "status": "In progress" },
     "Libraries/Tree view": { "status": "In progress" },
     "Patterns/App shell": { "target": "March" },
-    "Layout/Default": { "target": "May" }
+    "Layout/Default": { "target": "May" },
+    "shadcn/Dialog": { "designer": "Jonathan", "urgency": "Critical", "status": "In progress", "hours": "< 5 hrs" },
+    "shadcn/Drawer": { "designer": "Jonathan", "urgency": "High", "status": "In progress", "hours": "1.5 hrs" },
+    "shadcn/Select": { "designer": "Jonathan", "urgency": "Critical", "status": "In progress", "hours": "< 5 hrs" },
+    "shadcn/Tabs": { "designer": "Jonathan", "urgency": "High", "status": "In progress", "hours": "1 shot" }
   },
   "redundant": [
     "Microinteractions/Layout & Content/Tagging", "shadcn/Badge",
