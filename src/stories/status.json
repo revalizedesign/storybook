@@ -75,7 +75,7 @@
     "shadcn/Alert": { "designer": "Jonathan", "urgency": "Critical" },
     "shadcn/Alert Dialog": { "designer": "Jonathan", "urgency": "Critical" },
     "shadcn/Badge": { "designer": "Jonathan", "urgency": "Critical" },
-    "shadcn/Breadcrumb": { "designer": "Jonathan", "urgency": "Critical" },
+    "shadcn/Breadcrumb": { "designer": "Jonathan", "urgency": "Critical", "status": "In progress", "hours": "1 shot", "note": "Built from real product examples (C1C, AutoQuotes, SpecPage, Attainia). Deep-nesting/truncation variant pending real 7-level example." },
     "shadcn/Card": { "designer": "Jonathan", "urgency": "Critical" },
     "shadcn/Command": { "designer": "Jonathan", "urgency": "High" },
     "shadcn/Empty": { "designer": "Jonathan", "urgency": "Critical" },
@@ -100,7 +100,9 @@
     "shadcn/Dialog": { "designer": "Jonathan", "urgency": "Critical", "status": "In progress", "hours": "< 5 hrs" },
     "shadcn/Drawer": { "designer": "Jonathan", "urgency": "High", "status": "In progress", "hours": "1.5 hrs" },
     "shadcn/Select": { "designer": "Jonathan", "urgency": "Critical", "status": "In progress", "hours": "< 5 hrs" },
-    "shadcn/Tabs": { "designer": "Jonathan", "urgency": "High", "status": "In progress", "hours": "1 shot" }
+    "shadcn/Tabs": { "designer": "Jonathan", "urgency": "High", "status": "In progress", "hours": "1 shot" },
+    "shadcn/Tooltip": { "designer": "Jonathan", "urgency": "High", "status": "In progress", "hours": "1 shot", "note": "5 stories with keyboard/focus accessibility rule (not just hover). Field hints, placements, long content. Real examples from ConfigureOne, PROCAD." },
+    "shadcn/Combobox": { "designer": "Jonathan", "urgency": "High", "status": "In progress", "hours": "1 shot", "note": "5 stories with real Revalize domain data (Hydro-Pro, Solar, Wind configs + parts). Select vs Combobox vs Command distinction documented." }
   },
   "redundant": [
     "Microinteractions/Layout & Content/Tagging", "shadcn/Badge",
