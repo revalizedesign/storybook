@@ -173,4 +173,3 @@ export const SemanticColors = {
     </div>
   ),
 }
-}

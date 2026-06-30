@@ -186,3 +186,47 @@ export const WithArrow = {
     </TooltipProvider>
   ),
 }
+
+export const RuleHint = {
+  name: 'Rule Hint (Logic Builder)',
+  render: () => (
+    <TooltipProvider>
+      <div className="space-y-3">
+        <p className="text-sm text-muted-foreground mb-3">From Configure One's AI Logic Builder: hover over rules to see what they validate</p>
+        <div className="flex items-center gap-2 p-2 border rounded bg-muted/30">
+          <span className="text-sm font-medium">Jet Layout Validation</span>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <HelpCircle className="size-4 text-muted-foreground cursor-help" />
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              Validates jet configuration type
+            </TooltipContent>
+          </Tooltip>
+        </div>
+        <div className="flex items-center gap-2 p-2 border rounded bg-muted/30">
+          <span className="text-sm font-medium">Pressure Threshold Check</span>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <HelpCircle className="size-4 text-muted-foreground cursor-help" />
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              Ensures operating pressure is within safe limits
+            </TooltipContent>
+          </Tooltip>
+        </div>
+        <div className="flex items-center gap-2 p-2 border rounded bg-muted/30">
+          <span className="text-sm font-medium">Material Compatibility</span>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <HelpCircle className="size-4 text-muted-foreground cursor-help" />
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              Validates material matches configuration requirements
+            </TooltipContent>
+          </Tooltip>
+        </div>
+      </div>
+    </TooltipProvider>
+  ),
+}
