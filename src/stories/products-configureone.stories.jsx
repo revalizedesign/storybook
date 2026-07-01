@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { SlotMachine } from './SlotMachine'
 import { AppShell } from '@/components/AppShell'
 import { ChatPane } from '@/components/ChatPane'
+import { StoryGuide } from '@/components/StoryGuide'
 import { VerticalPane } from '@/components/VerticalPane'
 import { Fa } from '@/components/Fa'
 import { Button } from '@/components/ui/button'
@@ -11,6 +12,7 @@ import { Icon } from '@/components/Icon'
 import { SidebarManagerProvider, SidebarManager, SidebarManagerTrigger } from '@/components/SidebarManager'
 import adminData from './configureone-admin.json'
 import aiAdminData from './configureone-aiadmin.json'
+import aiAdminGuide from './configureone-aiadmin-guide.json'
 import {
   AudioWaveform, BadgeCheck, Bell, BookOpen, Bot, ChevronRight, ChevronsUpDown, Command,
   CreditCard, Folder, Forward, GalleryVerticalEnd, LogOut, Map, MoreHorizontal, PieChart,
@@ -331,9 +333,9 @@ export const AiAdmin = {
           <SidebarHeader><TeamSwitcher /></SidebarHeader>
           <SidebarContent>
             {[
-              { label: 'Workflow', items: aiAdminData.nav.slice(0, 4), defaultOpen: true },
-              { label: 'Platform', items: aiAdminData.nav.slice(4, 6), defaultOpen: false },
-              { label: 'Access', items: aiAdminData.nav.slice(6), defaultOpen: false },
+              { label: 'Workflow', items: aiAdminData.nav.slice(0, 5), defaultOpen: true },
+              { label: 'Platform', items: aiAdminData.nav.slice(5, 7), defaultOpen: false },
+              { label: 'Access', items: aiAdminData.nav.slice(7), defaultOpen: false },
             ].map(group => (
               <Collapsible key={group.label} defaultOpen={group.defaultOpen} className="group/collapsible">
                 <SidebarGroup>
@@ -361,6 +363,7 @@ export const AiAdmin = {
         </>
       }
     >
+      <StoryGuide data={aiAdminGuide} />
       <div className="flex h-full">
         <VerticalPane title="Products" menu={[{ label: 'New product', icon: 'plus' }]}>
           <div className="flex flex-col gap-1 overflow-auto p-2">

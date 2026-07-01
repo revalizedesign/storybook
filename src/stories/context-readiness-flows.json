@@ -1,0 +1,77 @@
+{
+  "colors": {
+    "agent": "#fef3c7",
+    "review": "#cffafe",
+    "save": "#dcfce7",
+    "system": "#ffffff",
+    "user": "#dbeafe",
+    "warn": "#fecaca"
+  },
+  "firstUse": {
+    "edges": [
+      { "id": "e0-1", "source": "0", "target": "1" },
+      { "id": "e0-0b", "source": "0", "target": "0b", "type": "smoothstep" },
+      { "id": "e0b-5a", "source": "0b", "target": "5a", "type": "smoothstep" },
+      { "id": "e1-2", "source": "1", "target": "2" },
+      { "id": "e2-3", "source": "2", "target": "3" },
+      { "id": "e3-4", "source": "3", "target": "4", "label": "Yes", "type": "smoothstep" },
+      { "id": "e3-5a", "source": "3", "target": "5a", "label": "No", "type": "smoothstep" },
+      { "id": "e5a-5", "source": "5a", "target": "5" },
+      { "id": "e5a-5b", "source": "5a", "target": "5b", "type": "smoothstep" },
+      { "id": "e5b-12a", "source": "5b", "target": "12a", "type": "smoothstep" },
+      { "id": "e12a-12", "source": "12a", "target": "12" },
+      { "id": "e4-4a", "source": "4", "target": "4a" },
+      { "id": "e4a-6", "source": "4a", "target": "6" },
+      { "id": "e5-7", "source": "5", "target": "7" },
+      { "id": "e7-9", "source": "7", "target": "9" },
+      { "id": "e6-8a", "source": "6", "target": "8a" },
+      { "id": "e6-8b", "source": "6", "target": "8b", "type": "smoothstep" },
+      { "id": "e9-6", "source": "9", "target": "6", "type": "smoothstep" },
+      { "id": "e8a-10", "source": "8a", "target": "10" },
+      { "id": "e8b-12a", "source": "8b", "target": "12a", "type": "smoothstep" },
+      { "id": "e12-13", "source": "12", "target": "13" },
+      { "id": "e13-10", "source": "13", "target": "10", "type": "smoothstep" }
+    ],
+    "nodes": [
+      { "color": "system", "id": "0", "label": "System asks for link", "source": "right", "target": "left", "x": 0, "y": 0 },
+      { "color": "user", "id": "1", "label": "User pastes link", "source": "right", "target": "left", "x": 200, "y": 0 },
+      { "color": "user", "id": "0b", "label": "User clicks no link", "source": "bottom", "target": "top", "x": 0, "y": 70 },
+      { "color": "agent", "id": "2", "label": "Agent tries scrape", "target": "left", "x": 400, "y": 0 },
+      { "color": "review", "id": "3", "label": "Scrape OK?", "x": 400, "y": 80 },
+      { "color": "save", "id": "4", "label": "System saves web page as source", "source": "bottom", "target": "left", "x": 600, "y": 80 },
+      { "color": "agent", "id": "4a", "label": "Agent maps page", "x": 600, "y": 160 },
+      { "color": "system", "id": "5a", "label": "System asks for file", "source": "right", "target": "top", "x": 0, "y": 160 },
+      { "color": "user", "id": "5", "label": "User uploads file", "source": "right", "target": "left", "x": 200, "y": 160 },
+      { "color": "user", "id": "5b", "label": "User clicks no file", "source": "bottom", "target": "top", "x": 0, "y": 240 },
+      { "color": "save", "id": "7", "label": "System saves file as source", "target": "left", "x": 400, "y": 160 },
+      { "color": "agent", "id": "9", "label": "Agent maps file", "source": "right", "x": 400, "y": 240 },
+      { "color": "system", "id": "12a", "label": "System asks for text", "source": "right", "target": "top", "x": 0, "y": 400 },
+      { "color": "warn", "id": "12", "label": "User submits message", "source": "right", "target": "left", "x": 200, "y": 400 },
+      { "color": "save", "id": "13", "label": "System saves message as source", "source": "right", "target": "left", "x": 400, "y": 400 },
+      { "color": "review", "id": "6", "label": "User reviews context", "x": 600, "y": 240 },
+      { "color": "user", "id": "8a", "label": "User clicks approve", "x": 600, "y": 320 },
+      { "color": "user", "id": "8b", "label": "User clicks edit", "x": 400, "y": 320 },
+      { "color": "save", "id": "10", "label": "System saves context, goes to next step", "target": "top", "x": 600, "y": 400 }
+    ]
+  },
+  "fileUpload": {
+    "edges": [
+      { "id": "eu0-1", "source": "u0", "target": "u1" },
+      { "id": "eu1-2", "source": "u1", "target": "u2" },
+      { "id": "eu2-3", "source": "u2", "target": "u3" },
+      { "id": "eu3-4", "source": "u3", "target": "u4", "type": "smoothstep" },
+      { "id": "eu3-1", "source": "u3", "target": "u1", "type": "smoothstep" },
+      { "id": "eu4-6", "source": "u4", "target": "u6" },
+      { "id": "eu6-7", "source": "u6", "target": "u7" }
+    ],
+    "nodes": [
+      { "color": "system", "id": "u0", "label": "System asks for file(s)", "source": "right", "x": 0, "y": 0 },
+      { "color": "user", "id": "u1", "label": "User uploads file(s)", "source": "right", "target": "left", "x": 200, "y": 0 },
+      { "color": "save", "id": "u2", "label": "System saves file(s)", "source": "right", "target": "left", "x": 400, "y": 0 },
+      { "color": "agent", "id": "u3", "label": "Agent estimates wait", "target": "left", "x": 600, "y": 0 },
+      { "color": "user", "id": "u4", "label": "User clicks extract context", "source": "right", "target": "left", "x": 200, "y": 80 },
+      { "color": "agent", "id": "u6", "label": "Agent maps all files", "source": "right", "target": "left", "x": 400, "y": 80 },
+      { "color": "review", "id": "u7", "label": "User reviews context", "target": "left", "x": 600, "y": 80 }
+    ]
+  }
+}

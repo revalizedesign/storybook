@@ -128,7 +128,7 @@
     font-size: inherit !important;
     }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-sm;
     }
   html {
     @apply font-sans;

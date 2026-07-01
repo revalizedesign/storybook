@@ -2,7 +2,8 @@
   "header": "Intelligence",
   "nav": [
     { "icon": "gauge", "title": "Dashboard" },
-    { "icon": "wand-magic-sparkles", "title": "AI Setup" },
+    { "icon": "wand-magic-sparkles", "title": "AI Setup Wizard" },
+    { "icon": "layer-group", "title": "Context Layers" },
     { "icon": "cube", "isActive": true, "title": "Products" },
     { "icon": "sparkles", "title": "AI Usage" },
     { "icon": "gear", "title": "Settings" },

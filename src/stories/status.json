@@ -73,6 +73,7 @@
     "Originals/Page header",
     "Originals/Tab bar",
     "Originals/Vertical pane",
+    "Originals/Wizard dialog",
     "Libraries/Data table",
     "Libraries/Stepper",
     "Libraries/Tree view",
@@ -85,13 +86,19 @@
     "Layout/Slot shell",
     "Multi-component UX/Search",
     "Multi-component UX/Tagging",
-    "Patterns/AI admin",
-    "Products/Attainia",
-    "Products/AutoQuotes",
-    "Products/ConfigureOne",
-    "Products/FlowIQ",
-    "Products/LAI",
-    "Products/SpecPage"
+    "Products/Attainia/App shell",
+    "Products/AutoQuotes/App shell",
+    "Products/ConfigureOne/App shell",
+    "Products/ConfigureOne/Admin",
+    "Products/ConfigureOne/AI admin",
+    "Products/Intelliquip/App shell",
+    "Products/LAI/App shell",
+    "Products/LAI/Canvas shell",
+    "Products/PRO.FILE/App shell",
+    "Products/PUMP-FLO/App shell",
+    "Products/SpecPage/App shell",
+    "Products/SpecPage/Admin",
+    "Internal/Story guide"
   ],
   "groupOrder": [
     "Foundations",
@@ -101,7 +108,6 @@
     "Libraries",
     "Layout",
     "Multi-component UX",
-    "Patterns",
     "Products"
   ],
   "groupDefaults": {
@@ -132,10 +138,6 @@
     "Multi-component UX": {
       "hours": "< 5 hrs",
       "status": "In progress"
-    },
-    "Patterns": {
-      "hours": "0 hrs",
-      "status": "Unknown"
     },
     "Products": {
       "hours": "0 hrs",
@@ -233,10 +235,6 @@
       "designer": "Jonathan",
       "target": "July"
     },
-    "Patterns/AI admin": {
-      "status": "Placeholder",
-      "hours": "80+ hrs"
-    },
     "Originals/Agent status": {
       "designer": "Matt"
     },
@@ -254,6 +252,10 @@
     },
     "Originals/Vertical pane": {
       "designer": "Matt"
+    },
+    "Originals/Wizard dialog": {
+      "designer": "Matt",
+      "hours": "< 5 hrs"
     },
     "Layout/Band": {
       "designer": "Matt"
@@ -413,9 +415,32 @@
       "designer": "Injamul",
       "hours": "5–20 hrs"
     },
-    "Products/LAI": {
+    "Products/Attainia/App shell": {
+      "target": "May"
+    },
+    "Products/AutoQuotes/App shell": {
+      "target": "July"
+    },
+    "Products/ConfigureOne/App shell": {
+      "hours": "80+ hrs"
+    },
+    "Products/ConfigureOne/Admin": {
+      "hours": "80+ hrs"
+    },
+    "Products/ConfigureOne/AI admin": {
+      "hours": "80+ hrs",
+      "target": "June"
+    },
+    "Products/LAI/App shell": {
       "designer": "Jonathan",
       "hours": "20–40 hrs",
+      "status": "Inactive",
+      "target": "February"
+    },
+    "Products/LAI/Canvas shell": {
+      "designer": "Jonathan",
+      "hours": "20–40 hrs",
+      "status": "Inactive",
       "target": "February"
     }
   },
@@ -455,7 +480,6 @@
   },
   "statusVariant": {
     "Unknown": "ghost",
-    "Placeholder": "outline",
     "Redundant": "destructive",
     "In progress": "secondary"
   }

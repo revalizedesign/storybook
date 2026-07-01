@@ -1,0 +1,89 @@
+[
+  {
+    "group": "Already in the product (needs significant refinement)",
+    "items": [
+      {
+        "detail": "Better visibility into available, active, inherited, and generated context throughout the workflow.",
+        "ideas": [
+          "Wizard allowing superadmin or user to select work type: AI training, catalog, model, attributes, interface, rules, results, BOM, pricing, routing, images",
+          "Non-scalar qualitative sufficient context indicator — instead of a percentage or progress bar, show whether context is sufficient for the selected work type"
+        ],
+        "questions": [
+          "What context is available?",
+          "What's active?",
+          "What's inherited vs generated?"
+        ],
+        "title": "Context Management"
+      },
+      {
+        "detail": "Shift emphasis from chat toward durable AI-generated artifacts and their lifecycle.",
+        "ideas": [],
+        "questions": [
+          "What artifacts exist?",
+          "What's their status?",
+          "How do they evolve?"
+        ],
+        "title": "Artifact-Centric Workspace"
+      }
+    ]
+  },
+  {
+    "group": "Top opportunities",
+    "items": [
+      {
+        "detail": "Start each work session by defining the goal, available inputs, and recommended workflow.",
+        "ideas": [
+          "Wizard allowing superadmin or user to select work type: AI training, catalog, model, attributes, interface, rules, results, BOM, pricing, routing, images"
+        ],
+        "questions": [
+          "What are we trying to accomplish today?",
+          "What type of work is this?",
+          "What can the system help with next?"
+        ],
+        "title": "Session Planning"
+      },
+      {
+        "detail": "Automatically classify files, infer scope, identify gaps, and recommend how each should be used.",
+        "ideas": [
+          "From the selected work type, identify what work can be done: AI training, catalog, model, attributes, interface, rules, results, BOM, pricing, routing, images"
+        ],
+        "questions": [
+          "What do these files contain?",
+          "What are they useful for?",
+          "What's missing?",
+          "Is this enough to begin?"
+        ],
+        "title": "Intelligent File Analysis"
+      },
+      {
+        "detail": "Treat images, drawings, diagrams, and PDFs as first-class inputs alongside text.",
+        "ideas": [],
+        "questions": [
+          "What visual information are we ignoring?",
+          "How should images, drawings, diagrams, and PDFs contribute to understanding?"
+        ],
+        "title": "Visual Intelligence"
+      },
+      {
+        "detail": "Preserve revisions, approvals, and rollback without exposing developer-style version control.",
+        "ideas": [],
+        "questions": [
+          "Can I trust this?",
+          "What's changed?",
+          "What's approved?",
+          "Can I safely iterate without losing previous work?"
+        ],
+        "title": "Lightweight Versioning"
+      },
+      {
+        "detail": "Support one-time workspace preparation, context curation, and project setup before implementation begins.",
+        "ideas": [],
+        "questions": [
+          "What should be prepared before implementation begins?",
+          "What context, assumptions, and project structure should exist before inviting implementation specialists into the workspace?"
+        ],
+        "title": "Implementation Workspace"
+      }
+    ]
+  }
+]

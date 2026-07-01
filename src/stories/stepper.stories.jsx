@@ -5,15 +5,28 @@ import { Progress } from '@/components/ui/progress'
 import { Separator } from '@/components/ui/separator'
 import { Fa } from '@/components/Fa'
 import { cn } from '@/lib/utils'
-import { ArrowLeft, ArrowRight, Check, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, CircleCheckBig, X } from 'lucide-react'
 import steps from './stepper.json'
 
 export default {
   title: 'Libraries/Stepper',
+  args: { theme: 'shadcn' },
+  argTypes: { theme: { control: 'select', options: ['shadcn', 'Revalize'] } },
   parameters: {
     docs: {
       description: {
         component: `<a href="https://www.stepperize.com/">stepperize</a><br/><a href="https://shadcnstudio.com/docs/components/stepper?base=base">shadcn studio</a><br/><a href="https://reui.io/components/stepper">reui</a>
+
+We use \`@stepperize/react@7.0.0\` which has a different API from the shadcn studio reference (v4).
+
+| Stepperize v4 (shadcn studio) | Stepperize v7 |
+|---|---|
+| \`defineStepper(...steps)\` | \`defineStepper(steps)\` |
+| \`stepper.state.current.data.id\` | \`stepper.current.id\` |
+| \`stepper.navigation.goTo()\` | \`stepper.goTo()\` |
+| \`stepper.lookup.getIndex()\` | \`stepper.index\` |
+
+The \`onValueChange\` effect was patched to prevent an infinite loop caused by \`stepper.current\` creating a new object reference each render in v7.
 
 **Jonathan:** Break complex configuration into steps with a progress indicator. Completed steps checkmarked, current highlighted, always Back + Continue, do not lose data on Back, allow save as draft.
 
@@ -24,42 +37,45 @@ export default {
 }
 
 export const Default = {
-  render: () => (
-    <Stepper steps={steps} className="flex w-full items-center">
-      <StepperNav>
-        {steps.map((step, index) => (
-          <StepperItem key={step.id} stepId={step.id} className="relative flex-1">
-            <StepperTrigger className="flex flex-col gap-2.5">
-              <StepperIndicator>{index + 1}</StepperIndicator>
-              <div className="flex flex-col">
-                <StepperTitle>{step.title}</StepperTitle>
-                <StepperDescription>{step.description}</StepperDescription>
-              </div>
-            </StepperTrigger>
-            {index < steps.length - 1 && (
-              <StepperSeparator className="absolute inset-x-0 top-2 right-[calc(-50%+18px)] left-[calc(50%+18px)]" />
-            )}
-          </StepperItem>
-        ))}
-      </StepperNav>
-    </Stepper>
-  ),
-}
-
-export const WithContent = {
-  name: 'With content',
-  render: () => {
-    const [current, setCurrent] = useState(steps[0].id)
-    const currentIndex = steps.findIndex(s => s.id === current)
-    const goNext = () => setCurrent(steps[Math.min(currentIndex + 1, steps.length - 1)].id)
-    const goBack = () => setCurrent(steps[Math.max(currentIndex - 1, 0)].id)
+  render: ({ theme }) => {
+    const [current, setCurrent] = useState(steps[1].id)
     return (
-      <Stepper steps={steps} value={current} onValueChange={setCurrent} className="flex flex-col gap-6">
+      <Stepper steps={steps} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} className="flex w-full items-center">
         <StepperNav>
           {steps.map((step, index) => (
             <StepperItem key={step.id} stepId={step.id} className="relative flex-1">
               <StepperTrigger className="flex flex-col gap-2.5">
-                <StepperIndicator>{index + 1}</StepperIndicator>
+                <StepperIndicator className={theme === 'Revalize' ? 'data-[state=completed]:bg-green-600' : ''}>{index + 1}</StepperIndicator>
+                <div className="flex flex-col">
+                  <StepperTitle>{step.title}</StepperTitle>
+                  <StepperDescription>{step.description}</StepperDescription>
+                </div>
+              </StepperTrigger>
+              {index < steps.length - 1 && (
+                <StepperSeparator className="absolute inset-x-0 top-2 right-[calc(-50%+18px)] left-[calc(50%+18px)]" />
+              )}
+            </StepperItem>
+          ))}
+        </StepperNav>
+      </Stepper>
+    )
+  },
+}
+
+export const WithContent = {
+  name: 'With content',
+  render: ({ theme }) => {
+    const [current, setCurrent] = useState(steps[1].id)
+    const currentIndex = steps.findIndex(s => s.id === current)
+    const goNext = () => setCurrent(steps[Math.min(currentIndex + 1, steps.length - 1)].id)
+    const goBack = () => setCurrent(steps[Math.max(currentIndex - 1, 0)].id)
+    return (
+      <Stepper steps={steps} defaultValue={steps[1].id} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} className="flex flex-col gap-6">
+        <StepperNav>
+          {steps.map((step, index) => (
+            <StepperItem key={step.id} stepId={step.id} className="relative flex-1">
+              <StepperTrigger className="flex flex-col gap-2.5">
+                <StepperIndicator className={theme === 'Revalize' ? 'data-[state=completed]:bg-green-600' : ''}>{index + 1}</StepperIndicator>
                 <StepperTitle>{step.title}</StepperTitle>
               </StepperTrigger>
               {index < steps.length - 1 && (
@@ -87,18 +103,18 @@ export const WithContent = {
 }
 
 export const Vertical = {
-  render: () => {
-    const [current, setCurrent] = useState(steps[0].id)
+  render: ({ theme }) => {
+    const [current, setCurrent] = useState(steps[1].id)
     const currentIndex = steps.findIndex(s => s.id === current)
     const goNext = () => setCurrent(steps[Math.min(currentIndex + 1, steps.length - 1)].id)
     const goBack = () => setCurrent(steps[Math.max(currentIndex - 1, 0)].id)
     return (
-      <Stepper steps={steps} value={current} onValueChange={setCurrent} orientation="vertical" className="flex gap-10">
+      <Stepper steps={steps} defaultValue={steps[1].id} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} orientation="vertical" className="flex gap-10">
         <StepperNav className="w-60">
           {steps.map((step, index) => (
             <StepperItem key={step.id} stepId={step.id} className="relative items-start">
               <StepperTrigger className="items-start gap-2.5 pb-15 last:pb-0">
-                <StepperIndicator>{index + 1}</StepperIndicator>
+                <StepperIndicator className={theme === 'Revalize' ? 'data-[state=completed]:bg-green-600' : ''}>{index + 1}</StepperIndicator>
                 <div className="text-left">
                   <StepperTitle>{step.title}</StepperTitle>
                   <StepperDescription>{step.description}</StepperDescription>

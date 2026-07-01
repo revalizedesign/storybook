@@ -66,9 +66,13 @@ function Stepper({ steps, defaultValue, orientation = 'horizontal', responsive =
     }
   }, [value])
 
+  const prevIdRef = useRef(stepper.current.id)
   useEffect(() => {
-    onValueChange?.(stepper.current.id)
-  }, [stepper.current.id])
+    if (stepper.current.id !== prevIdRef.current) {
+      prevIdRef.current = stepper.current.id
+      onValueChange?.(stepper.current.id)
+    }
+  })
 
   return (
     <StepperContext.Provider value={contextValue}>
