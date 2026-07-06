@@ -1,0 +1,19 @@
+[
+  { "slot": "header-left", "component": "SidebarTrigger" },
+  { "slot": "header-left", "tag": "span", "children": "AutoQuotes", "className": "font-semibold" },
+
+  { "slot": "header-right-nav", "default": { "component": "Button", "variant": "ghost" } },
+  { "slot": "header-right-nav", "name": "magnifying-glass" },
+  { "slot": "header-right-nav", "name": "globe" },
+  { "slot": "header-right-nav", "name": "shield" },
+  { "slot": "header-right-nav", "name": "circle-question" },
+  { "slot": "header-right", "component": "Button", "variant": "ghost", "name": "circle-user" },
+
+  { "slot": "main-nav-items", "default": { "component": "SidebarMenuButton" } },
+  { "slot": "main-nav-items", "name": "book-open", "span": "Catalog", "isActive": true },
+  { "slot": "main-nav-items", "name": "folder-open", "span": "Projects" },
+  { "slot": "main-nav-items", "name": "file-lines", "span": "Quotes" },
+  { "slot": "main-nav-items", "name": "chart-column", "span": "Reports" },
+
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Home", "Catalog"], "lede": "Browse manufacturer catalogs and build quotes.", "status": "Synced" }
+]

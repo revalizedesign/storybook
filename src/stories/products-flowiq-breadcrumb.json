@@ -1,0 +1,18 @@
+[
+  { "slot": "header-left", "component": "SidebarTrigger" },
+  { "slot": "header-left", "tag": "span", "children": "FlowIQ", "className": "font-semibold" },
+
+  { "slot": "header-right-nav", "default": { "component": "Button", "variant": "ghost" } },
+  { "slot": "header-right-nav", "name": "magnifying-glass" },
+  { "slot": "header-right-nav", "name": "bell" },
+  { "slot": "header-right-nav", "name": "circle-question" },
+  { "slot": "header-right", "component": "Button", "variant": "ghost", "name": "circle-user" },
+
+  { "slot": "main-nav-items", "default": { "component": "SidebarMenuButton" } },
+  { "slot": "main-nav-items", "name": "droplet", "span": "Pumps" },
+  { "slot": "main-nav-items", "name": "chart-line", "span": "Curves" },
+  { "slot": "main-nav-items", "name": "key", "span": "Admin", "isActive": true },
+  { "slot": "main-nav-items", "name": "ellipsis", "span": "More" },
+
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Admin", { "ellipsis": true }, "Acme-ES", "150IEQ-01-demo"], "lede": "Pump selection and curve data for this configuration.", "status": "Synced" }
+]
