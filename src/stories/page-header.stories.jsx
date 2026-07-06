@@ -19,10 +19,10 @@ export default {
 export const Default = {
   render: () => (
     <PageHeader
-      breadcrumbs={['Catalog', 'Pumps', 'Cyclo 6000']}
-      lede="Configure, price, and quote the Cyclo 6000 gearmotor family. Changes autosave to your workspace."
+      breadcrumbs={[{ label: 'Components', href: '#components' }, { label: 'Page header' }]}
+      lede="The standard top-of-page block with breadcrumbs, title, and lede."
       status="Saved"
-      title="Cyclo 6000"
+      title="Page header"
     />
   ),
 }
@@ -32,11 +32,11 @@ export const Default = {
 export const Localization = {
   render: () => (
     <div className="flex flex-col gap-10">
-      <PageHeader breadcrumbs={['Home']} lede="English — the default greeting when no lang is passed." />
-      <PageHeader breadcrumbs={['Startseite']} lang="de" lede="German — passed via lang=de." />
-      <PageHeader breadcrumbs={['Inicio']} lang="es" lede="Spanish — passed via lang=es." />
-      <PageHeader breadcrumbs={['Accueil']} lang="fr" lede="French — passed via lang=fr." />
-      <PageHeader breadcrumbs={['Start']} lang="nl" lede="Dutch — passed via lang=nl." />
+      <PageHeader breadcrumbs={[{ label: 'Home' }]} lede="English — the default greeting when no lang is passed." />
+      <PageHeader breadcrumbs={[{ label: 'Startseite' }]} lang="de" lede="German — passed via lang=de." />
+      <PageHeader breadcrumbs={[{ label: 'Inicio' }]} lang="es" lede="Spanish — passed via lang=es." />
+      <PageHeader breadcrumbs={[{ label: 'Accueil' }]} lang="fr" lede="French — passed via lang=fr." />
+      <PageHeader breadcrumbs={[{ label: 'Start' }]} lang="nl" lede="Dutch — passed via lang=nl." />
     </div>
   ),
 }
