@@ -1,0 +1,25 @@
+{
+  "chips": [
+    "Build a product from my data",
+    "What can the AI Model Builder do?",
+    "Product modeling best practices"
+  ],
+  "createOptions": [
+    { "description": "Import your product data and the AI Model Builder will create the model.", "icon": "shapes", "title": "From scratch" },
+    { "description": "Pull an existing product model from Configure One into Intelligence.", "icon": "cloud-arrow-down", "title": "From a Configure One model" }
+  ],
+  "hero": {
+    "description": "Turn your knowledge into configurable products.",
+    "title": "Build. Review. Publish. All with Intelligence"
+  },
+  "recentProducts": [
+    { "name": "Steel Dump Body", "status": "Editing", "time": "Jul 8, 2026 at 3:02 PM" },
+    { "name": "Magic Aire", "status": "In review", "time": "Jul 8, 2026 at 2:41 PM" },
+    { "name": "Freight Truck Body", "status": "Draft", "time": "Jul 7, 2026 at 5:18 PM" },
+    { "name": "Reefer Trailer 48ft", "status": "Published", "time": "Jul 5, 2026 at 11:03 AM" }
+  ],
+  "setupBanner": {
+    "cta": "Set up Knowledge",
+    "title": "Knowledge setup needed"
+  }
+}

@@ -4,21 +4,32 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 # Updates
 
-## June 26, 2026
+## July 9, 2026
 
-Overhauled App shell to support nested sidebars & be compatible with shadcn/Sidebar:
+- shadcn → [Tabs chip variant](?path=/story/shadcn-tabs--chip) via TabBar for Configure One/AI admin
+- Originals → [Banner card](?path=/docs/originals-banner-card--docs), with a `theme` variant (shadcn / Revalize) via a scoped CSS custom-property override
+- Generic → [Unauthenticated](?path=/docs/generic-unauthenticated--docs), [AI app](?path=/docs/generic-ai-app--docs), [Canvas app](?path=/docs/generic-canvas-app--docs) placeholders
+- Added `src/lib/theme.js` — single source for the Revalize brand blue token override, reusable beyond the sidebar
+- Storybook upgraded to `10.4.6`
 
-- Added Foundations/Themes — documents shadcn default vs Revalize theme.
-- Added Roadmap page with path to v1.0 (primitive parity, product prototypes, design tokens).
-- Added CLAUDE.md with agent rules for AI contributors.
-- Added shadcn/Sidebar story matching the official docs — Default, Collapsible groups, Inverted, Themed variants with full component structure documentation.
-- Added Other frameworks/Sidebar manager — community pattern by Injamul for managing multiple named sidebars.
-- Added Layout/App shell — the production layout for all product screens. Full-width header above shadcn Sidebar with Revalize brand. Derives nested sidebar behavior automatically.
-- Added Layout/App shell/Nested sidebar — two independently collapsible sidebars using the Sidebar Manager pattern.
-- Moved Shell to Slot shell — prototyping tool only, not for production layouts.
+## July 2, 2026
+
+- Contributing.md
+
+- Deploy pipeline fix
+
 ## June 25, 2026
 
-Organize Jonathan's 33 suggestions to be distinguished and usable:
+- shadcn → Dialog, Sidebar
+- Other frameworks → Sidebar manager
+- Libraries → Data table, Tree view
+- Originals → Breadcrumbs, Context wizard, Flow header
+- Layout → Compare layout
+- Products → Configure One/AI admin
+- Experiments → Context readiness
+- Internal → Story guide, Story page
+
+## June 18, 2026
 
 - [x] Accordion, Alert, Alert Dialog, Badge, Breadcrumb, Card, Command, Empty, Pagination, Skeleton, Sonner, and Tabs moved to shadcn primitives.
 - [x] Good defaults, Inline validation moved to Field docs.
@@ -33,18 +44,20 @@ Organize Jonathan's 33 suggestions to be distinguished and usable:
 - [x] Tagging moved to Multi-component UX.
 - [x] Two-level sidebar moved to Vertical pane.
 
-## June 23, 2026
+## June 11, 2026
 
-Added Data table (TanStack Table + Glide Data Grid) under Libraries.
+- Originals → Agent status, Chat card, Chat input, Chat message, Chat pane, Page header, Vertical pane
+- Layout → App, App shell, Slot shell
+- ESLint gate against text-xs/text-sm
 
-## June 22, 2026
+## June 4, 2026
 
-Added Tree view (dnd-kit-sortable-tree) under Libraries.
+- shadcn → reviewer comments (Accordion, Alert, Alert Dialog, Badge, Breadcrumb, Card, Command, Empty, Pagination, Skeleton, Sonner, Tabs)
 
-## June 1, 2026
+## May 28, 2026
 
-Added 33 design patterns from Jonathan's list covering navigation, forms, feedback, layout, and data.
+- 33 patterns from Jonathan’s list (navigation, forms, feedback, layout, data)
 
-## May 26, 2026
+## May 21, 2026
 
-Initial scaffold: Storybook 10, React 19, shadcn base-vega preset, Tailwind 4, all 56 shadcn components with stories. App shell pattern with JSON-driven presets for 5 products. Placeholder entries for 9 patterns, 5 products, 11 experiments.
+- Initial scaffold → Storybook 10, React 19, shadcn base-vega preset, Tailwind 4, all 56 shadcn components

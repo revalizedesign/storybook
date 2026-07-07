@@ -2,13 +2,26 @@
   "header": "Intelligence",
   "nav": [
     { "icon": "gauge", "title": "Dashboard" },
-    { "icon": "wand-magic-sparkles", "title": "AI Setup Wizard" },
-    { "icon": "layer-group", "title": "Context Layers" },
-    { "icon": "cube", "isActive": true, "title": "Products" },
+    { "icon": "highlighter-line", "title": "Context manager" },
+    { "icon": "cube", "title": "Products" },
     { "icon": "sparkles", "title": "AI Usage" },
     { "icon": "gear", "title": "Settings" },
     { "icon": "plug", "title": "Integrations" },
     { "icon": "users", "title": "Users" },
     { "icon": "shield", "title": "Roles" }
+  ],
+  "tabs": [
+    { "icon": "table-list", "key": "overview", "label": "Overview" },
+    { "icon": "folder", "key": "files", "label": "Files" },
+    { "color": "blue", "icon": "cube", "key": "model", "label": "Model", "sep": true },
+    { "color": "amber", "icon": "code-branch", "key": "rules", "label": "Rules" },
+    { "color": "green", "icon": "barcode", "key": "results", "label": "Results" },
+    { "icon": "eye", "key": "preview", "label": "Preview", "sep": true },
+    { "icon": "badge-check", "key": "verify", "label": "Verify" },
+    { "icon": "cloud-arrow-up", "key": "commit", "label": "Commit" }
+  ],
+  "contextTabs": [
+    { "icon": "earth-americas", "key": "global", "label": "Global" },
+    { "icon": "tags", "key": "categorical", "label": "Categorical" }
   ]
 }

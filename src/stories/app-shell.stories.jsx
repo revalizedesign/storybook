@@ -3,6 +3,7 @@ import * as icons from 'lucide-react'
 import { Icon } from '@/components/Icon'
 import data from './sidebar.json'
 import { AppShell } from '@/components/AppShell'
+import { AutoCollapseSidebar } from '@/components/AutoCollapseSidebar'
 import { SidebarManagerProvider, SidebarManager, SidebarManagerTrigger } from '@/components/SidebarManager'
 import { Band } from '@/components/Band'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
@@ -35,16 +36,17 @@ export default {
 
 Full-width header above a shadcn Sidebar. Revalize branded theme by default. The production layout for all product screens — sidebar content is JSX composition using shadcn primitives directly.
 
-**How it works:** The full-width header uses Band with \`[transform:translateZ(0)]\` on the content row to create a containing block for the sidebar's fixed positioning. This keeps the sidebar below the header instead of spanning the full viewport height.
+**Making shadcn’s \`Sidebar\` compatible with \`Band\`:** \`Sidebar\` positions itself against the viewport, which breaks once it’s nested below a header instead of spanning full height. The full-width header uses \`Band\` with \`[transform:translateZ(0)]\` on the content row to create a containing block for that fixed positioning, keeping the sidebar scoped below the header.
 
-**Story components:** \`TeamSwitcher\`, \`NavMain\`, \`NavProjects\`, and \`NavUser\` were copied from the shadcn/Sidebar docs but not exported for use.`,
+**Avoid props to relay sidebar state:** No need for \`open\` or \`onOpenChange\` props since \`AppShell\` wraps \`SidebarProvider\`, which exposes \`open\`, \`setOpen\`, and \`toggleSidebar\` via \`useSidebar()\` to anything rendered inside it, including \`sidebar\` or \`children\` content. See the <a href="?path=/story/layout-app-shell--auto-collapse">Auto collapse</a> variant.
+
+**Story components:** \`TeamSwitcher\`, \`NavMain\`, \`NavProjects\`, and \`NavUser\` were copied from the shadcn/Sidebar docs but not exported for use since they were only intended for the story.`,
       },
     },
   },
 }
 
-const teams = data.teams.map(t => ({ ...t, logo: icons[t.icon] }))
-const { nav: navMain, projects, user } = data
+const { nav: navMain, projects, teams, user } = data
 
 const TeamSwitcher = () => {
   const { isMobile } = useSidebar()
@@ -57,20 +59,20 @@ const TeamSwitcher = () => {
             <SidebarMenuButton size="lg" className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground" />
           }>
             <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-              <active.logo className="size-4" />
+              <Icon name={active.icon} />
             </div>
-            <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="truncate font-medium">{active.name}</span>
-              <span className="truncate text-xs">{active.plan}</span>
+            <div className="grid flex-1 text-left leading-tight">
+              <span className="truncate font-semibold">{active.name}</span>
+              <span className="truncate text-sidebar-foreground/70">{active.plan}</span>
             </div>
             <icons.ChevronsUpDown className="ml-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="min-w-56 rounded-lg" align="start" side={isMobile ? 'bottom' : 'right'} sideOffset={4}>
             <DropdownMenuGroup>
-              <DropdownMenuLabel className="text-xs text-muted-foreground">Teams</DropdownMenuLabel>
+              <DropdownMenuLabel className="text-muted-foreground">Teams</DropdownMenuLabel>
               {teams.map((team, i) => (
                 <DropdownMenuItem key={team.name} onClick={() => setActive(team)} className="gap-2 p-2">
-                  <div className="flex size-6 items-center justify-center rounded-md border"><team.logo className="size-3.5" /></div>
+                  <div className="flex size-6 items-center justify-center rounded-md border"><Icon name={team.icon} className="size-3.5" /></div>
                   {team.name}
                   <DropdownMenuShortcut>⌘{i + 1}</DropdownMenuShortcut>
                 </DropdownMenuItem>
@@ -79,7 +81,7 @@ const TeamSwitcher = () => {
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 p-2">
               <div className="flex size-6 items-center justify-center rounded-md border"><icons.Plus className="size-4" /></div>
-              <span className="font-medium text-muted-foreground">Add team</span>
+              <span className="font-semibold text-muted-foreground">Add team</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -161,22 +163,22 @@ const NavUser = () => {
             <Avatar className="size-8 rounded-lg after:rounded-lg">
               <AvatarFallback className="rounded-lg">CN</AvatarFallback>
             </Avatar>
-            <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="truncate font-medium">{user.name}</span>
-              <span className="truncate text-xs">{user.email}</span>
+            <div className="grid flex-1 text-left leading-tight">
+              <span className="truncate font-semibold">{user.name}</span>
+              <span className="truncate text-sidebar-foreground/70">{user.email}</span>
             </div>
             <icons.ChevronsUpDown className="ml-auto size-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="min-w-56 rounded-lg" side={isMobile ? 'bottom' : 'right'} align="end" sideOffset={4}>
             <DropdownMenuGroup>
               <DropdownMenuLabel className="p-0 font-normal">
-                <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                <div className="flex items-center gap-2 px-1 py-1.5 text-left">
                   <Avatar className="size-8 rounded-lg after:rounded-lg">
                     <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                   </Avatar>
-                  <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-medium">{user.name}</span>
-                    <span className="truncate text-xs">{user.email}</span>
+                  <div className="grid flex-1 text-left leading-tight">
+                    <span className="truncate font-semibold">{user.name}</span>
+                    <span className="truncate text-muted-foreground">{user.email}</span>
                   </div>
                 </div>
               </DropdownMenuLabel>
@@ -258,8 +260,8 @@ export const NestedSidebarStory = {
             <Sidebar collapsible="offcanvas" side="left" className="h-full [&_[data-slot=sidebar-container]]:border-0">
               <SidebarHeader className="gap-3.5 border-b border-sidebar-border p-4">
                 <div className="flex w-full items-center justify-between">
-                  <div className="text-base font-medium">Inbox</div>
-                  <Label className="flex items-center gap-2 text-sm">
+                  <div className="font-semibold">Inbox</div>
+                  <Label className="flex items-center gap-2">
                     <span>Unreads</span>
                     <Switch className="shadow-none" />
                   </Label>
@@ -279,4 +281,42 @@ export const NestedSidebarStory = {
       </AppShell>
     </SidebarManagerProvider>
   ),
+}
+
+export const AutoCollapse = {
+  name: 'Auto collapse',
+  parameters: {
+    docs: {
+      description: {
+        story: `Picking a destination should get the sidebar out of the way — \`AutoCollapseSidebar\` wraps \`SidebarMenuButton\` and calls \`useSidebar().setOpen(false)\` on click, so \`AppShell\` never needs to expose sidebar state as a prop.
+
+Click a nav item — the sidebar collapses to the icon rail.`,
+      },
+    },
+  },
+  render: () => {
+    const [active, setActive] = useState(data.autoCollapseNav[0].title)
+    return (
+      <AppShell
+        header={<span className="font-semibold">App</span>}
+        sidebar={
+          <SidebarContent>
+            <SidebarGroup>
+              <SidebarMenu>
+                {data.autoCollapseNav.map(item => (
+                  <SidebarMenuItem key={item.title}>
+                    <AutoCollapseSidebar isActive={active === item.title} onClick={() => setActive(item.title)}>
+                      <Icon name={item.icon} />{item.title}
+                    </AutoCollapseSidebar>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroup>
+          </SidebarContent>
+        }
+      >
+        <div className="flex flex-1 items-center justify-center text-muted-foreground">{active}</div>
+      </AppShell>
+    )
+  },
 }

@@ -29,17 +29,17 @@ export function StoryGuide({ data }) {
           <div className="flex-1 overflow-auto">
             {active ? (
               <div className="flex flex-col gap-4 p-4">
-                <p className="text-sm">{active.detail}</p>
+                <p>{active.detail}</p>
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs font-medium text-muted-foreground">Key questions</span>
+                  <span className="font-semibold text-muted-foreground">Key questions</span>
                   {active.questions.map(q => (
-                    <p key={q} className="text-sm">{q}</p>
+                    <p key={q}>{q}</p>
                   ))}
                 </div>
                 {active.ideas?.length > 0 && (
                   <div className="flex flex-col gap-2">
-                    <span className="text-xs font-medium text-muted-foreground">Ideas</span>
-                    <ul className="list-disc pl-5 text-sm">
+                    <span className="font-semibold text-muted-foreground">Ideas</span>
+                    <ul className="list-disc pl-5">
                       {active.ideas.map(idea => (
                         <li key={idea}>{idea}</li>
                       ))}
@@ -50,14 +50,14 @@ export function StoryGuide({ data }) {
             ) : (
               data.map(group => (
                 <div key={group.group}>
-                  <div className="bg-muted/50 px-4 py-2 text-xs font-medium text-muted-foreground">{group.group}</div>
+                  <div className="bg-muted/50 px-4 py-2 font-semibold text-muted-foreground">{group.group}</div>
                   {group.items.map(item => (
                     <button
                       key={item.title}
                       className="flex w-full items-center gap-2 border-b px-4 py-3 text-left hover:bg-accent"
                       onClick={() => setActive(item)}
                     >
-                      <span className="flex-1 font-medium">{item.title}</span>
+                      <span className="flex-1 font-semibold">{item.title}</span>
                       <ChevronRight className="size-3 text-muted-foreground" />
                     </button>
                   ))}

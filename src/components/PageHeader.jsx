@@ -1,4 +1,5 @@
 import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { StatusDot } from '@/components/StatusDot'
 import { cn } from '@/lib/utils'
 
 const greetings = { de: 'Willkommen zurück', en: 'Welcome back', es: 'Bienvenido de nuevo', fr: 'Bon retour', nl: 'Welkom terug' }
@@ -9,12 +10,7 @@ export function PageHeader({ breadcrumbs = [], className, lang = 'en', lede, sta
       {(breadcrumbs.length || status) && (
         <div className="mb-2 flex items-center justify-between gap-4">
           {breadcrumbs.length && <Breadcrumbs items={breadcrumbs} />}
-          {status && (
-            <span className="flex shrink-0 items-center gap-1.5 text-muted-foreground">
-              <span className="size-1.5 rounded-full bg-current" />
-              {status}
-            </span>
-          )}
+          <StatusDot>{status}</StatusDot>
         </div>
       )}
       {title && <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>}

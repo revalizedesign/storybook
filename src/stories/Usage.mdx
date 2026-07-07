@@ -6,7 +6,19 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 ## AGENTS.md / CLAUDE.md
 
-`CLAUDE.md` at the project root defines rules for AI agents working in this repo. It is automatically loaded by Claude Code at the start of every session, ensuring consistent behavior across conversations. Any developer or agent contributing to this project should read it first.
+`CLAUDE.md` at the project root defines rules for AI agents working in this repo. Claude Code automatically loads it at the start of every session. Any developer or agent contributing to this project should read it first.
+
+**Highlights:**
+- `ui/*` primitives are shadcn-managed — never modify them; compose new behavior in `src/components/` and not in story files unless a component calls a hook requiring a specific ancestor and isn’t reused elsewhere
+- Use Context7 MCP for current shadcn docs before implementing any shadcn pattern
+- Copy shadcn reference code verbatim first, verify it works, then make one focused change at a time
+- Revalize theme swaps Lucide icons for Font Awesome equivalents
+- No inline styles (`style={{ }}`) — classes or plain strings only
+- Don’t override component sizing — components render at their native size
+- Data belongs in JSON files, not hardcoded in JSX
+- Sort object keys and CSS properties alphabetically
+- One AppShell — extend it, never fork a parallel shell or layout wrapper
+- Document component behavior and rationale in the story’s `docs.description`, not as code comments
 
 ## DESIGN.md
 
@@ -17,7 +29,7 @@ Coming soon.
 <div className="prompt-source">
 
   ```text
-  Always use Combobox for ephemeral search results and InputGroupInput type="search" to filter results already on the page.
+  Use Combobox for ephemeral search results and InputGroupInput type="search" to filter results already on the page.
   ```
 
 </div>

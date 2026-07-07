@@ -10,7 +10,7 @@ const brand =
 const brandDark =
   '[--sidebar:#064ab8] [--sidebar-foreground:#ffffffd9] [--sidebar-primary:#ffffff] [--sidebar-primary-foreground:#064ab8] [--sidebar-accent:#ffffff1f] [--sidebar-accent-foreground:#ffffff] [--sidebar-border:#ffffff12] [--sidebar-ring:#ffffff3d]'
 
-export function AppShell({ defaultOpen, header, sidebar, children }) {
+export function AppShell({ children, defaultOpen, header, sidebar }) {
   const nested = useContext(SidebarManagerContext) !== null
   return (
     <TooltipProvider>
