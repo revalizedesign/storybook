@@ -13,16 +13,15 @@ const TargetCell = ({ month }) => (
   <Badge className={cn(data.monthStyle[month] ?? data.monthStyle.September)}>{month}</Badge>
 )
 
-const rowFor = (title, group) => {
-  const d = data.groupDefaults[group] ?? {}
+const rowFor = (title) => {
   const m = data.meta[title] ?? {}
   return {
-    designer: m.designer ?? '—',
+    designer: m.designer ?? 'Unassigned',
     reviewer: m.reviewer ?? '—',
     target: m.target ?? 'September',
     difficulty: m.difficulty ?? '—',
-    hours: m.hours ?? d.hours ?? '0 hrs',
-    status: REDUNDANT.has(title) ? 'Redundant' : m.status ?? d.status ?? 'Unknown',
+    hours: m.hours ?? '0 hrs',
+    status: REDUNDANT.has(title) ? 'Redundant' : m.status ?? 'Unknown',
   }
 }
 
@@ -71,7 +70,7 @@ export function StatusTable() {
               )
             }
             for (const it of items) {
-              const r = rowFor(it.title, group)
+              const r = rowFor(it.title)
               rows.push(
                 <TableRow key={it.title}>
                   <TableCell className={section ? 'pl-10' : 'pl-6'}>{it.name}</TableCell>

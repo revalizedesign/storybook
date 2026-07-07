@@ -1,37 +1,72 @@
 {
   "Company": {
-    "approved": false,
-    "confident": true,
-    "sources": 1,
-    "questions": [
-      { "label": "Company name", "value": "Morgan Truck Body LLC" },
-      { "label": "What the business does", "value": "Manufactures truck bodies for commercial fleets" },
-      { "label": "Products and services", "value": "Dry freight, refrigerated, platform, dump, specialty bodies" },
-      { "label": "Voice and positioning", "value": "Industry leader, quality-focused, fleet solutions" },
-      { "label": "Key differentiators", "value": "Broadest product line, nationwide service network" }
-    ]
+    "initial": {
+      "approved": false,
+      "confident": false,
+      "sources": 0,
+      "questions": [
+        { "label": "Company name", "value": "" },
+        { "label": "What the business does", "value": "" },
+        { "label": "Products and services", "value": "" },
+        { "label": "Voice and positioning", "value": "" },
+        { "label": "Key differentiators", "value": "" }
+      ]
+    },
+    "found": {
+      "approved": false,
+      "confident": true,
+      "sources": 1,
+      "questions": [
+        { "label": "Company name", "value": "Morgan Truck Body LLC" },
+        { "label": "What the business does", "value": "Manufactures truck bodies for commercial fleets" },
+        { "label": "Products and services", "value": "Dry freight, refrigerated, platform, dump, specialty bodies" },
+        { "label": "Voice and positioning", "value": "Industry leader, quality-focused, fleet solutions" },
+        { "label": "Key differentiators", "value": "Broadest product line, nationwide service network" }
+      ]
+    }
   },
   "Industry": {
-    "approved": false,
-    "confident": true,
-    "sources": 1,
-    "questions": [
-      { "label": "Matched vertical", "value": "Motor Vehicles, Truck Bodies and Trailers" }
-    ],
-    "template": {
-      "heading": "Industry intelligence by Configure One",
-      "description": "We have a curated knowledge base of terminology, product patterns, rules, BOM patterns, pitfalls, and more for your industry to improve product modeling quality. Review this excerpt for relevance.",
-      "excerpt": "Vocational truck bodies (service, dump, utility, van, refrigerated), trailers (flatbed, tanker, dry van, refrigerated, lowboy, dump, specialty), van upfits (contractor, mobile service, ambulance, shuttle), and vehicle accessories (lift gates, toolboxes, cranes, hitches). Body and upfit configuration is chassis-dependent — the Ford, GM, Ram, Freightliner, and Kenworth chassis sets the physical and regulatory starting point.\n\nSold through vocational truck dealers and body distributors, typically as a multi-stage build: chassis sold by OEM dealer, body built by a separate manufacturer, upfit by a third stage. Fleet and single-unit sales are both common. End customer is rarely the same as the chassis buyer.\n\nChassis-dependent configure-to-order is the dominant pattern. The chassis is selected with defined wheelbase, cab-to-axle, GVWR, and other fixed specs; the body and upfit configuration must fit within those specs. Weight budgets (GVWR minus curb weight equals payload) are the primary physical constraint.\n\nKey terminology includes GVWR (Gross Vehicle Weight Rating), GAWR (Gross Axle Weight Rating), curb weight, payload, wheelbase, cab-to-axle, PTO (Power Take-Off), FMVSS (Federal Motor Vehicle Safety Standards), QVM (Qualified Vehicle Modifier), and BBLB (Body Builder Layout Book).\n\nOne Product per body type or upfit platform. The chassis is an Input, not a Product. Multi-stage builds use nested configurations. Driven Inputs handle chassis-to-body compatibility, Product Equations handle weight-budget calculations, and BOM Logic handles accessory content.\n\nCommon pitfalls include treating the chassis as a Product instead of an Input, treating GVWR as display-only instead of enforcing the payload budget, ignoring PTO as a chassis factory-option dependency, and not modeling the multi-stage certification chain for FMVSS compliance.",
-      "action": "Read more"
+    "initial": {
+      "approved": false,
+      "confident": false,
+      "sources": 0,
+      "questions": [
+        { "label": "Matched vertical", "value": "" }
+      ]
+    },
+    "found": {
+      "approved": false,
+      "confident": true,
+      "sources": 1,
+      "questions": [
+        { "label": "Matched vertical", "value": "Motor Vehicles, Truck Bodies and Trailers" }
+      ],
+      "template": {
+        "heading": "Industry intelligence by Configure One",
+        "description": "We have a curated knowledge base of terminology, product patterns, rules, BOM patterns, pitfalls, and more for your industry to improve product modeling quality. Review this excerpt for relevance.",
+        "excerpt": "Vocational truck bodies (service, dump, utility, van, refrigerated), trailers (flatbed, tanker, dry van, refrigerated, lowboy, dump, specialty), van upfits (contractor, mobile service, ambulance, shuttle), and vehicle accessories (lift gates, toolboxes, cranes, hitches). Body and upfit configuration is chassis-dependent — the Ford, GM, Ram, Freightliner, and Kenworth chassis sets the physical and regulatory starting point.\n\nSold through vocational truck dealers and body distributors, typically as a multi-stage build: chassis sold by OEM dealer, body built by a separate manufacturer, upfit by a third stage. Fleet and single-unit sales are both common. End customer is rarely the same as the chassis buyer.\n\nChassis-dependent configure-to-order is the dominant pattern. The chassis is selected with defined wheelbase, cab-to-axle, GVWR, and other fixed specs; the body and upfit configuration must fit within those specs. Weight budgets (GVWR minus curb weight equals payload) are the primary physical constraint.\n\nKey terminology includes GVWR (Gross Vehicle Weight Rating), GAWR (Gross Axle Weight Rating), curb weight, payload, wheelbase, cab-to-axle, PTO (Power Take-Off), FMVSS (Federal Motor Vehicle Safety Standards), QVM (Qualified Vehicle Modifier), and BBLB (Body Builder Layout Book).\n\nOne Product per body type or upfit platform. The chassis is an Input, not a Product. Multi-stage builds use nested configurations. Driven Inputs handle chassis-to-body compatibility, Product Equations handle weight-budget calculations, and BOM Logic handles accessory content.\n\nCommon pitfalls include treating the chassis as a Product instead of an Input, treating GVWR as display-only instead of enforcing the payload budget, ignoring PTO as a chassis factory-option dependency, and not modeling the multi-stage certification chain for FMVSS compliance.",
+        "action": "Read more"
+      }
     }
   },
   "Catalog": {
-    "approved": false,
-    "confident": false,
-    "sources": 1,
-    "questions": [
-      { "label": "Category list summary", "value": "Dry Freight, Refrigerated, Specialty, Platform & Dump" },
-      { "label": "Product list summary", "value": "" }
-    ]
+    "initial": {
+      "approved": false,
+      "confident": false,
+      "sources": 0,
+      "questions": [
+        { "label": "Category list summary", "value": "" },
+        { "label": "Product list summary", "value": "" }
+      ]
+    },
+    "found": {
+      "approved": false,
+      "confident": false,
+      "sources": 1,
+      "questions": [
+        { "label": "Category list summary", "value": "Dry Freight, Refrigerated, Specialty, Platform & Dump" },
+        { "label": "Product list summary", "value": "" }
+      ]
+    }
   }
 }

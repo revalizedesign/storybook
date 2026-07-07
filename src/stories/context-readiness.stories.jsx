@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { useState } from 'react'
 import { Check } from 'lucide-react'
-import { Stepper, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, StepperNav, StepperPanel, StepperContent } from '@/components/stepper'
+import { Stepper, StepperContent, StepperNav, StepperPanel } from '@/components/stepper'
 
 export default {
   title: 'Experiments/Context readiness',
@@ -39,23 +39,8 @@ export const Overview = {
   render: () => {
     const [current, setCurrent] = useState(stages[0].id)
     return (
-      <Stepper steps={stages} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} className="flex flex-col gap-6">
-        <StepperNav>
-          {stages.map((step, i) => (
-            <StepperItem key={step.id} stepId={step.id} className="relative flex-1">
-              <StepperTrigger className="flex flex-col gap-2.5">
-                <StepperIndicator className="data-[state=completed]:bg-green-600">{i + 1}</StepperIndicator>
-                <div className="flex flex-col">
-                  <StepperTitle>{step.title}</StepperTitle>
-                  <StepperDescription>{step.description}</StepperDescription>
-                </div>
-              </StepperTrigger>
-              {i < stages.length - 1 && (
-                <StepperSeparator className="absolute inset-x-0 top-2 right-[calc(-50%+18px)] left-[calc(50%+18px)]" />
-              )}
-            </StepperItem>
-          ))}
-        </StepperNav>
+      <Stepper steps={stages} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} indicatorClassName="data-[state=completed]:bg-green-600" className="flex flex-col gap-6">
+        <StepperNav />
         <StepperPanel>
           {stages.map(step => (
             <StepperContent key={step.id} value={step.id}>
