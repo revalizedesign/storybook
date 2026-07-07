@@ -42,8 +42,7 @@ Collapsible navigation rail with icon mode, keyboard shortcut (⌘B), and mobile
   },
 }
 
-const teams = data.teams.map(t => ({ ...t, logo: icons[t.icon] }))
-const { nav: navMain, projects, user } = data
+const { nav: navMain, projects, teams, user } = data
 
 const TeamSwitcher = () => {
   const { isMobile } = useSidebar()
@@ -56,20 +55,20 @@ const TeamSwitcher = () => {
             <SidebarMenuButton size="lg" className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground" />
           }>
             <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-              <active.logo className="size-4" />
+              <Icon name={active.icon} />
             </div>
-            <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="truncate font-medium">{active.name}</span>
-              <span className="truncate text-xs">{active.plan}</span>
+            <div className="grid flex-1 text-left leading-tight">
+              <span className="truncate font-semibold">{active.name}</span>
+              <span className="truncate text-sidebar-foreground/70">{active.plan}</span>
             </div>
             <icons.ChevronsUpDown className="ml-auto" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="min-w-56 rounded-lg" align="start" side={isMobile ? 'bottom' : 'right'} sideOffset={4}>
             <DropdownMenuGroup>
-              <DropdownMenuLabel className="text-xs text-muted-foreground">Teams</DropdownMenuLabel>
+              <DropdownMenuLabel className="text-muted-foreground">Teams</DropdownMenuLabel>
               {teams.map((team, i) => (
                 <DropdownMenuItem key={team.name} onClick={() => setActive(team)} className="gap-2 p-2">
-                  <div className="flex size-6 items-center justify-center rounded-md border"><team.logo className="size-3.5" /></div>
+                  <div className="flex size-6 items-center justify-center rounded-md border"><Icon name={team.icon} className="size-3.5" /></div>
                   {team.name}
                   <DropdownMenuShortcut>⌘{i + 1}</DropdownMenuShortcut>
                 </DropdownMenuItem>
@@ -78,7 +77,7 @@ const TeamSwitcher = () => {
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 p-2">
               <div className="flex size-6 items-center justify-center rounded-md border"><icons.Plus className="size-4" /></div>
-              <span className="font-medium text-muted-foreground">Add team</span>
+              <span className="font-semibold text-muted-foreground">Add team</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -160,22 +159,22 @@ const NavUser = () => {
             <Avatar className="size-8 rounded-lg">
               <AvatarFallback className="rounded-lg">CN</AvatarFallback>
             </Avatar>
-            <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="truncate font-medium">{user.name}</span>
-              <span className="truncate text-xs">{user.email}</span>
+            <div className="grid flex-1 text-left leading-tight">
+              <span className="truncate font-semibold">{user.name}</span>
+              <span className="truncate text-sidebar-foreground/70">{user.email}</span>
             </div>
             <icons.ChevronsUpDown className="ml-auto size-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="min-w-56 rounded-lg" side={isMobile ? 'bottom' : 'right'} align="end" sideOffset={4}>
             <DropdownMenuGroup>
               <DropdownMenuLabel className="p-0 font-normal">
-                <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                <div className="flex items-center gap-2 px-1 py-1.5 text-left">
                   <Avatar className="size-8 rounded-lg">
                     <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                   </Avatar>
-                  <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-medium">{user.name}</span>
-                    <span className="truncate text-xs">{user.email}</span>
+                  <div className="grid flex-1 text-left leading-tight">
+                    <span className="truncate font-semibold">{user.name}</span>
+                    <span className="truncate text-muted-foreground">{user.email}</span>
                   </div>
                 </div>
               </DropdownMenuLabel>

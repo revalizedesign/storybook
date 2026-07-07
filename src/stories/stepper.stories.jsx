@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Stepper, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, StepperNav, StepperPanel, StepperContent } from '@/components/stepper'
+import { Stepper, StepperContent, StepperDescription, StepperIndicator, StepperItem, StepperNav, StepperPanel, StepperSeparator, StepperTitle, StepperTrigger } from '@/components/stepper'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { Separator } from '@/components/ui/separator'
@@ -8,10 +8,22 @@ import { cn } from '@/lib/utils'
 import { ArrowLeft, ArrowRight, Check, CircleCheckBig, X } from 'lucide-react'
 import steps from './stepper.json'
 
+// Revalize theme marks completed steps green — filled bg for the default variant, border/text for outline.
+const completedClass = (theme, variant) => {
+  if (theme !== 'Revalize') return ''
+  return variant === 'outline'
+    ? 'data-[state=completed]:border-green-600 data-[state=completed]:text-green-600'
+    : 'data-[state=completed]:bg-green-600'
+}
+
 export default {
   title: 'Libraries/Stepper',
-  args: { theme: 'shadcn' },
-  argTypes: { theme: { control: 'select', options: ['shadcn', 'Revalize'] } },
+  args: { orientation: 'horizontal', theme: 'shadcn', variant: 'default' },
+  argTypes: {
+    orientation: { control: 'select', options: ['horizontal', 'vertical'] },
+    theme: { control: 'select', options: ['shadcn', 'Revalize'] },
+    variant: { control: 'select', options: ['default', 'outline'] },
+  },
   parameters: {
     docs: {
       description: {
@@ -28,6 +40,8 @@ We use \`@stepperize/react@7.0.0\` which has a different API from the shadcn stu
 
 The \`onValueChange\` effect was patched to prevent an infinite loop caused by \`stepper.current\` creating a new object reference each render in v7.
 
+**Shorthand:** \`<StepperNav />\` with no children renders the common case itself — steps mapped to items, triggers, indicators, title/description, and separators, orientation-aware automatically via \`data-orientation\` on the nav. Pass children only when a step needs custom composition. Use \`indicatorClassName\` on \`Stepper\` for a shared completed-state override (e.g. Revalize's green) instead of repeating it per \`StepperIndicator\`. See <a href="?path=/docs/originals-context-wizard--docs">Context wizard</a> and <a href="?path=/docs/experiments-context-readiness--docs">Context readiness</a> for real usage.
+
 **Jonathan:** Break complex configuration into steps with a progress indicator. Completed steps checkmarked, current highlighted, always Back + Continue, do not lose data on Back, allow save as draft.
 
 **Matt:** Foundational to the entire product family. Configure, price, quote. Every product uses multi-step workflows as the core interaction model.`,
@@ -37,50 +51,60 @@ The \`onValueChange\` effect was patched to prevent an infinite loop caused by \
 }
 
 export const Default = {
-  render: ({ theme }) => {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Horizontal orientation, shadcn theme, and not outline variant.',
+      },
+    },
+  },
+  render: ({ orientation, theme, variant }) => {
     const [current, setCurrent] = useState(steps[1].id)
+    const vertical = orientation === 'vertical'
     return (
-      <Stepper steps={steps} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} className="flex w-full items-center">
-        <StepperNav>
-          {steps.map((step, index) => (
-            <StepperItem key={step.id} stepId={step.id} className="relative flex-1">
-              <StepperTrigger className="flex flex-col gap-2.5">
-                <StepperIndicator className={theme === 'Revalize' ? 'data-[state=completed]:bg-green-600' : ''}>{index + 1}</StepperIndicator>
-                <div className="flex flex-col">
-                  <StepperTitle>{step.title}</StepperTitle>
-                  <StepperDescription>{step.description}</StepperDescription>
-                </div>
-              </StepperTrigger>
-              {index < steps.length - 1 && (
-                <StepperSeparator className="absolute inset-x-0 top-2 right-[calc(-50%+18px)] left-[calc(50%+18px)]" />
-              )}
-            </StepperItem>
-          ))}
-        </StepperNav>
+      <Stepper steps={steps} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} indicatorVariant={variant} indicatorClassName={completedClass(theme, variant)} orientation={orientation} className={vertical ? 'w-60' : 'flex w-full items-center'}>
+        <StepperNav />
       </Stepper>
     )
   },
 }
 
+export const Outline = {
+  args: { variant: 'outline' },
+  render: Default.render,
+}
+
 export const WithContent = {
   name: 'With content',
-  render: ({ theme }) => {
+  render: ({ orientation, theme, variant }) => {
     const [current, setCurrent] = useState(steps[1].id)
     const currentIndex = steps.findIndex(s => s.id === current)
     const goNext = () => setCurrent(steps[Math.min(currentIndex + 1, steps.length - 1)].id)
     const goBack = () => setCurrent(steps[Math.max(currentIndex - 1, 0)].id)
+    const vertical = orientation === 'vertical'
+    const actions = (
+      <div className="flex justify-between pt-4">
+        <Button variant="outline" onClick={goBack} disabled={currentIndex === 0}><ArrowLeft /> Back</Button>
+        <Button onClick={goNext} disabled={currentIndex === steps.length - 1}>Continue <ArrowRight /></Button>
+      </div>
+    )
     return (
-      <Stepper steps={steps} defaultValue={steps[1].id} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} className="flex flex-col gap-6">
-        <StepperNav>
+      <Stepper steps={steps} defaultValue={steps[1].id} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} indicatorVariant={variant} indicatorClassName={completedClass(theme, variant)} orientation={orientation} className={vertical ? 'flex gap-10' : 'flex flex-col gap-6'}>
+        <StepperNav className={vertical ? 'w-60' : ''}>
           {steps.map((step, index) => (
-            <StepperItem key={step.id} stepId={step.id} className="relative flex-1">
-              <StepperTrigger className="flex flex-col gap-2.5">
-                <StepperIndicator className={theme === 'Revalize' ? 'data-[state=completed]:bg-green-600' : ''}>{index + 1}</StepperIndicator>
-                <StepperTitle>{step.title}</StepperTitle>
+            <StepperItem key={step.id} stepId={step.id}>
+              <StepperTrigger>
+                <StepperIndicator>{index + 1}</StepperIndicator>
+                {vertical ? (
+                  <div className="text-left">
+                    <StepperTitle>{step.title}</StepperTitle>
+                    <StepperDescription>{step.description}</StepperDescription>
+                  </div>
+                ) : (
+                  <StepperTitle>{step.title}</StepperTitle>
+                )}
               </StepperTrigger>
-              {index < steps.length - 1 && (
-                <StepperSeparator className="absolute inset-x-0 top-2 right-[calc(-50%+18px)] left-[calc(50%+18px)]" />
-              )}
+              {index < steps.length - 1 && <StepperSeparator />}
             </StepperItem>
           ))}
         </StepperNav>
@@ -90,12 +114,10 @@ export const WithContent = {
               <div className="rounded-lg border border-dashed p-6 text-center text-muted-foreground">
                 {step.title} content
               </div>
+              {vertical && actions}
             </StepperContent>
           ))}
-          <div className="flex justify-between pt-4">
-            <Button variant="outline" onClick={goBack} disabled={currentIndex === 0}><ArrowLeft /> Back</Button>
-            <Button onClick={goNext} disabled={currentIndex === steps.length - 1}>Continue <ArrowRight /></Button>
-          </div>
+          {!vertical && actions}
         </StepperPanel>
       </Stepper>
     )
@@ -103,45 +125,8 @@ export const WithContent = {
 }
 
 export const Vertical = {
-  render: ({ theme }) => {
-    const [current, setCurrent] = useState(steps[1].id)
-    const currentIndex = steps.findIndex(s => s.id === current)
-    const goNext = () => setCurrent(steps[Math.min(currentIndex + 1, steps.length - 1)].id)
-    const goBack = () => setCurrent(steps[Math.max(currentIndex - 1, 0)].id)
-    return (
-      <Stepper steps={steps} defaultValue={steps[1].id} value={current} onValueChange={setCurrent} indicators={{ completed: <Check className="size-4" /> }} orientation="vertical" className="flex gap-10">
-        <StepperNav className="w-60">
-          {steps.map((step, index) => (
-            <StepperItem key={step.id} stepId={step.id} className="relative items-start">
-              <StepperTrigger className="items-start gap-2.5 pb-15 last:pb-0">
-                <StepperIndicator className={theme === 'Revalize' ? 'data-[state=completed]:bg-green-600' : ''}>{index + 1}</StepperIndicator>
-                <div className="text-left">
-                  <StepperTitle>{step.title}</StepperTitle>
-                  <StepperDescription>{step.description}</StepperDescription>
-                </div>
-              </StepperTrigger>
-              {index < steps.length - 1 && (
-                <StepperSeparator className="absolute inset-y-0 top-[calc(50%-22px)] left-2 group-data-[orientation=vertical]/stepper-nav:h-15" />
-              )}
-            </StepperItem>
-          ))}
-        </StepperNav>
-        <StepperPanel>
-          {steps.map(step => (
-            <StepperContent key={step.id} value={step.id}>
-              <div className="rounded-lg border border-dashed p-6 text-center text-muted-foreground">
-                {step.title} content
-              </div>
-              <div className="flex justify-between pt-4">
-                <Button variant="outline" onClick={goBack} disabled={currentIndex === 0}><ArrowLeft /> Back</Button>
-                <Button onClick={goNext} disabled={currentIndex === steps.length - 1}>Continue <ArrowRight /></Button>
-              </div>
-            </StepperContent>
-          ))}
-        </StepperPanel>
-      </Stepper>
-    )
-  },
+  args: { orientation: 'vertical' },
+  render: WithContent.render,
 }
 
 export const CandidateVariants = {

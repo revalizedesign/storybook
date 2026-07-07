@@ -28,3 +28,49 @@ Recreate our Figma Make and Claude Code prototypes for all active product delive
 Determine the subset of all possible variables inherited by shadcn from Tailwind that are valid for our design system. Until we have those rules codified in DESIGN.md, the likelihood of drift remains guaranteed high frequency and thus low compliance with utilizing the design system.
 
 Counterintuitively, this minimum viable subset cannot be evaluated and defined until we have at least 5 dense screens and several complete workflows for every product using the design system — which is why it happens at the end.
+
+## Q2 2026
+
+- ~~shadcn → all relevant primitive variants copied~~
+- Libraries → TanStack Table + Glide Data Grid (Data table), Stepperize (Stepper), dnd-kit-sortable-tree (Tree view)
+- Products → Attainia, AutoQuotes, Configure One, Intelliquip, LAI, PRO.FILE, PUMP-FLO, SpecPage app shells; Configure One/AI admin
+
+## Q3 2026
+
+- shadcn → all relevant primitive variants copied
+
+### July 2026
+
+- Products → Attainia AI admin
+
+#### July 9
+
+- shadcn → Tooltip
+- Originals → TabBar with chip variant for Configure One/AI admin
+- Storybook upgraded to `10.4.6`
+
+## Q4 2026
+
+- Foundations
+
+## Hard problems
+
+### `ui/*` as a boundary vs. where variants belong
+
+We treat vendored `ui/*` as read-only so it stays re-generatable from shadcn. "Variant" means two different things, with two different homes: a pure visual skin (chip pills alongside `default`/`line`) belongs in the primitive’s own variant enum — inside `ui/*` — while a composed preset (data-driven, extra behavior, layout) belongs in a wrapper component. A "never touch `ui/*`" rule pushes skins into wrappers; an "edit freely" rule diverges from upstream and loses re-generation.
+
+### Font Awesome vs. Lucide
+
+Two icon systems coexist deliberately: Lucide is what shadcn expects natively; Font Awesome lets patterns ported from c1c-admin reuse their icon names verbatim. Both resolve from a plain string — `Icon` looks up a Lucide export by name, `Fa` builds a `<i class="fa-...">` tag — so icon data serializes to JSON either way; nothing about Lucide forces it into JS. The real constraint is narrower: a component that renders through one resolver (TabBar → `Fa`) can’t accept data meant for the other, since each resolver only knows its own icon set. Holding a raw component reference instead of a string — bypassing the resolver — is the actual anti-pattern; that’s the one case that can’t serialize.
+
+### Storybook doc styles vs. Tailwind reset vs. shadcn theme
+
+Storybook styles its doc blocks, Tailwind’s preflight reset strips base element styling out from under them, and the shadcn theme layers its own tokens on top — all onto one surface, none deferring to the others, so docs render inconsistently. A conventional markdown stylesheet (a GitHub standard) would add a fourth layer, but is preferred.
+
+### Per-component FAQs
+
+Recurring questions — "when do I use X vs. Y," "why not underline tabs," "is this redundant" — have no home. Possible formats: description prose, a dedicated story, structured Q&A data, or a shared block.
+
+### English labels leaking into logic
+
+Control flow keeps getting written against display copy instead of a stable identifier — a `Select`'s `value` doubling as its rendered label, a step keyed by its title, a branch checking `=== 'New category'`. It works until the copy changes (rewording, localization) or collides with real data, and by then the coupling is invisible until it silently breaks. Ideal state: every piece of data-driven UI carries `{ id, label }` (or `{ key, label }`) pairs from JSON — logic branches on `id`/`key`, only ever rendering `label`, everywhere, not case-by-case.

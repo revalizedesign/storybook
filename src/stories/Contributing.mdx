@@ -11,6 +11,16 @@ See <a href="?path=/docs/introduction--docs">Introduction</a> for what each nav 
 1. **Pull main** — Ensure you have the latest commits from main branch in GitHub Desktop.
 2. **Initial sync** — Copy variants we need from shadcn with any relevant names, descriptions, states, or examples.
 3. **Utility variants** — Use `Examples` for feature and stress tests beyond variant examples with a single story-level .json file, use `Candidates` for proposals, and use `Deprecated` for past iterations we decide to abandon.
-4. **Controls** — Add `argTypes` to expose the component's props so the variant surface is explorable in the autodocs controls table.
+4. **Controls** — Add `argTypes` to expose the component’s props so the variant surface is explorable in the autodocs controls table.
 5. **Accessibility** — Pass the a11y addon check. Let the check enforce the rules, not prose.
 6. **Component files** — Avoid changes to `src/components/ui/` that will be overwritten by `shadcn add`.
+
+## Design system principles
+
+As few options and permutations as possible — every option we don't offer increases adherence, strictness, and auditability.
+
+1. **Controls over stories** — Enum props (`variant`, `size`, `side`) belong in `argTypes` on Default. A story earns its place only when the markup changes (composition, icon, loading state), never when only a prop value changes.
+2. **No RTL stories** — RTL is a single system-level decision, not a per-component variant. Skip every RTL example in the shadcn docs.
+3. **Native size only** — Skip every "Size" example. Components render at their native size; we do not override sizing.
+4. **No cosmetic escape hatches** — Skip custom colors, custom separators, styling overrides, and rounded variants. List each skipped option as an **Unsupported variant** in the component description so the omission is deliberate and auditable.
+5. **Fold states into compositions** — A destructive item renders inside the Default menu story, not as its own story. A state earns its own story only when it carries usage guidance (see Field → Invalid).

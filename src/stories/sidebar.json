@@ -10,6 +10,11 @@
     { "icon": "BookOpen", "items": ["Introduction", "Get Started", "Tutorials", "Changelog"], "title": "Documentation" },
     { "icon": "Settings2", "items": ["General", "Team", "Billing", "Limits"], "title": "Settings" }
   ],
+  "autoCollapseNav": [
+    { "icon": "Home", "title": "Home" },
+    { "icon": "Box", "title": "Products" },
+    { "icon": "Sliders", "title": "Settings" }
+  ],
   "nestedNav": [
     { "icon": "Inbox", "isActive": true, "title": "Inbox" },
     { "icon": "File", "title": "Drafts" },

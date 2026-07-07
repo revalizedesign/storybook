@@ -1,4 +1,5 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
+import { TabBar } from '@/components/TabBar'
 import { List, LayoutGrid, TrendingUp } from 'lucide-react'
 
 export default {
@@ -63,5 +64,29 @@ export const Line = {
       <TabsContent value="activity">Activity content.</TabsContent>
       <TabsContent value="settings">Settings content.</TabsContent>
     </Tabs>
+  ),
+}
+
+// Chip — pill triggers as panel-level workspace nav. Not a ui/* variant: the Revalize treatment
+// lives in the TabBar component (composing the Tabs primitive), same as Breadcrumbs → Breadcrumb.
+// Data-driven: `sep` inserts a group divider, `color` accents the active icon.
+const chipTabs = [
+  { icon: 'table-list', key: 'overview', label: 'Overview' },
+  { icon: 'folder', key: 'files', label: 'Files' },
+  { color: 'data-active:[&_i]:text-blue-500', icon: 'cube', key: 'model', label: 'Model', sep: true },
+  { color: 'data-active:[&_i]:text-amber-500', icon: 'code-branch', key: 'rules', label: 'Rules' },
+  { color: 'data-active:[&_i]:text-green-500', icon: 'barcode', key: 'results', label: 'Results' },
+  { icon: 'eye', key: 'preview', label: 'Preview', sep: true },
+  { icon: 'badge-check', key: 'verify', label: 'Verify' },
+  { icon: 'cloud-arrow-up', key: 'commit', label: 'Commit' },
+]
+
+export const Chip = {
+  render: () => (
+    <TabBar tabs={chipTabs} defaultValue="model">
+      {chipTabs.map(({ key, label }) => (
+        <TabsContent key={key} value={key}>{label} workspace.</TabsContent>
+      ))}
+    </TabBar>
   ),
 }

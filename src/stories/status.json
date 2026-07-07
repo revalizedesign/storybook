@@ -66,15 +66,15 @@
     "Other frameworks/Sidebar manager",
     "Originals/Agent status",
     "Originals/Autosave",
+    "Originals/Banner card",
     "Originals/Chat card",
     "Originals/Chat input",
     "Originals/Chat message",
     "Originals/Chat pane",
-    "Originals/Page header",
-    "Originals/Tab bar",
-    "Originals/Vertical pane",
     "Originals/Context wizard",
     "Originals/Flow header",
+    "Originals/Page header",
+    "Originals/Vertical pane",
     "Libraries/Data table",
     "Libraries/Stepper",
     "Libraries/Tree view",
@@ -87,11 +87,14 @@
     "Layout/Slot shell",
     "Multi-component UX/Search",
     "Multi-component UX/Tagging",
+    "Generic/Unauthenticated",
+    "Generic/AI app",
+    "Generic/Canvas app",
     "Products/Attainia/App shell",
     "Products/AutoQuotes/App shell",
-    "Products/ConfigureOne/App shell",
-    "Products/ConfigureOne/Admin",
-    "Products/ConfigureOne/AI admin",
+    "Products/Configure One/App shell",
+    "Products/Configure One/Admin",
+    "Products/Configure One/AI admin",
     "Products/Intelliquip/App shell",
     "Products/LAI/App shell",
     "Products/LAI/Canvas shell",
@@ -109,75 +112,44 @@
     "Libraries",
     "Layout",
     "Multi-component UX",
+    "Generic",
     "Products"
   ],
-  "groupDefaults": {
-    "Foundations": {
-      "hours": "0 hrs",
-      "status": "Placeholder"
-    },
-    "shadcn": {
-      "hours": "0 hrs",
-      "status": "Unknown"
-    },
-    "Other frameworks": {
-      "hours": "0 hrs",
-      "status": "Unknown"
-    },
-    "Originals": {
-      "hours": "< 5 hrs",
-      "status": "In progress"
-    },
-    "Libraries": {
-      "hours": "< 5 hrs",
-      "status": "In progress"
-    },
-    "Layout": {
-      "hours": "0 hrs",
-      "status": "Placeholder"
-    },
-    "Multi-component UX": {
-      "hours": "< 5 hrs",
-      "status": "In progress"
-    },
-    "Products": {
-      "hours": "0 hrs",
-      "status": "Unknown"
-    }
-  },
   "meta": {
     "Originals/Autosave": {
       "designer": "Jonathan",
       "target": "July"
     },
     "Originals/Chat card": {
-      "hours": "5–20 hrs",
-      "designer": "Matt"
+      "designer": "Matt",
+      "hours": "5–20 hrs"
     },
     "Originals/Chat pane": {
-      "hours": "20–40 hrs",
-      "designer": "Matt"
+      "designer": "Matt",
+      "hours": "40–80 hrs",
+      "status": "Ready"
     },
     "Libraries/Data table": {
-      "status": "In progress",
-      "designer": "Matt"
+      "designer": "Matt",
+      "status": "In progress"
     },
     "Libraries/Stepper": {
       "designer": "Matt",
-      "status": "In progress",
+      "hours": "20–40 hrs",
+      "status": "Ready",
       "target": "June"
     },
     "Libraries/Tree view": {
-      "status": "In progress",
-      "designer": "Matt"
+      "designer": "Matt",
+      "status": "In progress"
     },
     "Layout/Dashboard": {
       "designer": "Jonathan",
       "target": "July"
     },
     "Layout/App": {
-      "target": "May",
-      "designer": "Matt"
+      "designer": "Matt",
+      "target": "May"
     },
     "Layout/Detail drawer": {
       "designer": "Jonathan",
@@ -190,18 +162,25 @@
     },
     "Multi-component UX/Tagging": {
       "designer": "Jonathan",
+      "status": "Redundant",
       "target": "July"
     },
     "shadcn/Accordion": {
       "designer": "Jonathan",
+      "next": "Multiple",
+      "status": "Missing variants",
       "target": "August"
     },
     "shadcn/Alert": {
       "designer": "Jonathan",
+      "next": "Variant control, Action",
+      "status": "Missing variants",
       "target": "June"
     },
     "shadcn/Alert Dialog": {
       "designer": "Jonathan",
+      "next": "Destructive",
+      "status": "Missing variants",
       "target": "June"
     },
     "shadcn/Badge": {
@@ -210,6 +189,8 @@
     },
     "shadcn/Breadcrumb": {
       "designer": "Jonathan",
+      "hours": "20–40 hrs",
+      "status": "Ready",
       "target": "June"
     },
     "shadcn/Card": {
@@ -230,36 +211,47 @@
     },
     "shadcn/Sonner": {
       "designer": "Jonathan",
+      "next": "Success, Warning, Error, Promise",
+      "status": "Missing variants",
       "target": "July"
     },
     "shadcn/Tabs": {
-      "designer": "Jonathan",
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "Ready",
       "target": "July"
     },
     "Originals/Agent status": {
-      "designer": "Matt"
+      "designer": "Matt",
+      "status": "Ready"
     },
     "Originals/Chat input": {
-      "designer": "Matt"
+      "designer": "Matt",
+      "status": "Ready"
     },
     "Originals/Chat message": {
-      "designer": "Matt"
+      "designer": "Matt",
+      "status": "Ready"
     },
     "Originals/Page header": {
-      "designer": "Matt"
-    },
-    "Originals/Tab bar": {
-      "designer": "Matt"
+      "designer": "Jonathan",
+      "hours": "5–20 hrs",
+      "status": "In progress"
     },
     "Originals/Vertical pane": {
-      "designer": "Matt"
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "Ready"
     },
     "Originals/Context wizard": {
       "designer": "Matt",
-      "hours": "5–20 hrs"
+      "hours": "20–40 hrs",
+      "status": "Ready"
     },
     "Originals/Flow header": {
-      "designer": "Matt"
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "Ready"
     },
     "Layout/Band": {
       "designer": "Matt"
@@ -269,7 +261,8 @@
     },
     "Layout/App shell": {
       "designer": "Matt",
-      "hours": "80+ hrs"
+      "hours": "80+ hrs",
+      "status": "In progress"
     },
     "Layout/Slot shell": {
       "designer": "Matt"
@@ -278,16 +271,24 @@
       "designer": "Shadab"
     },
     "shadcn/Avatar": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Group, Group count",
+      "status": "Missing variants"
     },
     "shadcn/Button": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Variant control, Icon, With icon, Loading",
+      "status": "Missing variants"
     },
     "shadcn/Button Group": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Split, Input",
+      "status": "Missing variants"
     },
     "shadcn/Calendar": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Range",
+      "status": "Missing variants"
     },
     "shadcn/Carousel": {
       "designer": "Shadab"
@@ -296,7 +297,9 @@
       "designer": "Shadab"
     },
     "shadcn/Checkbox": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Description, Group, Invalid",
+      "status": "Missing variants"
     },
     "shadcn/Collapsible": {
       "designer": "Shadab"
@@ -305,10 +308,14 @@
       "designer": "Shadab"
     },
     "shadcn/Command": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Groups, Shortcuts",
+      "status": "Missing variants"
     },
     "shadcn/Context Menu": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Submenu, Shortcuts, Checkbox items, Radio items",
+      "status": "Missing variants"
     },
     "shadcn/Dialog": {
       "designer": "Shadab"
@@ -320,7 +327,9 @@
       "designer": "Shadab"
     },
     "shadcn/Dropdown Menu": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Submenu, Shortcuts, Checkbox items, Radio items, Destructive item",
+      "status": "Missing variants"
     },
     "shadcn/Field": {
       "designer": "Shadab"
@@ -332,16 +341,22 @@
       "designer": "Shadab"
     },
     "shadcn/Input Group": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Icon, Button, Kbd",
+      "status": "Missing variants"
     },
     "shadcn/Input Otp": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Separator",
+      "status": "Missing variants"
     },
     "shadcn/Item": {
       "designer": "Shadab"
     },
     "shadcn/Kbd": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Group",
+      "status": "Missing variants"
     },
     "shadcn/Label": {
       "designer": "Shadab"
@@ -350,58 +365,88 @@
       "designer": "Shadab"
     },
     "shadcn/Native Select": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Groups, Disabled, Invalid",
+      "status": "Missing variants"
     },
     "shadcn/Navigation Menu": {
       "designer": "Shadab"
     },
     "shadcn/Popover": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "With form",
+      "status": "Missing variants"
     },
     "shadcn/Progress": {
       "designer": "Shadab"
     },
     "shadcn/Radio Group": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Description, Invalid",
+      "status": "Missing variants"
     },
     "shadcn/Resizable": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Vertical, Handle",
+      "status": "Missing variants"
     },
     "shadcn/Scroll Area": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Horizontal",
+      "status": "Missing variants"
     },
     "shadcn/Select": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Groups, Invalid, Disabled",
+      "status": "Missing variants"
     },
     "shadcn/Separator": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Vertical",
+      "status": "Missing variants"
     },
     "shadcn/Sheet": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Side control",
+      "status": "Missing variants"
     },
     "shadcn/Sidebar": {
-      "designer": "Shadab"
+      "designer": "Matt",
+      "hours": "20–40 hrs",
+      "status": "Ready"
     },
     "shadcn/Slider": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Range",
+      "status": "Missing variants"
     },
     "shadcn/Spinner": {
       "designer": "Shadab"
     },
     "shadcn/Switch": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Description, Invalid",
+      "status": "Missing variants"
     },
     "shadcn/Table": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Footer",
+      "status": "Missing variants"
     },
     "shadcn/Textarea": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Invalid, Disabled",
+      "status": "Missing variants"
     },
     "shadcn/Toggle": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Variant control, With text",
+      "status": "Missing variants"
     },
     "shadcn/Toggle Group": {
-      "designer": "Shadab"
+      "designer": "Shadab",
+      "next": "Variant control, Multiple",
+      "status": "Missing variants"
     },
     "shadcn/Tooltip": {
       "designer": "Shadab"
@@ -425,14 +470,20 @@
     "Products/AutoQuotes/App shell": {
       "target": "July"
     },
-    "Products/ConfigureOne/App shell": {
-      "hours": "80+ hrs"
+    "Products/Configure One/App shell": {
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "Ready"
     },
-    "Products/ConfigureOne/Admin": {
-      "hours": "80+ hrs"
+    "Products/Configure One/Admin": {
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "In progress"
     },
-    "Products/ConfigureOne/AI admin": {
+    "Products/Configure One/AI admin": {
+      "designer": "Matt",
       "hours": "80+ hrs",
+      "status": "In progress",
       "target": "June"
     },
     "Products/LAI/App shell": {
@@ -446,23 +497,28 @@
       "hours": "20–40 hrs",
       "status": "Inactive",
       "target": "February"
+    },
+    "Originals/Banner card": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "In progress"
+    },
+    "Generic/Unauthenticated": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "In progress"
+    },
+    "Generic/AI app": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "In progress"
+    },
+    "Generic/Canvas app": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "In progress"
     }
   },
-  "redundant": [
-    "Multi-component UX/Tagging",
-    "shadcn/Badge",
-    "Originals/Tab bar",
-    "shadcn/Tabs",
-    "shadcn/Native Select",
-    "shadcn/Select",
-    "shadcn/Combobox",
-    "Other frameworks/Checkbox cards",
-    "shadcn/Checkbox",
-    "Other frameworks/Radio cards",
-    "shadcn/Radio Group",
-    "shadcn/Sidebar",
-    "shadcn/Table"
-  ],
   "hours": {
     "0 hrs": "bg-gray-100 text-gray-600",
     "1 shot": "bg-blue-100 text-blue-800",
@@ -485,6 +541,8 @@
   "statusVariant": {
     "Unknown": "ghost",
     "Redundant": "destructive",
-    "In progress": "secondary"
+    "In progress": "secondary",
+    "Ready": "default",
+    "Missing variants": "outline"
   }
 }

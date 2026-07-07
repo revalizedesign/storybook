@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import { AgentStatus } from '@/components/AgentStatus'
 import { FlowHeader } from '@/components/FlowHeader'
 import { CompareLayout } from '@/components/CompareLayout'
+import { NewProductDialog } from '@/components/NewProductDialog'
 import { Check, Play, Upload } from 'lucide-react'
-import { Stepper, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, StepperNav } from '@/components/stepper'
+import { Stepper, StepperNav } from '@/components/stepper'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -99,25 +100,8 @@ const StepContent = ({ step }) => {
       return (
         <div className="flex flex-col gap-4 rounded-lg border p-4">
           {step.stepperHeading && <h3 className="text-center font-semibold">{step.stepperHeading}</h3>}
-          <Stepper steps={step.steps} value={step.activeStep} indicators={{ completed: <Check className="size-4" /> }} className="mt-4 flex w-full items-center">
-            <StepperNav>
-              {step.steps.map((s, i) => (
-                <StepperItem key={s.id} stepId={s.id} className="relative flex-1">
-                  <StepperTrigger className="flex flex-col gap-2.5">
-                    <StepperIndicator className="data-[state=completed]:bg-green-600">
-                      {i + 1}
-                    </StepperIndicator>
-                    <div className="flex flex-col">
-                      <StepperTitle>{s.title}</StepperTitle>
-                      <StepperDescription>{s.description}</StepperDescription>
-                    </div>
-                  </StepperTrigger>
-                  {i < step.steps.length - 1 && (
-                    <StepperSeparator className="absolute inset-x-0 top-2 right-[calc(-50%+18px)] left-[calc(50%+18px)]" />
-                  )}
-                </StepperItem>
-              ))}
-            </StepperNav>
+          <Stepper steps={step.steps} value={step.activeStep} indicators={{ completed: <Check className="size-4" /> }} indicatorClassName="data-[state=completed]:bg-green-600" className="mt-4 flex w-full items-center">
+            <StepperNav />
           </Stepper>
         </div>
       )
@@ -175,11 +159,12 @@ const RiskNotice = ({ step }) => {
   return <div className="rounded-md bg-amber-50 px-3 py-2 text-amber-900 dark:bg-amber-950 dark:text-amber-200">Incomplete or unverified context may reduce product modeling quality.</div>
 }
 
-export function ContextWizard({ format, open, steps, onClose }) {
+export function ContextWizard({ format, onClose, onStepComplete, open, steps }) {
   const [current, setCurrent] = useState(0)
   const [editing, setEditing] = useState(false)
   const [flowState, setFlowState] = useState(null)
   const [working, setWorking] = useState(false)
+  const [newProductOpen, setNewProductOpen] = useState(false)
   const step = steps[current]
   const isLast = current === steps.length - 1
   const isFlow = step.type === 'flow'
@@ -194,15 +179,25 @@ export function ContextWizard({ format, open, steps, onClose }) {
     if (isFlow) {
       if (activeState?.next === 'advance') {
         setWorking(true)
-        setTimeout(() => { setWorking(false); setCurrent(c => c + 1) }, 1500)
+        setTimeout(() => { setWorking(false); onStepComplete?.(step); setCurrent(c => c + 1) }, 1500)
       }
       else if (activeState?.next) setFlowState(activeState.next)
     } else if (isLast) {
-      if (step.alert) alert(step.alert)
-      onClose?.()
+      if (step.newProduct) setNewProductOpen(true)
+      else {
+        if (step.alert) alert(step.alert)
+        onClose?.()
+      }
     } else {
+      onStepComplete?.(step)
       setCurrent(c => c + 1)
     }
+  }
+
+  const handleCreateProduct = () => {
+    setNewProductOpen(false)
+    if (step.alert) alert(step.alert)
+    onClose?.()
   }
 
   const handleBack = () => {
@@ -251,9 +246,14 @@ export function ContextWizard({ format, open, steps, onClose }) {
   )
 
   return (
-    <CompareLayout format={format} open={open} onClose={onClose} header={<FlowHeader {...headerProps} />} footer={<>{footer}</>}>
-      {content}
-      <RiskNotice step={enrichedStep} />
-    </CompareLayout>
+    <>
+      <CompareLayout format={format} open={open} onClose={onClose} header={<FlowHeader {...headerProps} />} footer={<>{footer}</>}>
+        {content}
+        <RiskNotice step={enrichedStep} />
+      </CompareLayout>
+      {step.newProduct && (
+        <NewProductDialog open={newProductOpen} onOpenChange={setNewProductOpen} categories={step.newProduct.categories} onSubmit={handleCreateProduct} />
+      )}
+    </>
   )
 }
