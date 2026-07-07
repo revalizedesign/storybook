@@ -1,14 +1,25 @@
 import { useState, useEffect } from 'react'
 import { AgentStatus } from '@/components/AgentStatus'
+import { FlowHeader } from '@/components/FlowHeader'
+import { CompareLayout } from '@/components/CompareLayout'
 import { Check, Play, Upload } from 'lucide-react'
 import { Stepper, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, StepperNav } from '@/components/stepper'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle } from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+
+const SkipButton = ({ skip }) => skip && (
+  <button className="self-start text-muted-foreground underline" onClick={skip.onClick}>{skip.label}</button>
+)
+
+const UploadZone = () => (
+  <div className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed p-8 text-muted-foreground">
+    <Upload className="size-6" />
+    <span className="text-muted-foreground">Drop files here or click to browse</span>
+  </div>
+)
 
 const StepContent = ({ step }) => {
   switch (step.type) {
@@ -25,7 +36,7 @@ const StepContent = ({ step }) => {
       if (!ctx) return null
       const filled = ctx.questions.filter(q => q.value).length
       return (
-        <div className="flex flex-col gap-4 overflow-auto">
+        <div className="flex flex-col gap-4">
           <h3 className="font-semibold">{filled} answer{filled !== 1 ? 's' : ''} from {ctx.sources} source{ctx.sources !== 1 ? 's' : ''}</h3>
           <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2">
             {ctx.questions.map(q => (
@@ -75,12 +86,7 @@ const StepContent = ({ step }) => {
         </>
       )
     case 'upload':
-      return (
-        <div className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed p-8 text-muted-foreground">
-          <Upload className="size-6" />
-          <span className="text-muted-foreground">Drop files here or click to browse</span>
-        </div>
-      )
+      return <UploadZone />
     case 'flow':
       return null
     case 'placeholder':
@@ -113,7 +119,7 @@ const StepContent = ({ step }) => {
               ))}
             </StepperNav>
           </Stepper>
-          </div>
+        </div>
       )
     case 'options':
       return (
@@ -132,23 +138,21 @@ const StepContent = ({ step }) => {
 }
 
 const FlowRender = ({ state }) => {
+  const skip = state.skip ? { ...state.skip, onClick: state.skip.onClick } : null
   switch (state.render) {
     case 'input':
       return (
         <>
           {state.label && <Label>{state.label}</Label>}
           <Input placeholder={state.placeholder ?? 'Type here...'} />
-          {state.skip && <button className="self-start text-muted-foreground underline" onClick={state.skip.onClick}>{state.skip.label}</button>}
+          <SkipButton skip={skip} />
         </>
       )
     case 'upload':
       return (
         <>
-          <div className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed p-8 text-muted-foreground">
-            <Upload className="size-6" />
-            <span className="text-muted-foreground">Drop files here or click to browse</span>
-          </div>
-          {state.skip && <button className="self-start text-muted-foreground underline" onClick={state.skip.onClick}>{state.skip.label}</button>}
+          <UploadZone />
+          <SkipButton skip={skip} />
         </>
       )
     case 'textarea':
@@ -156,7 +160,7 @@ const FlowRender = ({ state }) => {
         <>
           {state.label && <Label>{state.label}</Label>}
           <Textarea className="min-h-0 flex-1 resize-none" />
-          {state.skip && <button className="self-start text-muted-foreground underline" onClick={state.skip.onClick}>{state.skip.label}</button>}
+          <SkipButton skip={skip} />
         </>
       )
     default:
@@ -171,41 +175,7 @@ const RiskNotice = ({ step }) => {
   return <div className="rounded-md bg-amber-50 px-3 py-2 text-amber-900 dark:bg-amber-950 dark:text-amber-200">Incomplete or unverified context may reduce product modeling quality.</div>
 }
 
-const Footer = ({ step, editing, setEditing, working, activeState, current, setCurrent, isFlow, flowState, setFlowState, handleNext, isLast }) => {
-  const actions = step.type === 'review' ? (
-    editing ? (
-      <>
-        <Button variant="outline" onClick={() => setEditing(false)}>Back</Button>
-        <Button onClick={() => setEditing(false)}>Continue</Button>
-      </>
-    ) : (
-      <>
-        <Button variant="outline" onClick={() => setEditing(true)}>Edit</Button>
-        <Button onClick={() => { setEditing(false); handleNext() }}>Approve</Button>
-      </>
-    )
-  ) : (
-    <>
-      {current > 0 && <Button variant="outline" onClick={() => {
-        if (isFlow && flowState !== step.initial) setFlowState(step.initial)
-        else setCurrent(c => c - 1)
-      }}>Back</Button>}
-      <Button onClick={handleNext} disabled={working}>
-        {step.action ?? (isLast ? 'Done' : 'Next')}
-      </Button>
-    </>
-  )
-  return (
-    <div className="flex items-center justify-end gap-2">
-      {working && <div className="mr-auto"><AgentStatus status={activeState?.status ?? 'Working...'} working /></div>}
-      {actions}
-    </div>
-  )
-}
-
-export function ContextWizard({ format, open: controlledOpen, steps, onClose }) {
-  const [internalOpen, setInternalOpen] = useState(true)
-  const open = controlledOpen ?? internalOpen
+export function ContextWizard({ format, open, steps, onClose }) {
   const [current, setCurrent] = useState(0)
   const [editing, setEditing] = useState(false)
   const [flowState, setFlowState] = useState(null)
@@ -235,85 +205,55 @@ export function ContextWizard({ format, open: controlledOpen, steps, onClose }) 
     }
   }
 
-  const handleSkip = () => {
-    if (activeState?.skip) setFlowState(activeState.skip.to)
+  const handleBack = () => {
+    if (isFlow && flowState !== step.initial) setFlowState(step.initial)
+    else setCurrent(c => c - 1)
   }
 
   const description = isFlow ? activeState?.description : step.description
   const enrichedStep = { ...step, _editing: editing }
-  const footerProps = { step: enrichedStep, editing, setEditing, working, activeState, current, setCurrent, isFlow, flowState, setFlowState, handleNext, isLast }
+  const flowSkip = activeState?.skip ? { ...activeState.skip, onClick: () => setFlowState(activeState.skip.to) } : null
 
-  const stepIndicator = <div className="text-xs text-muted-foreground">Step {current + 1} of {steps.length}</div>
+  const headerProps = { heading: step.title, lede: description, step: current + 1, steps: steps.length }
+
   const content = (
-    <div className="flex min-h-0 flex-1 flex-col gap-4">
-      {isFlow ? (
-        <FlowRender state={{ ...activeState, skip: activeState?.skip ? { ...activeState.skip, onClick: handleSkip } : null }} />
-      ) : (
-        <StepContent step={enrichedStep} />
-      )}
+    <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto">
+      {isFlow ? <FlowRender state={{ ...activeState, skip: flowSkip }} /> : <StepContent step={enrichedStep} />}
     </div>
   )
 
-  if (format === 'dialog') {
-    return (
-      <Dialog open={open} onOpenChange={(v) => { if (!v) { setInternalOpen(false); onClose?.() } }}>
-        <DialogContent className="flex min-h-[30rem] max-h-[calc(100vh-2rem)] flex-col sm:max-w-[40rem] [&_[data-slot=dialog-title]]:text-base">
-          <DialogHeader>
-            {stepIndicator}
-            {step.title && <DialogTitle>{step.title}</DialogTitle>}
-            {description && <DialogDescription>{description}</DialogDescription>}
-          </DialogHeader>
-          {content}
-          <RiskNotice step={enrichedStep} />
-          <DialogFooter>
-            <Footer {...footerProps} />
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+  const actions = step.type === 'review' ? (
+    editing ? (
+      <>
+        <Button variant="outline" onClick={() => setEditing(false)}>Back</Button>
+        <Button onClick={() => setEditing(false)}>Continue</Button>
+      </>
+    ) : (
+      <>
+        <Button variant="outline" onClick={() => setEditing(true)}>Edit</Button>
+        <Button onClick={() => { setEditing(false); handleNext() }}>Approve</Button>
+      </>
     )
-  }
+  ) : (
+    <>
+      {current > 0 && <Button variant="outline" onClick={handleBack}>Back</Button>}
+      <Button onClick={handleNext} disabled={working}>
+        {step.action ?? (isLast ? 'Done' : 'Next')}
+      </Button>
+    </>
+  )
 
-  if (format === 'drawer') {
-    return (
-      <Drawer open={open} onOpenChange={(v) => { if (!v) { setInternalOpen(false); onClose?.() } }} direction="right">
-        <DrawerContent className="data-[vaul-drawer-direction=right]:sm:max-w-[40rem]">
-          <DrawerHeader>
-            {stepIndicator}
-            {step.title && <DrawerTitle>{step.title}</DrawerTitle>}
-            {description && <DrawerDescription>{description}</DrawerDescription>}
-          </DrawerHeader>
-          <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-auto px-4">
-            {isFlow ? (
-              <FlowRender state={{ ...activeState, skip: activeState?.skip ? { ...activeState.skip, onClick: handleSkip } : null }} />
-            ) : (
-              <StepContent step={enrichedStep} />
-            )}
-          </div>
-          <RiskNotice step={enrichedStep} />
-          <DrawerFooter>
-            <Footer {...footerProps} />
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-    )
-  }
+  const footer = (
+    <div className="flex items-center justify-end gap-2">
+      {working && <div className="mr-auto"><AgentStatus status={activeState?.status ?? 'Working...'} working /></div>}
+      {actions}
+    </div>
+  )
 
   return (
-    <div className="flex h-full w-[40rem] flex-col gap-6 border-r p-6">
-      <div className="flex flex-col gap-1.5">
-        <div className="text-xs text-muted-foreground">Step {current + 1} of {steps.length}</div>
-        {step.title && <h2 className="text-base font-semibold">{step.title}</h2>}
-        {description && <p className="text-muted-foreground">{description}</p>}
-      </div>
-      <div className="flex min-h-0 flex-1 flex-col gap-4">
-        {isFlow ? (
-          <FlowRender state={{ ...activeState, skip: activeState?.skip ? { ...activeState.skip, onClick: handleSkip } : null }} />
-        ) : (
-          <StepContent step={enrichedStep} />
-        )}
-      </div>
+    <CompareLayout format={format} open={open} onClose={onClose} header={<FlowHeader {...headerProps} />} footer={<>{footer}</>}>
+      {content}
       <RiskNotice step={enrichedStep} />
-      <Footer {...footerProps} />
-    </div>
+    </CompareLayout>
   )
 }

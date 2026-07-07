@@ -23,7 +23,7 @@ const preview = {
           'Foundations', ['Colors', 'Icons', 'Spacing', 'Themes', 'Typography'],
           'shadcn',
           'Other frameworks',
-          'Originals', ['Agent status', 'Autosave', 'Chat card', 'Chat input', 'Chat message', 'Chat pane', 'Page header', 'Tab bar', 'Vertical pane', 'Wizard dialog'],
+          'Originals', ['Agent status', 'Autosave', 'Chat card', 'Chat input', 'Chat message', 'Chat pane', 'Context wizard', 'Flow header', 'Page header', 'Tab bar', 'Vertical pane'],
           'Libraries', ['Data table', 'Stepper', 'Tree view'],
           'Layout', ['App', 'App shell', 'Band', 'Dashboard', 'Detail drawer', 'Slot shell', 'Examples'],
           'Multi-component UX', ['Search', 'Tagging'],

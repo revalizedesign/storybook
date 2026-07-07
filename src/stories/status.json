@@ -73,7 +73,8 @@
     "Originals/Page header",
     "Originals/Tab bar",
     "Originals/Vertical pane",
-    "Originals/Wizard dialog",
+    "Originals/Context wizard",
+    "Originals/Flow header",
     "Libraries/Data table",
     "Libraries/Stepper",
     "Libraries/Tree view",
@@ -253,9 +254,12 @@
     "Originals/Vertical pane": {
       "designer": "Matt"
     },
-    "Originals/Wizard dialog": {
+    "Originals/Context wizard": {
       "designer": "Matt",
-      "hours": "< 5 hrs"
+      "hours": "5–20 hrs"
+    },
+    "Originals/Flow header": {
+      "designer": "Matt"
     },
     "Layout/Band": {
       "designer": "Matt"

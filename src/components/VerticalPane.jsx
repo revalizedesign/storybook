@@ -31,7 +31,7 @@ export function VerticalPane({ children, className, defaultCollapsed = false, fl
   const actions = menu ? <EllipsisMenu items={menu} /> : null
   if (floating) {
     return (
-      <div className={cn('absolute inset-y-6 right-6 flex w-[26rem] flex-col rounded-lg border bg-background shadow-lg', className)}>
+      <div className={cn('flex h-full w-[26rem] flex-col rounded-lg border bg-background shadow-lg', className)}>
         <PaneHeader title={title} actions={actions} />
         <div className="flex min-h-0 flex-1 flex-col">{children}</div>
       </div>
