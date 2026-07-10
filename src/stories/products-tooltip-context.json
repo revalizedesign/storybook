@@ -1,0 +1,7 @@
+{
+  "field": "Rule condition",
+  "helpLabel": "What does this condition do?",
+  "placeholder": "PLACEHOLDER — Jonathan to confirm real copy: A rule condition decides when this logic step runs. It is evaluated against the current configuration; when it resolves true, the step's action applies.",
+  "rule": "Jet layout validation",
+  "step": "IF Material = \"Stainless\" AND Pressure > 3000 psi"
+}
