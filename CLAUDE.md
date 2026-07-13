@@ -15,3 +15,7 @@
 # Design
 
 (To be defined in Stage 3 — see Roadmap)
+
+# Known gaps
+
+- PageHeader/Breadcrumb: adopted Matt's Breadcrumbs.jsx as the standard. Known limitation: no per-crumb icon override or force-visible option (previously prototyped in feature/pageheader-hybrid-proposal, now abandoned in favor of Matt's simpler design). Revisit if a product needs it.

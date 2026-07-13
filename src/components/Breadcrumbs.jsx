@@ -16,7 +16,7 @@ export function Breadcrumbs({ items = [] }) {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1">
+                <DropdownMenuTrigger aria-label="Show more breadcrumb items" className="flex items-center gap-1">
                   <BreadcrumbEllipsis />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start">
