@@ -1,0 +1,43 @@
+{
+  "filterableCatalog": {
+    "title": "Catalog",
+    "product": "AutoQuotes",
+    "filters": [
+      { "id": "category", "label": "Category", "options": ["All", "Faucets", "Fixtures", "Fittings"] },
+      { "id": "brand", "label": "Brand", "options": ["All", "Moen", "Kohler", "Delta"] }
+    ],
+    "items": [
+      { "id": 1, "name": "Align Single-Handle Faucet", "category": "Faucets", "brand": "Moen", "sku": "MOE-AL-4621", "price": 289 },
+      { "id": 2, "name": "Cia Widespread Faucet", "category": "Faucets", "brand": "Kohler", "sku": "KOH-CIA-1112", "price": 412 },
+      { "id": 3, "name": "Trinsic Pull-Down Faucet", "category": "Faucets", "brand": "Delta", "sku": "DEL-TR-9159", "price": 356 },
+      { "id": 4, "name": "Memoirs Pedestal Sink", "category": "Fixtures", "brand": "Kohler", "sku": "KOH-MEM-2200", "price": 540 },
+      { "id": 5, "name": "Devonshire Toilet", "category": "Fixtures", "brand": "Moen", "sku": "MOE-DEV-8801", "price": 620 },
+      { "id": 6, "name": "Compression Angle Stop", "category": "Fittings", "brand": "Delta", "sku": "DEL-CAS-3305", "price": 18 },
+      { "id": 7, "name": "Brass Slip-Joint Nut", "category": "Fittings", "brand": "Moen", "sku": "MOE-BSJ-1140", "price": 6 }
+    ]
+  },
+  "statusTabs": {
+    "title": "Specifications",
+    "product": "SpecPage",
+    "statuses": ["Active", "Draft", "In Review", "Deprecated"],
+    "items": [
+      { "id": 1, "name": "Concrete Masonry Units", "status": "Active", "section": "04 22 00", "updated": "2026-06-02" },
+      { "id": 2, "name": "Structural Steel Framing", "status": "Active", "section": "05 12 00", "updated": "2026-05-18" },
+      { "id": 3, "name": "Glazed Aluminum Curtain Wall", "status": "Draft", "section": "08 44 13", "updated": "2026-07-01" },
+      { "id": 4, "name": "Acoustic Ceiling Panels", "status": "In Review", "section": "09 51 00", "updated": "2026-06-28" },
+      { "id": 5, "name": "Elastomeric Roof Membrane", "status": "In Review", "section": "07 54 00", "updated": "2026-06-25" },
+      { "id": 6, "name": "Wood Veneer Wall Paneling", "status": "Deprecated", "section": "06 42 00", "updated": "2025-11-14" }
+    ]
+  },
+  "simpleList": {
+    "title": "Selectors",
+    "product": "Configure One",
+    "items": [
+      { "id": 1, "name": "Motor Size", "type": "Numeric range", "rules": 4 },
+      { "id": 2, "name": "Voltage", "type": "Dropdown", "rules": 3 },
+      { "id": 3, "name": "Mounting Bracket", "type": "Dropdown", "rules": 6 },
+      { "id": 4, "name": "Cable Length", "type": "Numeric range", "rules": 2 },
+      { "id": 5, "name": "Finish Color", "type": "Dropdown", "rules": 8 }
+    ]
+  }
+}
