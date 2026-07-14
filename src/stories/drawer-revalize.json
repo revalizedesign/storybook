@@ -1,0 +1,38 @@
+{
+  "createForm": {
+    "fields": [
+      { "id": "size-name", "label": "Size name", "placeholder": "e.g. 24 in." },
+      { "id": "size-code", "label": "Code", "placeholder": "e.g. SZ-024" }
+    ],
+    "product": "Configure One",
+    "title": "Create new size"
+  },
+  "managementList": {
+    "groups": [
+      { "name": "Pricing rules", "rules": 47 },
+      { "name": "Validation rules", "rules": 12 },
+      { "name": "Visibility rules", "rules": 8 }
+    ],
+    "product": "Configure One",
+    "title": "Manage logic groups"
+  },
+  "notificationFeed": {
+    "items": [
+      { "text": "Spec \"Hydro-Pro 6000\" was approved", "time": "2h ago" },
+      { "text": "New comment on \"Gearmotor ratio\"", "time": "5h ago" },
+      { "text": "Ingredient list updated by Agent", "time": "1d ago" }
+    ],
+    "product": "SpecPage",
+    "title": "Notifications"
+  },
+  "readOnlyDetails": {
+    "product": "AutoQuotes",
+    "rows": [
+      { "label": "Model", "value": "Hydro-Pro Series" },
+      { "label": "SKU", "value": "HPR-001" },
+      { "label": "Status", "value": "Active" },
+      { "label": "List price", "value": "$4,250.00" }
+    ],
+    "title": "Product detail"
+  }
+}
