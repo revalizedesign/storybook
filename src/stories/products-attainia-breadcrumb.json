@@ -25,5 +25,5 @@
   { "slot": "main-nav-items", "name": "circle-caret-down", "span": "Aggregated reporting" },
   { "slot": "main-nav-items", "name": "key", "span": "Admin" },
 
-  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": [{ "icon": "house" }, "Projects", "Create with AI"], "lede": "Generate a new project scope with AI assistance.", "status": "Synced" }
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": [{ "href": "#", "label": "Projects" }, { "label": "Create with AI" }], "lede": "Generate a new project scope with AI assistance.", "status": "Synced" }
 ]

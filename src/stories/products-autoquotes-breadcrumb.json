@@ -15,5 +15,5 @@
   { "slot": "main-nav-items", "name": "file-lines", "span": "Quotes" },
   { "slot": "main-nav-items", "name": "chart-column", "span": "Reports" },
 
-  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Home", "Catalog"], "lede": "Browse manufacturer catalogs and build quotes.", "status": "Synced" }
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": [{ "href": "#", "label": "Catalog" }, { "label": "Manufacturers" }], "lede": "Browse manufacturer catalogs and build quotes.", "status": "Synced" }
 ]

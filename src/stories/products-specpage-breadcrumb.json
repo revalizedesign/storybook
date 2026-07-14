@@ -23,5 +23,5 @@
   { "slot": "main-nav-items", "name": "building-columns", "span": "Customs" },
   { "slot": "main-nav-items", "name": "magnifying-glass", "span": "Search" },
 
-  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Home", "Master data"], "lede": "Master data records referenced across recipes and specifications.", "status": "Synced" }
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": [{ "href": "#", "label": "Master data" }, { "label": "Ingredients" }], "lede": "Master data records referenced across recipes and specifications.", "status": "Synced" }
 ]

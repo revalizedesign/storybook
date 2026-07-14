@@ -14,5 +14,5 @@
   { "slot": "main-nav-items", "name": "key", "span": "Admin", "isActive": true },
   { "slot": "main-nav-items", "name": "ellipsis", "span": "More" },
 
-  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Admin", { "ellipsis": true }, "Acme-ES", "150IEQ-01-demo"], "lede": "Pump selection and curve data for this configuration.", "status": "Synced" }
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": [{ "href": "#", "label": "Admin" }, { "href": "#", "label": "Sites" }, { "href": "#", "label": "Acme-ES" }, { "label": "150IEQ-01-demo" }], "lede": "Pump selection and curve data for this configuration.", "status": "Synced" }
 ]

@@ -20,5 +20,5 @@
   { "slot": "main-nav-items", "name": "diagram-project", "span": "Workflow" },
   { "slot": "main-nav-items", "name": "shield", "span": "Security" },
 
-  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": ["Admin", "Interface", "Logic Items"], "lede": "Configure the interface logic items shown to end users during quoting.", "status": "Synced" }
+  { "slot": "page-header", "component": "PageHeader", "breadcrumbs": [{ "href": "#", "label": "Admin" }, { "href": "#", "label": "Interface" }, { "label": "Logic Items" }], "lede": "Configure the interface logic items shown to end users during quoting.", "status": "Synced" }
 ]
