@@ -16,8 +16,21 @@ export default {
     a11y: { test: 'error' },
     docs: {
       description: {
-        component:
-          'Use Drawer for short-form content without heavy scrolling (forms, quick details, short lists). Use a full page instead when content is long or scrolling becomes cumbersome.',
+        component: `**When to use:**
+- Quick view or edit of a record while keeping the list/table visible behind (row → details)
+- Short, focused forms: a handful of fields (add component, edit product line)
+- Contextual side content tied to the current view: notifications, activity, filters
+
+**When not to use:**
+- Long or multi-section content that needs its own scroll or sub-navigation — use a full page instead (see decision rule below)
+- Blocking decisions or destructive confirmations — use \`AlertDialog\` (or \`Dialog\` for a non-destructive short decision — see Revalize/Dialog)
+- Content users need to link to or bookmark — it's a destination, use a page with its own URL
+- Never stack a drawer over another drawer — if that's needed, the content outgrew the pattern
+
+**Decision rule — drawer vs. dialog vs. page:**
+- Interrupts and demands a short decision → Dialog
+- Side task, preserves context, fits one scrollable column → Drawer
+- Own sections, long scroll, or deep-linkable → Page`,
       },
     },
   },
