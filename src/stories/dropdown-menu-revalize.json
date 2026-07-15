@@ -1,0 +1,9 @@
+{
+  "productLineRowActions": {
+    "product": "FlowIQ",
+    "rows": [
+      { "id": "pl-1", "name": "Centrifugal Pumps" },
+      { "id": "pl-2", "name": "Submersible Pumps" }
+    ]
+  }
+}
