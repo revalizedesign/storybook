@@ -1,0 +1,10 @@
+{
+  "withForm": {
+    "fields": [
+      { "id": "line-name", "label": "Line name", "placeholder": "e.g. Centrifugal Pumps" },
+      { "id": "line-code", "label": "Code", "placeholder": "e.g. PL-CENT" }
+    ],
+    "product": "FlowIQ",
+    "title": "Rename product line"
+  }
+}
