@@ -2,36 +2,28 @@ import { useState } from 'react'
 import { expect, userEvent, within } from 'storybook/test'
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/table'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
 import { Label } from '@/components/ui/label'
-import { NativeSelect } from '@/components/ui/native-select'
 import data from './data-table-revalize.json'
 
 // Revalize variants for data tables, using the shadcn Table primitive directly (no wrapper needed).
 // Each story is a real production content shape, kept short — just enough to show how the table is
 // narrowed down to find a row, which differs by product.
 export default {
-  title: 'Revalize/Data table',
+  title: 'Revalize/Table Narrowing Patterns',
   component: Table,
   parameters: {
     a11y: { test: 'error' },
     docs: {
       description: {
-        component:
-          'Reach for a filterable sidebar when a catalog has multiple independent facets (category, brand) that combine — AutoQuotes. Use status tabs when rows fall into one mutually-exclusive state and users mostly work one state at a time — SpecPage. Use a plain list when the dataset is small enough that narrowing it down is not the point — Configure One Selectors.',
+        component: `For a search-and-filter toolbar over a single dataset, see Revalize/Table with Filters. This story compares three different narrowing mechanisms, one per product.
+
+**Rules:**
+- Use a filterable sidebar when a catalog has multiple independent facets (category, brand) that combine — AutoQuotes.
+- Use status tabs when rows fall into one mutually-exclusive state and users mostly work one state at a time — SpecPage.
+- Use a plain list when the dataset is small enough that narrowing it down is not the point — Configure One Selectors.`,
       },
-    },
-  },
-  argTypes: {
-    filters: {
-      control: 'object',
-      description: 'Sidebar facets (id, label, options) — FilterableCatalog only.',
-      table: { category: 'FilterableCatalog' },
-    },
-    statuses: {
-      control: 'object',
-      description: 'Tab labels, in display order — StatusTabs only.',
-      table: { category: 'StatusTabs' },
     },
   },
 }
@@ -50,10 +42,15 @@ export const FilterableCatalog = {
         <div className="flex w-48 shrink-0 flex-col gap-4">
           {filters.map(f => (
             <div className="flex flex-col gap-1.5" key={f.id}>
-              <Label htmlFor={`filter-${f.id}`}>{f.label}</Label>
-              <NativeSelect id={`filter-${f.id}`} className="w-full" value={selected[f.id]} onChange={e => setSelected(s => ({ ...s, [f.id]: e.target.value }))}>
-                {f.options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
-              </NativeSelect>
+              <Label id={`filter-${f.id}-label`}>{f.label}</Label>
+              <Select onValueChange={v => setSelected(s => ({ ...s, [f.id]: v }))} value={selected[f.id]}>
+                <SelectTrigger aria-labelledby={`filter-${f.id}-label`} className="w-full">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {f.options.map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
+                </SelectContent>
+              </Select>
             </div>
           ))}
         </div>
@@ -92,7 +89,10 @@ export const FilterableCatalog = {
 
     await expect(rowCount()).toBe(items.length)
 
-    await userEvent.selectOptions(canvas.getByLabelText('Brand'), 'Kohler')
+    await userEvent.click(canvas.getByRole('combobox', { name: 'Brand' }))
+    const listbox = await within(document.body).findByRole('listbox')
+    await userEvent.click(within(listbox).getByRole('option', { name: 'Kohler' }))
+
     const kohlerCount = items.filter(i => i.brand === 'Kohler').length
     await expect(rowCount()).toBe(kohlerCount)
     await expect(canvas.queryByText('Align Single-Handle Faucet')).not.toBeInTheDocument()
