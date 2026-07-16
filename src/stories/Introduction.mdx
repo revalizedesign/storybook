@@ -9,7 +9,7 @@ Component library built on [shadcn/ui](https://ui.shadcn.com) with the base-vega
 ## Story nav groups
 
 <Unstyled>
-  <table className="w-full text-sm border-collapse">
+  <table className="w-full border-collapse">
     <thead>
       <tr className="border-b">
         <th className="text-left py-2 pr-4 font-semibold">Section</th>
@@ -17,15 +17,19 @@ Component library built on [shadcn/ui](https://ui.shadcn.com) with the base-vega
       </tr>
     </thead>
     <tbody>
-      <tr className="border-b"><td className="py-2 pr-4">Foundations</td><td className="py-2">Colors, icons, spacing, typography</td></tr>
+      <tr className="border-b"><td className="py-2 pr-4">Foundations</td><td className="py-2">The base tokens and visual language everything else inherits</td></tr>
       <tr className="border-b"><td className="py-2 pr-4">shadcn</td><td className="py-2">All 56 standard shadcn components with live examples and doc links</td></tr>
-      <tr className="border-b"><td className="py-2 pr-4">Other frameworks</td><td className="py-2">Non-shadcn components from Radix Themes (Checkbox cards, Radio cards, Data list)</td></tr>
-      <tr className="border-b"><td className="py-2 pr-4">Originals</td><td className="py-2">Components we built that do not exist in shadcn — Agent status, Chat components, Autosave, etc.</td></tr>
-      <tr className="border-b"><td className="py-2 pr-4">Libraries</td><td className="py-2">Third-party components evaluated for adoption — Data table, Tree view</td></tr>
-      <tr className="border-b"><td className="py-2 pr-4">Layout</td><td className="py-2">App shell, band, slots, and composed layout examples</td></tr>
-      <tr className="border-b"><td className="py-2 pr-4">Multi-component UX</td><td className="py-2">Patterns that compose multiple components for a specific behavior — Search</td></tr>
-      <tr className="border-b"><td className="py-2 pr-4">Patterns</td><td className="py-2">Structural compositions — App shell, AI admin</td></tr>
-      <tr><td className="py-2 pr-4">Products</td><td className="py-2">Product-specific screens — Configure One, AutoQuotes, FlowIQ, SpecPage, Attainia</td></tr>
+      <tr className="border-b"><td className="py-2 pr-4">Other frameworks</td><td className="py-2">Non-shadcn components ported from other systems like Radix Themes and WorkOS</td></tr>
+      <tr className="border-b"><td className="py-2 pr-4">Originals</td><td className="py-2">Components we built that do not exist in shadcn</td></tr>
+      <tr className="border-b"><td className="py-2 pr-4">Libraries</td><td className="py-2">Components powered by third-party libraries like TanStack, Stepperize, and dnd-kit</td></tr>
+      <tr className="border-b"><td className="py-2 pr-4">Layout</td><td className="py-2">Structural frames and composed layout examples</td></tr>
+      <tr className="border-b"><td className="py-2 pr-4">Multi-component UX</td><td className="py-2">Patterns that compose multiple components for a specific behavior</td></tr>
+      <tr className="border-b"><td className="py-2 pr-4">Generic</td><td className="py-2">Whole-app starting points any product can adopt on day one</td></tr>
+      <tr className="border-b"><td className="py-2 pr-4">Products</td><td className="py-2">Product-specific screens and prototypes for active delivery milestones</td></tr>
+      <tr className="border-b"><td className="py-2 pr-4">Experiments</td><td className="py-2">Exploratory prototypes testing ideas before they earn a place in the system</td></tr>
+      <tr><td className="py-2 pr-4">Internal</td><td className="py-2">Tooling for maintaining this storybook</td></tr>
     </tbody>
   </table>
 </Unstyled>
+
+Group names are plural when they collect peer components (Originals, Libraries, Products) and singular when they name a topic or qualifier (Layout, Generic, Internal).

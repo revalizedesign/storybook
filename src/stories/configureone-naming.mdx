@@ -1,0 +1,21 @@
+import { Meta, Unstyled } from '@storybook/addon-docs/blocks'
+import { NamingTable } from './NamingTable'
+import data from './configureone-aiadmin-july.json'
+
+<Meta title="Products/Configure One/Naming" />
+
+# Naming
+
+Cardinal objects exist exactly once: {data.objects.filter(o => o.cardinal).map(o => o.names[0]).join(', ')}. Everything else is instantiated as needed.
+
+<Unstyled>
+  <div className="mb-8" id="naming-table">
+    <NamingTable />
+  </div>
+</Unstyled>
+
+## Progress gates
+
+- Knowledge setup expects Sources and Excerpts to be zero for every `all` and `many` scope: {data.objects.filter(o => o.scope === 'all' || o.scope === 'many').map(o => o.names[0]).join(', ')}
+- Build requires Sources and Excerpts to be non-zero for every `all` scope: {data.objects.filter(o => o.scope === 'all').map(o => o.names[0]).join(', ')}
+- Commit requires a reviewable item for every min 1 object in any non-null state: {data.objects.filter(o => o.min === 1).map(o => o.names[0]).join(', ')}

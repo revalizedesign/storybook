@@ -95,6 +95,9 @@
     "Products/Configure One/App shell",
     "Products/Configure One/Admin",
     "Products/Configure One/AI admin",
+    "Products/Configure One/AI admin (July)",
+    "Products/Configure One/AI admin inventory",
+    "Products/Configure One/Naming",
     "Products/Intelliquip/App shell",
     "Products/LAI/App shell",
     "Products/LAI/Canvas shell",
@@ -449,9 +452,8 @@
       "status": "Missing variants"
     },
     "shadcn/Tooltip": {
-      "designer": "Shadab",
-      "next": "Side control, Keyboard shortcut",
-      "status": "Missing variants"
+      "designer": "Jonathan",
+      "status": "Ready"
     },
     "Other frameworks/Checkbox cards": {
       "designer": "WorkOS"
@@ -487,6 +489,24 @@
       "hours": "80+ hrs",
       "status": "In progress",
       "target": "June"
+    },
+    "Products/Configure One/AI admin (July)": {
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "In progress",
+      "target": "July"
+    },
+    "Products/Configure One/AI admin inventory": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "Ready",
+      "target": "July"
+    },
+    "Products/Configure One/Naming": {
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "In progress",
+      "target": "July"
     },
     "Products/LAI/App shell": {
       "designer": "Jonathan",

@@ -6,6 +6,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+    --animate-blink: blink 1s step-start infinite;
     --font-heading: var(--font-sans);
     --font-sans: 'Inter Variable', sans-serif;
     --color-sidebar-ring: var(--sidebar-ring);
@@ -133,6 +134,12 @@
   html {
     @apply font-sans;
     }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .sbdocs.sbdocs-content :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),

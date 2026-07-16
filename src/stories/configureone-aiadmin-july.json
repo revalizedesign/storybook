@@ -1,0 +1,483 @@
+{
+  "agent": {
+    "autonomy": [
+      { "label": "Accept high-confidence context blocks", "mode": "Auto" },
+      { "label": "Apply low-risk fixes", "mode": "Auto" },
+      { "label": "Activate or deactivate logic", "mode": "Needs sign-off" },
+      { "label": "Publish a model to Catalog", "locked": "Always needs sign-off" },
+      { "label": "Bulk-delete spec columns", "locked": "Off", "note": "Off by design — a human confirms removals" }
+    ],
+    "cadence": [
+      { "desc": "The agent stops after each build layer for your review.", "label": "Pause after every layer", "recommended": true },
+      { "desc": "Stops before Commit and on any red finding.", "label": "Pause at key gates" },
+      { "desc": "Builds end to end; review everything at the finish.", "label": "Run straight through" }
+    ],
+    "explainability": [
+      { "label": "Show reasoning for each decision", "on": true },
+      { "label": "Flag inferred values for confirmation", "on": true }
+    ],
+    "guardrails": [
+      { "label": "Confidence to auto-accept a proposed block", "options": ["Low", "Medium", "High"], "value": "High" },
+      { "label": "Switch a dropdown to type-ahead above", "value": "5,000 options" },
+      { "label": "Always attach provenance to every value", "locked": "On" },
+      { "label": "Never delete data the agent flags as junk", "locked": "On" }
+    ],
+    "intro": "Knowledge is what the agent knows. This is how it acts — autonomy, sign-off, and guardrails applied to every build.",
+    "note": "These settings apply to every new build. A single product can still override cadence from its workspace."
+  },
+  "build": {
+    "messages": [
+      { "role": "system", "text": "Let's build Cyclo. Upload your product data, logic, and BOM files — I'll stage a model from whatever you give me." },
+      { "card": { "icon": "file-excel", "meta": "Product data", "title": "AAA_Product_Data.xlsx" }, "role": "user" },
+      { "card": { "icon": "file-excel", "meta": "Logic", "title": "AAA_Logic_Full.xlsx" }, "role": "user" },
+      { "role": "system", "text": "2 files now — add the BOM and say \"build\", or I can start with these." },
+      { "card": { "icon": "file-pdf", "meta": "BOM", "title": "Freight_Truck_BOM.pdf" }, "role": "user" },
+      { "role": "user", "text": "build" },
+      { "role": "system", "text": "Laying foundations — reading all three files, detecting input groups, building inputs and options, classifying spec columns…" }
+    ]
+  },
+  "catalog": [
+    { "category": "Refrigerated", "icon": "snowflake", "name": "Reefer Trailer 48ft", "published": "Jul 5, 2026" },
+    { "category": "Refrigerated", "icon": "box", "name": "Insulated Van Body", "published": "Jun 28, 2026" },
+    { "category": "Platform & Dump", "icon": "truck", "name": "Flatbed Platform 20ft", "published": "Jun 20, 2026" },
+    { "category": "Dry Freight", "icon": "truck-fast", "name": "Standard Dry Van", "published": "Jun 12, 2026" }
+  ],
+  "knowledge": {
+    "detail": {
+      "description": "The market you compete in — segments, buyers, standards, and terminology",
+      "eyebrow": "Industry",
+      "proposed": [
+        {
+          "meta": "Medium confidence · 58 tokens · from NTEA Work Truck standards",
+          "text": "FMVSS lighting and conspicuity rules apply to every completed body. NTEA MVP conventions govern upfitter compliance paperwork. ATP applies to refrigerated cross-border builds; CARB rules constrain TRU units in California.",
+          "title": "Regulatory landscape"
+        }
+      ],
+      "reviewed": [
+        {
+          "meta": "High confidence · 63 tokens · from Vocational_Body_Market_2026",
+          "text": "Dry freight, refrigerated, platform/dump, and service bodies are the core segments. Buyers are fleet managers and dealers; lead time and upfit compatibility drive most decisions.",
+          "title": "Market segments"
+        }
+      ],
+      "title": "Truck Bodies & Trailers"
+    },
+    "legend": ["Trained", "Review", "Empty"],
+    "layers": [
+      { "name": "AAA Freight & Truck Bodies", "status": "Trained", "type": "Company" },
+      { "name": "Truck Bodies & Trailers", "selected": true, "status": "Review", "type": "Industry" },
+      {
+        "children": [
+          { "children": [{ "name": "Freight Truck Body", "status": "Trained" }, { "name": "Roll-up Door Body", "status": "Empty" }], "name": "Dry Freight" },
+          { "children": [{ "name": "Reefer Trailer", "status": "Trained" }], "name": "Refrigerated" },
+          { "children": [{ "name": "Dump Body", "status": "Empty" }], "name": "Platform & Dump" }
+        ],
+        "name": "AAA Catalog",
+        "status": "Trained",
+        "type": "Catalog"
+      }
+    ]
+  },
+  "nav": {
+    "main": [
+      { "icon": "house", "title": "Home" },
+      { "icon": "cube", "title": "Products" },
+      { "icon": "brain", "title": "Knowledge" },
+      { "icon": "book-open", "title": "Catalog" }
+    ],
+    "manage": [
+      { "icon": "robot", "title": "Agent" },
+      { "icon": "gear", "title": "Settings" },
+      { "icon": "users", "title": "Users" },
+      { "icon": "id-badge", "title": "Roles" },
+      { "icon": "key", "title": "Entitlements" }
+    ]
+  },
+  "objects": [
+    { "formerly": ["AI admin agent"], "names": ["Intelligence", "App"], "placements": [{ "parent": null, "tier": 0 }] },
+    { "min": 1, "names": ["BOM line"], "placements": [{ "parent": "Results", "tier": 2 }] },
+    { "cardinal": true, "names": ["Catalog"], "placements": [{ "parent": "Intelligence", "tier": 1 }, { "parent": "Knowledge", "tier": 2 }], "scope": "many" },
+    { "min": 1, "names": ["Category"], "placements": [{ "parent": "Catalog", "tier": 3 }], "scope": "many" },
+    { "cardinal": true, "names": ["Company"], "placements": [{ "parent": "Knowledge", "tier": 2 }], "scope": "all" },
+    { "min": 1, "names": ["Context", "Excerpts"], "placements": [{ "parent": "Company", "tier": 3 }, { "parent": "Industry", "tier": 3 }, { "parent": "Catalog", "tier": 3 }, { "parent": "Category", "tier": 4 }] },
+    { "cardinal": true, "names": ["Industry", "Vertical"], "placements": [{ "parent": "Knowledge", "tier": 2 }], "scope": "all" },
+    { "min": 1, "names": ["Input"], "placements": [{ "parent": "Input group", "tier": 3 }] },
+    { "min": 1, "names": ["Input group"], "placements": [{ "parent": "Model", "tier": 2 }] },
+    { "formerly": ["AI setup", "Context layers"], "names": ["Knowledge"], "placements": [{ "parent": "Intelligence", "tier": 1 }] },
+    { "group": ["Build"], "names": ["Model"], "placements": [{ "parent": "Product", "tier": 1 }] },
+    { "formerly": ["Input value"], "min": 1, "names": ["Option"], "placements": [{ "parent": "Input", "tier": 4 }] },
+    { "names": ["Product", "Session"], "placements": [{ "parent": "Intelligence", "tier": 1 }], "scope": "one" },
+    { "group": ["Build"], "names": ["Results", "BOM"], "placements": [{ "parent": "Product", "tier": 1 }] },
+    { "formerly": ["Equation"], "min": 0, "names": ["Formula"], "placements": [{ "parent": "Rules", "tier": 2 }] },
+    { "formerly": ["Logic-group iterator"], "min": 0, "names": ["Loop", "Iterator"], "placements": [{ "parent": "Rules", "tier": 2 }] },
+    { "formerly": ["Logic item"], "min": 1, "names": ["Procedural"], "placements": [{ "parent": "Rules", "tier": 2 }] },
+    { "min": 0, "names": ["Query"], "placements": [{ "parent": "Rules", "tier": 2 }] },
+    { "formerly": ["Per-value IF-chain"], "min": 0, "names": ["Relational", "Driver matrix"], "placements": [{ "parent": "Rules", "tier": 2 }] },
+    { "formerly": ["Logic"], "group": ["Build"], "names": ["Rules"], "placements": [{ "parent": "Product", "tier": 1 }] },
+    { "formerly": ["Files", "Source files"], "min": 1, "names": ["Source"], "placements": [{ "parent": "Product", "tier": 1 }, { "parent": "Company", "tier": 3 }, { "parent": "Industry", "tier": 3 }, { "parent": "Catalog", "tier": 3 }, { "parent": "Category", "tier": 4 }] },
+    { "formerly": ["Attribute"], "min": 0, "names": ["Spec"], "placements": [{ "parent": "Input", "tier": 5 }] }
+  ],
+  "parked": [
+    "Block — appears in the Knowledge screens (proposed/reviewed cards); not a defined object",
+    "Test-label contents (test configs, staged changes) — unplaced pending #6 resolution",
+    "Session as a distinct object — currently an alias of Product (MVP); graduates to its own row when multi-session products land"
+  ],
+  "wizard": {
+    "done": {
+      "cards": [
+        "The agent can build products from your data",
+        "It uses your company vocabulary and industry conventions",
+        "Your catalog is available to the Model Builder"
+      ],
+      "subtitle": "The agent is trained on AAA Freight & Truck Bodies."
+    },
+    "extract": ["Reading your source", "Identifying company and industry", "Cataloging products and parts"],
+    "review": {
+      "areas": ["Company", "Industry", "Catalog"],
+      "fields": [
+        { "label": "Name", "value": "AAA Freight & Truck Bodies" },
+        { "label": "What the business does", "value": "Manufactures configure-to-order truck bodies and trailers for commercial fleets." },
+        { "label": "Products and services", "value": "Dry freight bodies, refrigerated bodies, platform and dump bodies, upfit services." },
+        { "label": "Voice and positioning", "value": "Practical, spec-driven, dealer-friendly. Lead time is the headline claim." },
+        { "label": "Key differentiators", "value": "Fast-ship program, chassis-agnostic mounting, in-house engineering." }
+      ],
+      "summary": "5 answers from 1 source",
+      "vocab": ["Body", "Chassis", "Upfit", "Walkramp", "Liftgate", "BOM"]
+    },
+    "source": {
+      "chips": ["Company", "Industry", "Catalog"],
+      "describe": [
+        { "label": "Company name", "placeholder": "e.g. AAA Truck Bodies" },
+        { "label": "What you make", "placeholder": "Describe your products and who buys them" },
+        { "label": "Industry (optional)", "placeholder": "e.g. Commercial truck body manufacturing" }
+      ],
+      "tabs": ["From a link", "Upload files", "Describe it"]
+    },
+    "steps": ["Source", "Extract", "Review", "Done"]
+  },
+  "workspace": {
+    "commit": [
+      { "text": "BOM door-inclusion boundary fix — <85 / >85 aligned to <85 / ≥85, so a door is included at exactly 85\"." }
+    ],
+    "files": [
+      { "icon": "file-excel", "meta": "Product data · 96 inputs, 62 spec columns", "name": "AAA_Product_Data.xlsx" },
+      { "icon": "file-excel", "meta": "Logic · 39 root items orchestrating 8 sub-groups", "name": "AAA_Logic_Full.xlsx" }
+    ],
+    "findings": [
+      { "action": "Open loop layer", "sev": "red", "text": "Track collision checks exist but are never invoked" },
+      { "action": "Open iterator", "sev": "red", "text": "Track Row iterator body is mostly inactive" },
+      { "action": "View 3D group", "sev": "red", "text": "3D construction path gutted — 5 of 7 items inactive" },
+      { "action": "Open grid", "sev": "amber", "text": "Relational rule: driver value \"Not Applicable\" has no default wheelbase" },
+      { "action": "Open query", "sev": "amber", "text": "Query condition 7 (max angle) is paused" },
+      { "action": "Open formula", "sev": "amber", "text": "Formula \"Body Weight\" computes paint weight" },
+      { "action": "View rule", "sev": "amber", "text": "\"Suggest FRP\" fires on a value the live input can't produce" },
+      { "action": "Open BOM line", "sev": "amber", "text": "Part number anomaly: DFB-00044 in a four-digit series" },
+      { "action": "Open spec catalog", "sev": "gray", "text": "49 of 62 spec columns are unused" },
+      { "action": "Review in flow", "sev": "gray", "text": "15 logic items are inactive across the ruleset" },
+      { "action": "View rule", "sev": "gray", "text": "Agent read: Options group gated to a single chassis (F450)" },
+      { "action": "Review decision", "sev": "gray", "text": "Agent decision: CITY_OF_USE built as type-ahead (25,272 options)" },
+      { "action": "Review decision", "sev": "gray", "text": "Agent decision: chassis IF-chain became 1 relational rule" },
+      { "action": "View input", "sev": "gray", "text": "Option code typo: SHHET_AND_POST in backup input" }
+    ],
+    "graph": {
+      "columns": [
+        {
+          "name": "Application and Chassis",
+          "nodes": [
+            { "badge": "AI", "control": "Type-ahead", "name": "CITY_OF_USE" },
+            { "control": "Select", "name": "CHASSIS_MODEL", "note": "3 constraints" },
+            { "badge": "warn", "control": "Select", "name": "WHEELBASE", "note": "driven" },
+            { "badge": "warn", "control": "Text", "name": "BODY_WIDTH", "note": ">102 warning" },
+            { "badge": "error", "control": "Text", "name": "BODY_HEIGHT", "note": "boundary gap at 85" }
+          ]
+        },
+        {
+          "name": "Walkramp",
+          "nodes": [
+            { "badge": "INF", "control": "Radio", "name": "WALKRAMP_NEEDED", "note": "inferred gate" },
+            { "control": "Attribute", "name": "WALKRAMP", "note": "query target" }
+          ]
+        },
+        {
+          "name": "Wall",
+          "nodes": [
+            { "badge": "error", "control": "Spinner", "name": "TRACK_QTY", "note": "loop counter" },
+            { "control": "Hidden", "muted": true, "name": "TRACK_SET_FLAG" }
+          ]
+        },
+        { "name": "Seating", "nodes": [{ "control": "Select", "muted": true, "name": "SEAT_TYPE", "note": "inactive" }] }
+      ],
+      "legend": ["Derives", "Constrains", "Structure"]
+    },
+    "model": {
+      "filters": ["All", "Needs review", "Gaps", "Decisions", "Inferred"],
+      "pages": [
+        {
+          "groups": [
+            {
+              "inputs": [
+                { "control": "Radio button", "name": "Program", "options": [["CUSTOM", "Custom"], ["FAST_SHIP", "Fast Ship"]], "var": "PROGRAM" },
+                { "control": "Select menu", "name": "Truck body application", "var": "VAN_APPLICATION" },
+                { "chips": ["Agent decision"], "control": "Type-ahead", "name": "City of use", "var": "CITY_OF_USE" },
+                { "control": "Select menu", "name": "Manufacturer", "var": "CHASSIS_MFR" },
+                { "chips": ["Drives wheelbase", "Carries 5 specs"], "control": "Select menu", "name": "Model", "var": "CHASSIS_MODEL" },
+                { "chips": ["Driven by chassis model"], "control": "Select menu", "name": "Wheelbase", "var": "WHEELBASE" },
+                { "control": "Select menu", "name": "Axle", "var": "AXLE" },
+                { "chips": ["104 triggers width warning"], "control": "Text field", "name": "Width", "var": "BODY_WIDTH" },
+                { "chips": ["Range 78–108 enforced by field"], "control": "Text field with range", "name": "Height (78–108)", "var": "BODY_HEIGHT" },
+                { "chips": ["Carries AMP_LIMIT"], "control": "Text field", "name": "Length", "var": "BODY_LENGTH" },
+                { "chips": ["Branches construction view"], "control": "Radio button", "name": "Use 3D view", "var": "USE_3D_VIEW" },
+                { "control": "Hidden", "name": "Find similar", "var": "FIND_SIMILAR" },
+                { "control": "Hidden", "name": "Body preview", "var": "BODY_PREVIEW_PAGE_1_NEW" }
+              ],
+              "name": "Application and Chassis",
+              "source": "13 inputs · xlsx r1-25344"
+            }
+          ],
+          "name": "Page 1"
+        },
+        {
+          "groups": [
+            { "name": "Construction", "source": "9 inputs · xlsx r1-25344" },
+            { "name": "Hood and Front", "source": "4 inputs" },
+            { "name": "Roof", "source": "3 inputs" },
+            {
+              "inputs": [
+                { "control": "Radio button", "name": "Show real-time 2D", "var": "SHOW_RT2D" },
+                { "chips": ["Loop counter"], "control": "Spinner (1–4)", "name": "Number of rows of tracks", "var": "TRACK_QTY" },
+                { "chips": ["Duplicate of TRACK_QTY"], "control": "Spinner", "name": "Number of rows of tracks", "var": "TRACK_QTY_1" },
+                { "control": "Hidden", "name": "Track set flag", "var": "TRACK_SET_FLAG" }
+              ],
+              "name": "Wall",
+              "source": "4 inputs"
+            }
+          ],
+          "name": "Page 2"
+        },
+        {
+          "groups": [
+            {
+              "inputs": [
+                { "control": "Select menu", "name": "Driver side cab door type", "var": "LH_CAB_DOOR" },
+                { "control": "Select menu", "name": "Driver side window", "var": "LH_CAB_WINDOW" },
+                { "control": "Radio button", "name": "Hardware finish", "var": "LH_DOOR_HARDWARE_FINISH" },
+                { "control": "Select menu", "name": "Door lock", "var": "LH_DOOR_LOCK" },
+                { "control": "Checkbox", "name": "Driver door options", "var": "LH_DOOR_OPTIONS" }
+              ],
+              "name": "Driver Door",
+              "source": "5 inputs"
+            },
+            { "name": "Passenger Door", "source": "5 inputs · mirrors LH_ as RH_" },
+            { "name": "Side Door", "source": "6 inputs" }
+          ],
+          "name": "Page 3"
+        },
+        {
+          "groups": [
+            {
+              "inputs": [
+                { "callout": { "actions": ["Verified — keep", "Remove; run query always"], "text": "Inferred · no direct source evidence — needs hard verification. The query runs unconditionally in the source, but 40% of reference orders have no ramp." }, "chips": ["Inferred", "Inferred gate question"], "control": "Radio button", "name": "Does this body need a walkramp?", "options": [["YES", "Yes"], ["NO", "No"]], "var": "WALKRAMP_NEEDED" },
+                { "chips": ["Query condition"], "control": "Select menu", "name": "Min length", "var": "MIN_WALKRAMP_LENGTH" },
+                { "chips": ["Query condition"], "control": "Select menu", "name": "Min capacity", "var": "MIN_WALKRAMP_CAPACITY" },
+                { "chips": ["Query condition"], "control": "Select menu", "name": "Type", "var": "WALKRAMP_TYPE" },
+                { "chips": ["Query condition"], "control": "Select menu", "name": "Width", "var": "WALKRAMP_WIDTH" },
+                { "chips": ["Condition paused"], "control": "Text field with range", "name": "Max angle", "var": "MAXIMUM_WALKRAMP_ANGLE" },
+                { "chips": ["Auto-filled from chassis"], "control": "Text field", "name": "Deck height", "var": "DECK_HEIGHT" },
+                { "chips": ["Query rule target"], "control": "Attribute display", "name": "Walkramp", "var": "WALKRAMP" }
+              ],
+              "name": "Walkramp",
+              "source": "8 inputs"
+            },
+            { "name": "Rear Bumper", "source": "3 inputs" },
+            { "name": "Liftgate", "source": "1 input" },
+            { "chips": ["Inferred"], "name": "Liftgate System Info", "source": "2 inputs · inferred from liftgate sub-product" }
+          ],
+          "name": "Page 4"
+        },
+        {
+          "groups": [
+            { "name": "Side Roll-up Doors", "source": "8 inputs" },
+            { "name": "Track Locations", "source": "2 inputs" },
+            { "name": "Seating", "source": "2 inputs" }
+          ],
+          "name": "Page 5"
+        }
+      ],
+      "summary": "24 input groups · 96 inputs · page flow is a property of the group",
+      "types": ["All types", "Select / menu", "Radio", "Checkbox", "Text", "Slider / spinner", "Display / product", "Hidden"]
+    },
+    "preview": {
+      "fired": [
+        { "muted": true, "text": "Body-width warning fires at >102\"" },
+        { "text": "Set Deck Height 30\" — copied from chassis attribute" },
+        { "text": "Walkramp query — 26 of 44 pass" },
+        { "text": "Liftgate asked because chassis ≠ NA" },
+        { "sev": "amber", "text": "Relational coverage miss — \"Not Applicable\" has no default" },
+        { "sev": "red", "text": "Track collision check disabled" },
+        { "sev": "amber", "text": "Height 85 — no side door (BOM boundary gap)" },
+        { "muted": true, "text": "3D construction path — paint & rear door not asked" },
+        { "sev": "amber", "text": "Query condition 7 (max angle) paused" }
+      ],
+      "note": "Reviewer overlay — buyers never see this panel. Click any entry to open the rule it describes. The seeded defects are reproducible here."
+    },
+    "product": { "build": "Draft build 4", "meta": "Built by agent · 2 source files · staged, not committed", "name": "AAA Freight Truck" },
+    "results": {
+      "bom": [
+        { "include": "Always", "line": "Truck body", "part": "ASM-BODY", "type": "Assembly" },
+        { "include": "Always", "line": "Body shell", "part": "Driven part", "type": "Driven", "which": "Resolved by BODY_WIDTH × BODY_LENGTH" },
+        { "line": "Rear door", "part": "WIV1000 / 2000 / 3000", "type": "Selected", "which": "REAR_DOOR selection" },
+        { "include": "When side door selected", "line": "Door frame bracket", "part": "DFB-0041…0045", "qty": "Door Qty spec", "tag": "DFB-00044 anomaly", "type": "Selected" },
+        { "include": "Always", "line": "Paint", "part": "PAINT-{code}", "qty": "= Paint gallons formula", "type": "Driven" },
+        { "include": "When WALKRAMP_NEEDED = Yes", "line": "Walkramp", "part": "WR series (45)", "type": "Query", "which": "walkramp query" },
+        { "line": "Rear bumper", "part": "G12N / G12Y / T12I / K12x", "type": "Selected", "which": "REAR_BUMPER (ALT_VAL)" },
+        { "include": "When REAR_RUBBER_BUMPER = Yes", "line": "Rubber bumper edge", "part": "Item master", "type": "Selected" },
+        { "include": "When any lighting selected", "line": "Exterior lighting kit", "part": "ASM-LIGHT", "tag": "Rollup double count", "type": "Assembly" },
+        { "include": "When LED_REAR_STT checked", "line": "LED rear stop/tail/turn", "part": "LT-STT-05", "type": "Selected" }
+      ],
+      "chips": ["90 of 90 source lines mapped", "16 shown — filtered to lines with bindings or findings"],
+      "explainer": ["Include when → procedural", "Which part → relational", "Quantity → formula or spec"],
+      "note": "Read-only in beta — ask-agent-to-fix is the only write path."
+    },
+    "review": { "chips": ["3 contradictions", "5 agent decisions", "3 inferred items", "8 test configs ready"], "pct": 30 },
+    "reviewNext": [
+      "Resolve the 3 red contradictions",
+      "Judge the 5 agent decisions",
+      "Hard-verify the 3 inferred items",
+      "Run the 8 test configs",
+      "Walk the buyer experience"
+    ],
+    "rules": {
+      "formulas": {
+        "cards": [
+          { "name": "Paint gallons", "result": "7.64 gal", "rows": ["paintable_area = 2 × (H×L + H×W) + W×L", "coverage = 350 sq ft/gal — named constant", "coats = 2 — named constant"], "tags": ["Extracted"], "tests": "Test inputs · H 96 · W 96 · L 16" },
+          { "action": "Ask agent to rename to \"Paint weight\"", "name": "Body weight", "result": "43.7 lbs", "rows": ["PAINT_GALLONS × 5.72"], "tags": ["Extracted", "Semantic finding"], "warning": "Dimension check — this computes the weight of the paint, not the body." }
+        ],
+        "strip": "BODY_LENGTH · BODY_HEIGHT · BODY_WIDTH → Paint gallons → Body weight ⚠ → BOM: PAINT-{code} quantity"
+      },
+      "loops": {
+        "findings": [
+          { "action": "Ask agent to review", "text": "The loop body is mostly inactive — buyers set track positions manually." },
+          { "text": "Track collision checks: 2/3/4-row position-clash validation, hand-unrolled into 3 groups. All disabled. \"2 Track Height Check\" is invoked only by inactive items." }
+        ],
+        "iterator": {
+          "meta": "Iterates ~TRK~ for each of TRACK_QTY rows · Logic Groups sheet · iterator=TRK",
+          "name": "Track Row Logic",
+          "steps": [
+            { "name": "Set input: Set Row 2", "note": "if TRACK_QTY ≥ 2" },
+            { "inactive": true, "name": "Set input: Set Row 3", "note": "if TRACK_QTY ≥ 3" },
+            { "inactive": true, "name": "Set input: Set Row 4", "note": "if TRACK_QTY = 4" },
+            { "inactive": true, "name": "Ask input: Track Type" },
+            { "name": "Ask input group: Show Track Locations Input Group" }
+          ]
+        }
+      },
+      "procedural": {
+        "banner": "15 inactive logic items · review as a batch",
+        "filters": ["All", "Conditional", "Inactive", "Warnings / errors", "Set", "Run group", "Ask"],
+        "items": [
+          { "fired": true, "group": "Application and Chassis", "name": "Chassis Information", "type": "Ask input group" },
+          { "code": "if BODY_WIDTH > 102", "desc": "Federal width limit — permit warning", "fired": true, "name": "Body width is over 102 inches rule", "type": "Warning" },
+          { "code": "if USE_3D_VIEW = YES … else 2D", "desc": "Descends into the construction sub-group", "name": "Run Construction Logic", "type": "Run logic group" },
+          { "inactive": true, "name": "Rear Structure Options", "type": "Ask input group" },
+          { "code": "if INTERIOR_CONSTRUCTION_1 = SHEET_AND_POST", "desc": "Guided-selling example", "name": "Suggest FRP", "type": "Warning" },
+          { "name": "Display Side Door Input Group", "type": "Ask input group" }
+        ],
+        "summary": "When does something happen? Items run down the spine in sequence; End of Page items became the dividers. 1 root group of 39 items orchestrating 8 sub-groups via Run Logic Group.",
+        "trace": "TC04 · Boundary sweep · BODY_WIDTH at 102 ± 1"
+      },
+      "query": {
+        "chips": ["1 condition paused"],
+        "conditions": [
+          { "text": "Ramp length ≥ Min length — skip when blank" },
+          { "text": "Ramp length ≤ Max length — skip when blank" },
+          { "text": "Capacity ≥ Min capacity" },
+          { "text": "Type = selected type — skip when All" },
+          { "text": "Width = selected width — skip when All" },
+          { "text": "Max height ≥ Deck height" },
+          { "paused": true, "text": "Ramp angle ≤ Max angle" }
+        ],
+        "fail": {
+          "count": "18 — and why",
+          "more": 12,
+          "rows": [
+            { "name": "WR2408S", "reason": "Max height 13 < deck 30" },
+            { "name": "WR2610S", "reason": "Max height 18 < deck 30" },
+            { "name": "WR2812H", "reason": "Capacity 1,500 < min 2,000" },
+            { "name": "WR3020S", "reason": "Type Spring ≠ Hook-Apron" },
+            { "name": "WR3224H", "reason": "Width 24 ≠ 26" },
+            { "name": "WR3612S", "reason": "Max height 22 < deck 30" }
+          ]
+        },
+        "pass": {
+          "count": "26 of 44",
+          "more": 18,
+          "rows": [
+            { "meta": "16 ft · 2,000 lbs · Hook-Apron · 26\"", "name": "WR2916H", "tag": "flattest" },
+            { "meta": "18 ft · 2,000 lbs · Hook-Apron · 26\"", "name": "WR3016H" },
+            { "meta": "20 ft · 2,200 lbs · Hook-Apron · 26\"", "name": "WR3216H" },
+            { "meta": "16 ft · 2,500 lbs · Hook-Apron · 28\"", "name": "WR2918H" },
+            { "meta": "18 ft · 2,500 lbs · Hook-Apron · 28\"", "name": "WR3018H" },
+            { "meta": "20 ft · 2,500 lbs · Hook-Apron · 28\"", "name": "WR3218H" }
+          ]
+        },
+        "summary": "WALKRAMP shows only products from the 45-row ramp table where 7 conditions hold, sorted flattest first. If nothing matches → NO_MATCH.",
+        "sources": "logic PDF p.11 · xlsx walkramp table",
+        "tests": [
+          { "label": "Deck height", "note": "auto-fill", "value": "30" },
+          { "label": "Min capacity", "value": "All" },
+          { "label": "Type", "value": "All" },
+          { "label": "Width", "value": "All" }
+        ]
+      },
+      "relational": {
+        "chips": ["Normalized from IF-chain", "1 coverage miss"],
+        "columns": ["109\"", "133\"", "157\"", "169\"", "189\"", "213\"", "237\""],
+        "coverage": "Every driver value has ≥1 option and exactly one default. 14 of 15 pass. \"Not Applicable\" has options but no default.",
+        "decision": "The legacy per-model IF-chain was rebuilt as a matrix. Behavior verified identical against the TC-07 suite.",
+        "live": "Default applied. Edit a cell on the left; this dropdown is the same rule.",
+        "rows": [
+          { "cells": [0, 1, 1, 1, 0, 0, 0], "default": "157\"", "name": "F-350" },
+          { "cells": [0, 0, 1, 1, 1, 0, 0], "default": "169\"", "name": "F-350 Crew Cab" },
+          { "cells": [0, 1, 1, 1, 1, 0, 0], "default": "157\"", "name": "F-450" },
+          { "cells": [0, 0, 1, 1, 1, 1, 0], "default": "169\"", "name": "F-550" },
+          { "cells": [0, 0, 1, 1, 1, 1, 1], "default": "189\"", "name": "DuraStar 4300" },
+          { "cells": [0, 0, 0, 1, 1, 1, 1], "default": "213\"", "name": "DuraStar 4400" },
+          { "cells": [0, 0, 1, 1, 1, 1, 0], "default": "169\"", "name": "M2 106" },
+          { "cells": [1, 1, 1, 0, 0, 0, 0], "default": "133\"", "name": "NPR" },
+          { "cells": [1, 1, 1, 1, 0, 0, 0], "default": "133\"", "name": "NPR-HD" },
+          { "cells": [1, 1, 1, 1, 1, 1, 1], "default": null, "name": "Not Applicable", "warn": true }
+        ],
+        "title": "WHEELBASE is driven by CHASSIS_MODEL — 15 driver values × 20 wheelbases, with a per-value default"
+      }
+    },
+    "specs": [
+      { "carriedBy": "CHASSIS_MODEL", "name": "Deck Height", "readBy": "Walkramp query", "status": "In use", "type": "Number" },
+      { "carriedBy": "CHASSIS_MODEL", "name": "Max Platform Width", "readBy": "Liftgate check", "status": "In use", "type": "Number" },
+      { "carriedBy": "BODY_LENGTH", "name": "AMP · AMP_LIMIT", "readBy": "Electrical rules", "status": "Conflicting duplicates", "type": "Number" },
+      { "carriedBy": "—", "name": "BODY_LENGTH_IN", "readBy": "—", "status": "Broken: 189058571", "type": "Number" },
+      { "carriedBy": "REAR_BUMPER", "name": "ALT_VAL", "readBy": "BOM which-part", "status": "In use", "type": "Text" },
+      { "carriedBy": "SIDE_DOOR", "name": "Door Qty", "readBy": "BOM quantity", "status": "In use", "type": "Number" },
+      { "carriedBy": "CHASSIS_MODEL", "name": "Gross Vehicle Weight Rating", "readBy": "—", "status": "Orphan — judgment call", "type": "Number" },
+      { "carriedBy": "CHASSIS_MODEL", "name": "Rear Axle Capacity", "readBy": "—", "status": "Orphan — judgment call", "type": "Number" },
+      { "carriedBy": "—", "name": "test · Test · dummy", "readBy": "—", "status": "Junk", "type": "Text" }
+    ],
+    "stats": [
+      { "chip": "Verified 21/24", "label": "Input groups", "pct": 88, "sub": "source 23 + 1 inferred", "value": "24" },
+      { "chip": "1 inferred, 2 duplicates", "label": "Inputs", "pct": 97, "sub": "source 95 + 1 inferred", "value": "96" },
+      { "chip": "Type-ahead decision", "label": "Options", "pct": 100, "sub": "25,272 in one input", "value": "25.4k" },
+      { "chip": "31 junk · 2 orphans", "label": "Specs", "pct": 21, "sub": "49 unused", "value": "62" },
+      { "chip": "15 items inactive", "label": "Procedural rules", "pct": 62, "sub": "root items / groups", "value": "39/9" },
+      { "chip": "1 coverage miss", "label": "Relational rules", "pct": 93, "sub": "driven bindings", "value": "3" },
+      { "chip": "1 condition paused", "label": "Query rules", "pct": 86, "sub": "8 conditions", "value": "1" },
+      { "chip": "Semantic finding", "label": "Formulas", "pct": 50, "sub": "1 misnamed", "value": "2" },
+      { "alert": true, "chip": "Collision checks disabled", "label": "Loops", "pct": 40, "sub": "TRK iterator", "value": "1" },
+      { "chip": "2 findings", "label": "BOM lines", "pct": 100, "sub": "source 90 · mapped 90/90", "value": "90" }
+    ],
+    "verify": [
+      { "name": "TC01 · Baseline dry van", "status": "Ready" },
+      { "name": "TC04 · Boundary sweep · BODY_WIDTH at 102 ± 1", "status": "Ready" },
+      { "name": "TC07 · Wheelbase matrix parity", "status": "Ready" },
+      { "name": "TC12 · Walkramp query — deck 30, all filters open", "status": "Ready" }
+    ]
+  }
+}
