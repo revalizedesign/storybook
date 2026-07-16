@@ -2,7 +2,7 @@ import { AppShell } from '@/components/AppShell'
 import presets from './app-shell-presets.json'
 
 export default {
-  title: 'Products/FlowIQ',
+  title: 'Products/Intelliquip',
   parameters: { layout: 'fullscreen' },
 }
 

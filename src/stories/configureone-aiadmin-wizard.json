@@ -1,0 +1,82 @@
+[
+  {
+    "description": "Watch this short orientation video on what the AI needs, why context matters, how readiness works, and what you can do with this AI admin agent workspace.",
+    "title": "Getting started",
+    "type": "video"
+  },
+  {
+    "description": "Before we can build product models together, I need to learn about you, your company, industry, and catalog.",
+    "title": "First things first",
+    "stepperHeading": "Admin agent overview",
+    "type": "stepper",
+    "steps": [
+      { "id": "context", "title": "Context", "description": "Company, Industry, Catalog" },
+      { "id": "build", "title": "Build", "description": "Model, Rules, Results" },
+      { "id": "c1c", "title": "C1C", "description": "Commit to Configure One Cloud" }
+    ]
+  },
+  {
+    "title": "Add your first source",
+    "type": "flow",
+    "initial": "link",
+    "states": {
+      "link": {
+        "description": "Paste your company link to get started.",
+        "label": "Company URL",
+        "placeholder": "acme.com/about",
+        "render": "input",
+        "next": "advance",
+        "status": "Tool call: web fetch",
+        "skip": { "label": "I don't have a link", "to": "file" }
+      },
+      "file": {
+        "description": "Upload a file or folder instead.",
+        "render": "upload",
+        "next": "advance",
+        "status": "Saving file as source",
+        "skip": { "label": "I don't have a file", "to": "text" }
+      },
+      "text": {
+        "description": "Tell me about your company.",
+        "label": "About my company",
+        "render": "textarea",
+        "next": "advance",
+        "status": "Saving message as source"
+      }
+    }
+  },
+  {
+    "title": "Review company context",
+    "description": "Here's what I found for your company. You can approve or edit.",
+    "type": "review",
+    "context": "Company"
+  },
+  {
+    "title": "Review industry context",
+    "description": "Here's what I found for your industry. You can approve or edit.",
+    "type": "review",
+    "context": "Industry"
+  },
+  {
+    "title": "Review catalog context",
+    "description": "Here's what I found for your catalog. You can approve or edit.",
+    "type": "review",
+    "context": "Catalog"
+  },
+  {
+    "description": "Context is ready. Are you ready to build?",
+    "title": "Ready milestone",
+    "type": "stepper",
+    "action": "Create a new product",
+    "alert": "Goes to chat + workspace",
+    "newProduct": {
+      "categories": ["Dry Freight", "Refrigerated", "Specialty", "Platform & Dump"]
+    },
+    "steps": [
+      { "id": "context", "title": "Context", "description": "Company, Industry, Catalog" },
+      { "id": "build", "title": "Build", "description": "Model, Rules, Results" },
+      { "id": "c1c", "title": "C1C", "description": "Commit to Configure One Cloud" }
+    ],
+    "activeStep": "build"
+  }
+]

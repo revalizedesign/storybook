@@ -4,50 +4,13 @@ import { Meta } from '@storybook/addon-docs/blocks'
 
 # Contributing
 
-See Introduction for what each nav section is for.
+See <a href="?path=/docs/introduction--docs">Introduction</a> for what each nav section is for.
 
-## Documentation
+## How to contribute
 
-All documentation uses Storybook's built-in autodocs. No custom templates.
-
-- **Component description** — `parameters.docs.description.component` on the meta. Supports markdown. Use for links, reviewer commentary, and guidance.
-- **Variant description** — `parameters.docs.description.story` on the variant. Use for per-variant context.
-
-```js
-export default {
-  title: 'shadcn/Badge',
-  parameters: {
-    docs: {
-      description: {
-        component: `<a href="...">Badge - shadcn/ui</a>
-
-**Jonathan:** Pill style, not square…
-
-**Matt:** Palette is open for review…`,
-      },
-    },
-  },
-}
-```
-
-## What goes where
-
-- A variant must show a meaningful visual or behavioral distinction — not just different content
-- If your example is a shadcn component with product-specific text, that is documentation, not a variant. Put the guidance in the component description, not in a new export.
-- Status metadata (Already built, Critical priority, etc.) belongs in `status.json`, not in story commentary
-- **Candidates (review)** — a variant showing existing implementations from other products for comparison
-- **Deprecated (do not use)** — a variant showing patterns being phased out
-
-## Story conventions
-
-- Export names are PascalCase, display names are sentence case via `name`
-- Data goes in JSON files next to the story, not hardcoded in JSX
-- Components render at their native size — no width constraints or font overrides
-- One Default variant per story showing the baseline treatment
-
-## File naming
-
-- Stories: `{component}.stories.jsx`
-- Data: `{component}.json`
-- Components: `src/components/{Component}.jsx`
-- shadcn primitives: `src/components/ui/{component}.jsx` (do not modify)
+1. **Pull main** — Ensure you have the latest commits from main branch in GitHub Desktop.
+2. **Initial sync** — Copy variants we need from shadcn with any relevant names, descriptions, states, or examples.
+3. **Utility variants** — Use `Examples` for feature and stress tests beyond variant examples with a single story-level .json file, use `Candidates` for proposals, and use `Deprecated` for past iterations we decide to abandon.
+4. **Controls** — Add `argTypes` to expose the component’s props so the variant surface is explorable in the autodocs controls table.
+5. **Accessibility** — Pass the a11y addon check. Let the check enforce the rules, not prose.
+6. **Component files** — Avoid changes to `src/components/ui/` that will be overwritten by `shadcn add`.

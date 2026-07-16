@@ -8,7 +8,7 @@ export default {
 **shadcn (default)**
 - Neutral grayscale palette (oklch)
 - Lucide icons
-- Vega preset: \`--radius: 0.625rem\`, Inter font, standard spacing
+- Vega preset: \`--radius: 0.625rem\`, Inter font, 1.5rem padding/gaps (nova uses 1rem)
 - Light sidebar (\`--sidebar: oklch(0.985 0 0)\`)
 
 **Revalize**

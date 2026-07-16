@@ -1,7 +1,5 @@
 import { PageHeader } from '@/components/PageHeader'
 
-// PageHeader — top-of-page block: breadcrumb trail with a subtle status affordance opposite it, then
-// the page title and a lede line. Driven by plain data; any region is omitted when its prop is empty.
 export default {
   title: 'Originals/Page header',
   component: PageHeader,
@@ -10,7 +8,7 @@ export default {
     docs: {
       description: {
         component:
-          'The standard top-of-page block: a breadcrumb trail with a subtle status affordance opposite it, then the page title and a lede line. All content is plain data (`breadcrumbs` is a string array, the rest are strings), and the last crumb is the bold current page. The wrapping content region owns background, padding, and spacing — PageHeader carries none.',
+          'The standard top-of-page block: a breadcrumb trail with a subtle status affordance opposite it, then the page title and a lede line. All content is plain data, and the last crumb is the bold current page. The wrapping content region owns background, padding, and spacing — PageHeader carries none.',
       },
     },
   },
@@ -27,8 +25,6 @@ export const Default = {
   ),
 }
 
-// The default title is a greeting localized by `lang` — English when unset, translated for de/es.
-// No `title` is passed here, so each header shows how "Welcome back" renders in that language.
 export const Localization = {
   render: () => (
     <div className="flex flex-col gap-10">

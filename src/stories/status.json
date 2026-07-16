@@ -66,12 +66,14 @@
     "Other frameworks/Sidebar manager",
     "Originals/Agent status",
     "Originals/Autosave",
+    "Originals/Banner card",
     "Originals/Chat card",
     "Originals/Chat input",
     "Originals/Chat message",
     "Originals/Chat pane",
+    "Originals/Context wizard",
+    "Originals/Flow header",
     "Originals/Page header",
-    "Originals/Tab bar",
     "Originals/Vertical pane",
     "Libraries/Data table",
     "Libraries/Stepper",
@@ -85,13 +87,22 @@
     "Layout/Slot shell",
     "Multi-component UX/Search",
     "Multi-component UX/Tagging",
-    "Patterns/AI admin",
-    "Products/Attainia",
-    "Products/AutoQuotes",
-    "Products/ConfigureOne",
-    "Products/FlowIQ",
-    "Products/LAI",
-    "Products/SpecPage"
+    "Generic/Unauthenticated",
+    "Generic/AI app",
+    "Generic/Canvas app",
+    "Products/Attainia/App shell",
+    "Products/AutoQuotes/App shell",
+    "Products/Configure One/App shell",
+    "Products/Configure One/Admin",
+    "Products/Configure One/AI admin",
+    "Products/Intelliquip/App shell",
+    "Products/LAI/App shell",
+    "Products/LAI/Canvas shell",
+    "Products/PRO.FILE/App shell",
+    "Products/PUMP-FLO/App shell",
+    "Products/SpecPage/App shell",
+    "Products/SpecPage/Admin",
+    "Internal/Story guide"
   ],
   "groupOrder": [
     "Foundations",
@@ -101,47 +112,9 @@
     "Libraries",
     "Layout",
     "Multi-component UX",
-    "Patterns",
+    "Generic",
     "Products"
   ],
-  "groupDefaults": {
-    "Foundations": {
-      "hours": "0 hrs",
-      "status": "Placeholder"
-    },
-    "shadcn": {
-      "hours": "0 hrs",
-      "status": "Unknown"
-    },
-    "Other frameworks": {
-      "hours": "0 hrs",
-      "status": "Unknown"
-    },
-    "Originals": {
-      "hours": "< 5 hrs",
-      "status": "In progress"
-    },
-    "Libraries": {
-      "hours": "< 5 hrs",
-      "status": "In progress"
-    },
-    "Layout": {
-      "hours": "0 hrs",
-      "status": "Placeholder"
-    },
-    "Multi-component UX": {
-      "hours": "< 5 hrs",
-      "status": "In progress"
-    },
-    "Patterns": {
-      "hours": "0 hrs",
-      "status": "Unknown"
-    },
-    "Products": {
-      "hours": "0 hrs",
-      "status": "Unknown"
-    }
-  },
   "meta": {
     "Originals/Autosave": {
       "designer": "Jonathan",
@@ -152,8 +125,9 @@
       "designer": "Matt"
     },
     "Originals/Chat pane": {
-      "hours": "20–40 hrs",
-      "designer": "Matt"
+      "designer": "Matt",
+      "hours": "40–80 hrs",
+      "status": "Ready"
     },
     "Libraries/Data table": {
       "status": "In progress",
@@ -161,7 +135,8 @@
     },
     "Libraries/Stepper": {
       "designer": "Matt",
-      "status": "In progress",
+      "hours": "20–40 hrs",
+      "status": "Ready",
       "target": "June"
     },
     "Libraries/Tree view": {
@@ -207,6 +182,8 @@
     },
     "shadcn/Breadcrumb": {
       "designer": "Jonathan",
+      "hours": "20–40 hrs",
+      "status": "Ready",
       "target": "June"
     },
     "shadcn/Card": {
@@ -230,30 +207,42 @@
       "target": "July"
     },
     "shadcn/Tabs": {
-      "designer": "Jonathan",
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "Ready",
       "target": "July"
     },
-    "Patterns/AI admin": {
-      "status": "Placeholder",
-      "hours": "80+ hrs"
-    },
     "Originals/Agent status": {
-      "designer": "Matt"
+      "designer": "Matt",
+      "status": "Ready"
     },
     "Originals/Chat input": {
-      "designer": "Matt"
+      "designer": "Matt",
+      "status": "Ready"
     },
     "Originals/Chat message": {
-      "designer": "Matt"
+      "designer": "Matt",
+      "status": "Ready"
     },
     "Originals/Page header": {
-      "designer": "Matt"
-    },
-    "Originals/Tab bar": {
-      "designer": "Matt"
+      "designer": "Jonathan",
+      "hours": "5–20 hrs",
+      "status": "In progress"
     },
     "Originals/Vertical pane": {
-      "designer": "Matt"
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "Ready"
+    },
+    "Originals/Context wizard": {
+      "designer": "Matt",
+      "hours": "20–40 hrs",
+      "status": "Ready"
+    },
+    "Originals/Flow header": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "Ready"
     },
     "Layout/Band": {
       "designer": "Matt"
@@ -263,7 +252,8 @@
     },
     "Layout/App shell": {
       "designer": "Matt",
-      "hours": "80+ hrs"
+      "hours": "80+ hrs",
+      "status": "In progress"
     },
     "Layout/Slot shell": {
       "designer": "Matt"
@@ -374,7 +364,9 @@
       "designer": "Shadab"
     },
     "shadcn/Sidebar": {
-      "designer": "Shadab"
+      "designer": "Matt",
+      "hours": "20–40 hrs",
+      "status": "Ready"
     },
     "shadcn/Slider": {
       "designer": "Shadab"
@@ -413,17 +405,64 @@
       "designer": "Injamul",
       "hours": "5–20 hrs"
     },
-    "Products/LAI": {
+    "Products/Attainia/App shell": {
+      "target": "May"
+    },
+    "Products/AutoQuotes/App shell": {
+      "target": "July"
+    },
+    "Products/Configure One/App shell": {
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "Ready"
+    },
+    "Products/Configure One/Admin": {
+      "designer": "Matt",
+      "hours": "5–20 hrs",
+      "status": "In progress"
+    },
+    "Products/Configure One/AI admin": {
+      "designer": "Matt",
+      "hours": "80+ hrs",
+      "status": "In progress",
+      "target": "June"
+    },
+    "Products/LAI/App shell": {
       "designer": "Jonathan",
       "hours": "20–40 hrs",
+      "status": "Inactive",
       "target": "February"
+    },
+    "Products/LAI/Canvas shell": {
+      "designer": "Jonathan",
+      "hours": "20–40 hrs",
+      "status": "Inactive",
+      "target": "February"
+    },
+    "Originals/Banner card": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "In progress"
+    },
+    "Generic/Unauthenticated": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "In progress"
+    },
+    "Generic/AI app": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "In progress"
+    },
+    "Generic/Canvas app": {
+      "designer": "Matt",
+      "hours": "< 5 hrs",
+      "status": "In progress"
     }
   },
   "redundant": [
     "Multi-component UX/Tagging",
     "shadcn/Badge",
-    "Originals/Tab bar",
-    "shadcn/Tabs",
     "shadcn/Native Select",
     "shadcn/Select",
     "shadcn/Combobox",
@@ -431,7 +470,6 @@
     "shadcn/Checkbox",
     "Other frameworks/Radio cards",
     "shadcn/Radio Group",
-    "shadcn/Sidebar",
     "shadcn/Table"
   ],
   "hours": {
@@ -455,8 +493,8 @@
   },
   "statusVariant": {
     "Unknown": "ghost",
-    "Placeholder": "outline",
     "Redundant": "destructive",
-    "In progress": "secondary"
+    "In progress": "secondary",
+    "Ready": "default"
   }
 }

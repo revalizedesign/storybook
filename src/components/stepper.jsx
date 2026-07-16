@@ -17,7 +17,7 @@ function useStepItem() {
   return ctx
 }
 
-function Stepper({ steps, defaultValue, orientation = 'horizontal', responsive = false, className, children, indicators = {}, value, onValueChange, ...props }) {
+function Stepper({ children, className, defaultValue, indicatorClassName, indicators = {}, indicatorVariant, onValueChange, orientation = 'horizontal', responsive = false, steps, value, ...props }) {
   const stepperDefRef = useRef(null)
 
   if (stepperDefRef.current === null) {
@@ -55,10 +55,11 @@ function Stepper({ steps, defaultValue, orientation = 'horizontal', responsive =
     return orientation
   }, [responsive, orientation, isMdUp])
 
-  const contextValue = useMemo(() => ({
-    stepper, steps, orientation: effectiveOrientation, configOrientation: orientation, responsive,
-    registerTrigger, focusNext, focusPrev, focusFirst, focusLast, triggerNodes, indicators,
-  }), [stepper, steps, effectiveOrientation, orientation, responsive, registerTrigger, focusNext, focusPrev, focusFirst, focusLast, triggerNodes, indicators])
+  const contextValue = {
+    configOrientation: orientation, focusFirst, focusLast, focusNext, focusPrev,
+    indicatorClassName, indicators, indicatorVariant, orientation: effectiveOrientation,
+    registerTrigger, responsive, stepper, steps, triggerNodes,
+  }
 
   useEffect(() => {
     if (typeof value === 'string' && value !== stepper.current.id) {
@@ -66,9 +67,13 @@ function Stepper({ steps, defaultValue, orientation = 'horizontal', responsive =
     }
   }, [value])
 
+  const prevIdRef = useRef(stepper.current.id)
   useEffect(() => {
-    onValueChange?.(stepper.current.id)
-  }, [stepper.current.id])
+    if (stepper.current.id !== prevIdRef.current) {
+      prevIdRef.current = stepper.current.id
+      onValueChange?.(stepper.current.id)
+    }
+  })
 
   return (
     <StepperContext.Provider value={contextValue}>
@@ -79,7 +84,7 @@ function Stepper({ steps, defaultValue, orientation = 'horizontal', responsive =
   )
 }
 
-function StepperItem({ stepId, completed = false, disabled = false, loading = false, className, children, ...props }) {
+function StepperItem({ children, className, completed = false, disabled = false, loading = false, stepId, ...props }) {
   const { stepper, steps } = useStepper()
   const stepIndex = steps.findIndex(s => s.id === stepId)
   const currentIndex = stepper.index
@@ -90,14 +95,25 @@ function StepperItem({ stepId, completed = false, disabled = false, loading = fa
 
   return (
     <StepItemContext.Provider value={{ step, index: stepIndex, state, isDisabled: disabled, isLoading }}>
-      <div data-slot="stepper-item" className={cn('group/step flex items-center justify-center not-last:flex-1 group-data-[orientation=horizontal]/stepper-nav:flex-row group-data-[orientation=vertical]/stepper-nav:flex-col', className)} data-state={state} {...(isLoading ? { 'data-loading': true } : {})} {...props}>
+      <div
+        data-slot="stepper-item"
+        className={cn(
+          'group/step relative flex justify-center',
+          'group-data-[orientation=horizontal]/stepper-nav:flex-1 group-data-[orientation=horizontal]/stepper-nav:flex-row group-data-[orientation=horizontal]/stepper-nav:items-start',
+          'group-data-[orientation=vertical]/stepper-nav:flex-col group-data-[orientation=vertical]/stepper-nav:items-start',
+          className,
+        )}
+        data-state={state}
+        {...(isLoading ? { 'data-loading': true } : {})}
+        {...props}
+      >
         {children}
       </div>
     </StepItemContext.Provider>
   )
 }
 
-function StepperTrigger({ asChild = false, className, children, tabIndex, ...props }) {
+function StepperTrigger({ asChild = false, children, className, tabIndex, ...props }) {
   const { state, isLoading } = useStepItem()
   const { stepper, registerTrigger, triggerNodes, focusNext, focusPrev, focusFirst, focusLast } = useStepper()
   const { step, isDisabled } = useStepItem()
@@ -129,24 +145,50 @@ function StepperTrigger({ asChild = false, className, children, tabIndex, ...pro
   }
 
   return (
-    <button ref={triggerRef} role="tab" id={id} aria-selected={isSelected} aria-controls={panelId} tabIndex={typeof tabIndex === 'number' ? tabIndex : isSelected ? 0 : -1} data-slot="stepper-trigger" data-state={state} data-loading={isLoading} className={cn('inline-flex cursor-pointer items-center outline-none disabled:pointer-events-none disabled:opacity-60', 'gap-2.5 rounded-full', className)} onClick={() => stepper.goTo(step.id)} onKeyDown={handleKeyDown} disabled={isDisabled} {...props}>
+    <button
+      ref={triggerRef}
+      role="tab"
+      id={id}
+      aria-selected={isSelected}
+      aria-controls={panelId}
+      tabIndex={typeof tabIndex === 'number' ? tabIndex : isSelected ? 0 : -1}
+      data-slot="stepper-trigger"
+      data-state={state}
+      data-loading={isLoading}
+      className={cn(
+        'inline-flex cursor-pointer items-center gap-2.5 rounded-full outline-none disabled:pointer-events-none disabled:opacity-60',
+        'group-data-[orientation=horizontal]/stepper-nav:flex group-data-[orientation=horizontal]/stepper-nav:flex-col',
+        'group-data-[orientation=vertical]/stepper-nav:items-start group-data-[orientation=vertical]/stepper-nav:not-last:pb-15',
+        className,
+      )}
+      onClick={() => stepper.goTo(step.id)}
+      onKeyDown={handleKeyDown}
+      disabled={isDisabled}
+      {...props}
+    >
       {children}
     </button>
   )
 }
 
-function StepperIndicator({ children, className, variant = 'default' }) {
+function StepperIndicator({ children, className, variant }) {
   const { state, isLoading, step } = useStepItem()
-  const { indicators } = useStepper()
-
-  const base = 'relative flex size-8 shrink-0 items-center justify-center overflow-hidden transition-all duration-300 rounded-md text-sm font-medium'
-
-  const defaultClasses = cn('border-background bg-muted data-[state=completed]:bg-primary data-[state=completed]:text-primary-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground ring-offset-background group-data-[state=active]/step:ring-primary/30 group-data-[state=active]/step:ring-2 group-data-[state=active]/step:ring-offset-3', base)
-
-  const outlineClasses = cn('bg-transparent border border-primary/20 text-muted-foreground data-[state=completed]:border-foreground data-[state=completed]:text-foreground data-[state=active]:border-primary data-[state=active]:text-foreground', base)
+  const { indicators, indicatorClassName, indicatorVariant } = useStepper()
+  const resolvedVariant = variant ?? indicatorVariant ?? 'default'
 
   return (
-    <div data-slot="stepper-indicator" data-state={state} className={cn(variant === 'outline' ? outlineClasses : defaultClasses, className)}>
+    <div
+      data-slot="stepper-indicator"
+      data-state={state}
+      className={cn(
+        'relative flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-md font-semibold transition-all duration-300',
+        resolvedVariant === 'outline'
+          ? 'border border-primary/20 bg-transparent text-muted-foreground data-[state=active]:border-2 data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=completed]:border-foreground data-[state=completed]:text-foreground'
+          : 'border-background bg-muted ring-offset-background group-data-[state=active]/step:ring-2 group-data-[state=active]/step:ring-primary/30 group-data-[state=active]/step:ring-offset-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=completed]:bg-primary data-[state=completed]:text-primary-foreground',
+        indicatorClassName,
+        className,
+      )}
+    >
       <div className="absolute">
         {(isLoading ? indicators?.loading : indicators?.[state]) ?? (step?.icon ? <span className="*:[svg]:size-4">{step.icon}</span> : children)}
       </div>
@@ -156,27 +198,49 @@ function StepperIndicator({ children, className, variant = 'default' }) {
 
 function StepperSeparator({ className }) {
   const { state } = useStepItem()
+  const { orientation } = useStepper()
   return (
-    <div data-slot="stepper-separator" data-state={state} className={cn('bg-muted group-data-[state=completed]/step:bg-primary m-2 rounded-sm transition-colors duration-500 group-data-[orientation=horizontal]/stepper-nav:h-0.5 group-data-[orientation=horizontal]/stepper-nav:flex-1 group-data-[orientation=vertical]/stepper-nav:h-12 group-data-[orientation=vertical]/stepper-nav:w-0.5', className)} />
+    <div
+      data-slot="stepper-separator"
+      data-state={state}
+      className={cn(
+        'absolute m-2 rounded-sm bg-muted transition-colors duration-500 group-data-[state=completed]/step:bg-primary',
+        orientation === 'vertical'
+          ? 'inset-y-0 top-[calc(50%-22px)] left-2 h-12 w-0.5'
+          : 'inset-x-0 top-2 right-[calc(-50%+18px)] left-[calc(50%+18px)] h-0.5 flex-1',
+        className,
+      )}
+    />
   )
 }
 
 function StepperTitle({ children, className }) {
   const { state } = useStepItem()
-  return <h3 data-slot="stepper-title" data-state={state} className={cn('text-sm font-medium', className)}>{children}</h3>
+  return <h3 data-slot="stepper-title" data-state={state} className={cn('font-semibold', className)}>{children}</h3>
 }
 
 function StepperDescription({ children, className }) {
   const { state } = useStepItem()
-  return <div data-slot="stepper-description" data-state={state} className={cn('text-muted-foreground text-xs font-medium', className)}>{children}</div>
+  return <div data-slot="stepper-description" data-state={state} className={cn('text-muted-foreground', className)}>{children}</div>
 }
 
 function StepperNav({ children, className }) {
-  const { stepper, orientation, configOrientation, responsive } = useStepper()
+  const { stepper, steps, orientation, configOrientation, responsive } = useStepper()
   const responsiveNavClasses = responsive && configOrientation === 'horizontal' ? 'flex-col md:flex-row md:w-full' : ''
   return (
-    <nav data-slot="stepper-nav" data-state={stepper.current.id} data-orientation={orientation} className={cn('group/stepper-nav inline-flex data-[orientation=horizontal]:w-full data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col', responsiveNavClasses, className)}>
-      {children}
+    <nav data-slot="stepper-nav" data-state={stepper.current.id} data-orientation={orientation} className={cn('group/stepper-nav inline-flex self-start data-[orientation=horizontal]:w-full data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col', responsiveNavClasses, className)}>
+      {children ?? steps.map((step, index) => (
+        <StepperItem key={step.id} stepId={step.id}>
+          <StepperTrigger>
+            <StepperIndicator>{index + 1}</StepperIndicator>
+            <div className="flex flex-col group-data-[orientation=vertical]/stepper-nav:text-left">
+              <StepperTitle>{step.title}</StepperTitle>
+              {step.description && <StepperDescription>{step.description}</StepperDescription>}
+            </div>
+          </StepperTrigger>
+          {index < steps.length - 1 && <StepperSeparator />}
+        </StepperItem>
+      ))}
     </nav>
   )
 }
@@ -186,7 +250,7 @@ function StepperPanel({ children, className }) {
   return <div data-slot="stepper-panel" data-state={stepper.current.id} className={cn('w-full', className)}>{children}</div>
 }
 
-function StepperContent({ value, forceMount, children, className }) {
+function StepperContent({ children, className, forceMount, value }) {
   const { stepper } = useStepper()
   const isActive = value === stepper.current.id
   if (!forceMount && !isActive) return null
@@ -197,4 +261,4 @@ function StepperContent({ value, forceMount, children, className }) {
   )
 }
 
-export { useStepper, useStepItem, Stepper, StepperItem, StepperTrigger, StepperIndicator, StepperSeparator, StepperTitle, StepperDescription, StepperPanel, StepperContent, StepperNav }
+export { Stepper, StepperContent, StepperDescription, StepperIndicator, StepperItem, StepperNav, StepperPanel, StepperSeparator, StepperTitle, StepperTrigger, useStepItem, useStepper }

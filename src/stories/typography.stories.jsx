@@ -6,7 +6,12 @@ export default {
     docs: {
       description: {
         component:
-          'Placeholder — Inter Variable (`--font-sans`); headings currently share the sans face (`--font-heading`). Pending a distilled Revalize type scale.',
+          `Placeholder — Inter Variable (\`--font-sans\`); headings currently share the sans face (\`--font-heading\`). Pending a distilled Revalize type scale.
+
+**Disallowed classes:**
+- \`font-medium\`
+- \`text-sm\`
+- \`text-xs\``,
       },
     },
   },

@@ -128,7 +128,7 @@
     font-size: inherit !important;
     }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-sm;
     }
   html {
     @apply font-sans;
@@ -144,6 +144,16 @@
 .sbdocs.sbdocs-content :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) code,
 .sbdocs.sbdocs-content :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) code {
   font-size: 1em;
+}
+
+.sbdocs.sbdocs-content :where(ol:not(.sb-unstyled, .sb-unstyled ol)) {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
+
+.sbdocs.sbdocs-content :where(ul:not(.sb-unstyled, .sb-unstyled ul)) {
+  list-style: disc;
+  padding-left: 1.5rem;
 }
 
 .prompt-source [data-radix-scroll-area-content] {
