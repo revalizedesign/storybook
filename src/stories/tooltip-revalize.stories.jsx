@@ -77,6 +77,12 @@ export const Default = {
 }
 
 export const Side = {
+  args: {
+    side: "right",
+    children: "",
+    delay: 10000
+  },
+
   render: () => (
     <TooltipProvider>
       <div className="flex items-center gap-4">
@@ -88,7 +94,7 @@ export const Side = {
         ))}
       </div>
     </TooltipProvider>
-  ),
+  )
 }
 
 export const WithKeyboardShortcut = {
