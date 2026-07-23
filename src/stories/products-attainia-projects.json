@@ -1,0 +1,26 @@
+{
+  "createMenu": [
+    { "icon": "wand-magic-sparkles", "label": "Create with AI" },
+    { "icon": "file-import", "label": "Import" },
+    { "icon": "clone", "label": "Clone from similar" },
+    { "icon": "file", "label": "Blank project" }
+  ],
+  "nav": [
+    { "icon": "house", "isActive": false, "span": "Home" },
+    { "icon": "book-open", "span": "Catalog" },
+    {
+      "icon": "hospital",
+      "isActive": true,
+      "span": "Projects",
+      "sub": [
+        { "icon": "star", "span": "Projects List" },
+        { "icon": "star", "span": "Test project" }
+      ]
+    },
+    { "icon": "clone", "span": "Replace" },
+    { "icon": "file-check", "span": "Contracts" },
+    { "icon": "table-layout", "span": "Templates" },
+    { "icon": "circle-caret-down", "span": "Aggregated reporting" },
+    { "icon": "key", "span": "Admin" }
+  ]
+}
